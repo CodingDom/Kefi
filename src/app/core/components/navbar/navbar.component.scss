@@ -122,11 +122,3 @@ header *:not(i),
 #search-widget *:not(i) {
     font-family: $main-font;
 }
-
-@media (min-width: 992px) {
-    .col-lg-2-5 {
-        -ms-flex: 0 0 20%;
-        flex: 0 0 20%;
-        max-width: 20%;
-    }
-}

@@ -1,0 +1,93 @@
+@import 'variables.scss';
+#filter-container h4 a {
+    font-size: 16px;
+    font-family: $secondary-font;
+    vertical-align: text-top;
+    color: $alternative-color;
+}
+
+#filter-container .btn-virgin,
+#filter-container .btn-virgin-clear {
+    border: none;
+    padding: 5px 0;
+    margin-top: 12px;
+}
+
+.accordion-header {
+    text-transform: uppercase;
+    cursor: pointer;
+    padding: 17px 0px 15px;
+}
+
+.dom-accordion .arrow {
+    float: right;
+    font-stretch: expanded;
+    color: $accent-color;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 28px;
+    line-height: 22px;
+}
+
+.dom-accordion {
+    border-bottom: 1px solid rgb(217, 217, 217);
+}
+
+#sm-reset {
+    width: auto;
+    padding: 2px 6px;
+    float: right;
+}
+
+.amenitiy-input {
+    margin-bottom: 5px;
+    label {
+        margin-left: 7px;
+    }
+    * {
+        cursor: pointer;
+    }
+}
+
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    vertical-align: text-top;
+    padding: 0px !important;
+}
+
+@media screen and (max-width: 768px) {
+    #filter-container {
+        background-color: #333;
+        color: white;
+        padding: 15px;
+        margin-bottom: 10px;
+    }
+    #filter-container h4 {
+        margin: 0;
+    }
+    #filter-container h4 a {
+        display: none;
+    }
+    #mobile-reset {
+        display: block;
+        background-color: white !important;
+    }
+    #filter-container:not(.active) .dom-accordion,
+    #filter-container:not(.active) .btn-accent,
+    #filter-container:not(.active) .btn-accent-clear {
+        display: none;
+    }
+    #filter-container h4 {
+        cursor: pointer;
+        z-index: 9999999;
+    }
+    #filter-container h4 .arrow {
+        float: right;
+        font-stretch: expanded;
+        color: white;
+        font-size: 36px;
+        line-height: 32px;
+    }
+}

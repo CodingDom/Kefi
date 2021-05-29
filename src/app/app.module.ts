@@ -9,11 +9,19 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatNativeDateModule} from '@angular/material/core';
+import { SearchpageComponent } from '@features/searchpage/searchpage.component';
+import { HomepageComponent } from './features/homepage/homepage.component';
+import { PropertyFilterComponent } from './features/searchpage/components/property-filter/property-filter.component';
+import { PropertyComponent } from './features/searchpage/components/property/property.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent
+    NavbarComponent,
+    SearchpageComponent,
+    HomepageComponent,
+    PropertyFilterComponent,
+    PropertyComponent
   ],
   imports: [
     BrowserModule,
