@@ -1,16 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent {
+  searchForm = this.formBuilder.group({
+    location: '',
+    roomType: '',
+    dateTo: '',
+    dateFrom: ''
+  });
+
   open_search: false;
 
-  constructor() { }
+  constructor(
+    private formBuilder: FormBuilder
+    ) { }
 
-  ngOnInit() {
+  onSubmit() {
+    console.log(this.searchForm.value);
   }
 
 }
