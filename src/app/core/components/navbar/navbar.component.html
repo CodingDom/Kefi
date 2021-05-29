@@ -2,15 +2,15 @@
     <div class="container nav-container">
         <div class="row">
             <div class="col-sm-12">
-                <a class="navbar-brand" href="#">
-                    <img class="nav-logo" src="/assets/images/logo.png" alt="">
+                <a class="navbar-brand" routerLink="/">
+                    <img class="nav-logo" src="/assets/images/logo.png" alt="Kefi Rentals">
                 </a>
             </div>
         </div>
     </div>
 </header>
 
-<section id="close-search" class="greyed-section real-search d-md-none">
+<section id="close-search" class="greyed-section real-search d-md-none" [class.d-none]='!open_search' (click)='open_search = false;'>
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
@@ -26,16 +26,16 @@
         <div class="row">
             <div class="col-sm-12">
                 <ul>
-                    <li><a href="/" data-title="/">Home</a></li>
-                    <li><a href="/search.aspx?incmap=1" data-title="/search">Search</a></li>
+                    <li><a routerLink="/">Home</a></li>
+                    <li><a routerLink="/search">Search</a></li>
                 </ul>
             </div>
         </div>
     </div>
 </nav>
 
-<section id="search-widget" class="greyed-section pb-2">
-    <div class="container real-search">
+<section id="search-widget" class="greyed-section">
+    <div class="container real-search d-md-block" [class.d-none]='!open_search'>
         <section class="search">
             <div class="row with-forms">
                 <div class="col-sm-12 col-md-6 col-lg-2-5">
@@ -83,7 +83,7 @@
         </section>
     </div>
 
-    <div id="pseudo-search" class="container d-md-none">
+    <div id="pseudo-search" class="container d-md-none" [class.d-none]='open_search' (click)='open_search = true;'>
         <div class="row">
             <div class="col-sm-12">
                 <button class="btn btn-accent">Find Rentals <i
