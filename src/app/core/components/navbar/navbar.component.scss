@@ -54,10 +54,11 @@
     text-decoration: none;
 }
 
-.navbar li:hover,
-.navbar li:hover a,
-.navbar li.active,
-.navbar li.active a {
+.navbar li:hover a {
+    background-color: #5c5c5c;
+}
+
+.navbar li a.active {
     color: #333;
     background-color: #f5f5f5;
 }
@@ -85,8 +86,9 @@
         margin-top: 0;
         margin-bottom: 15px;
     }
-    input,
-    select {
+    input:not(.range-input),
+    select,
+    mat-form-field {
         height: 48px;
         line-height: 48px;
         padding: 0 20px;
@@ -110,6 +112,9 @@
         appearance: none;
         -ms-appearance: none;
     }
+    mat-form-field {
+        padding-right: 11px !important;
+    }
 }
 
 nav *:not(i),
@@ -123,6 +128,5 @@ header *:not(i),
         -ms-flex: 0 0 20%;
         flex: 0 0 20%;
         max-width: 20%;
-        padding: 0 10px;
     }
 }

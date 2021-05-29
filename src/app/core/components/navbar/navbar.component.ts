@@ -20,6 +20,10 @@ export class NavbarComponent {
     private formBuilder: FormBuilder
     ) { }
 
+  toggleSearchWidget(val) {
+    this.open_search = val;
+  }
+
   onSubmit() {
     console.log(this.searchForm.value);
   }

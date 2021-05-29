@@ -1,24 +1,20 @@
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 // Plus imports for other components in your app.
-
+@use '~@angular/material' as mat;
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
 // Be sure that you only ever include this mixin once!
 @include mat.core();
-
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
 $Kefi-primary: mat.define-palette(mat.$indigo-palette);
 $Kefi-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
-
 // The warn palette is optional (defaults to red).
 $Kefi-warn: mat.define-palette(mat.$red-palette);
-
 // Create the theme object (a Sass map containing all of the palettes).
 $Kefi-theme: mat.define-light-theme($Kefi-primary, $Kefi-accent, $Kefi-warn);
-
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
@@ -26,8 +22,17 @@ $Kefi-theme: mat.define-light-theme($Kefi-primary, $Kefi-accent, $Kefi-warn);
 
 /* You can add global styles to this file, and also import other style files */
 
-@use '~@angular/material' as mat;
 @import 'variables.scss';
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
 a {
     text-decoration: none;
 }
@@ -86,5 +91,31 @@ a {
         }
     }
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-form-field-appearance-fill .mat-form-field-flex {
+    padding: 0 !important;
+}
+
+.mat-form-field-wrapper {
+    height: 100%;
+    padding-bottom: 0;
+}
+
+.mat-form-field-appearance-fill .mat-form-field-flex {
+    background-color: transparent;
+}
+
+.mat-form-field-type-mat-date-range-input .mat-form-field-infix {
+    width: auto;
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+.mat-form-field-underline {
+    display: none;
+}
+
+.mat-icon-button {
+    vertical-align: middle !important;
+}
