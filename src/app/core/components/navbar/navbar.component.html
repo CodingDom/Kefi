@@ -53,7 +53,7 @@
                         <div id="autocomplete-container">
                             <select id="roomType" formControlName="roomType" name="roomType" class="form-control">
                                 <option value="0" selected>Any</option>
-                                <option value="1">Entire House</option>
+                                <option value="1">Entire Home</option>
                                 <option value="2">Private Room</option>
                                 <option value="3">Shared Room</option>
                             </select>
@@ -63,10 +63,22 @@
                 </div>
                 <div class="col-sm-12 col-md-4 col-lg-2-5">
                     <label for="DateFrom">Arrival</label>
-                    <div class="input-with-icon right-icon">
+                    <!-- <div class="input-with-icon right-icon">
                         <input id="dateFrom" formControlName="dateFrom" name="DateFrom" type="text" class="form-control" placeholder="Arrival Date" />
                         <i class="far fa-calendar-alt"></i>
-                    </div>
+                    </div> -->
+                    <mat-form-field appearance="fill">
+                        <!-- <mat-label>Enter a date range</mat-label> -->
+                        <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
+                            <input matStartDate formControlName="start" placeholder="Start date">
+                            <input matEndDate formControlName="end" placeholder="End date">
+                        </mat-date-range-input>
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-date-range-picker #picker></mat-date-range-picker>
+
+                        <mat-error *ngIf="range.controls.start.hasError('matStartDateInvalid')">Invalid start date</mat-error>
+                        <mat-error *ngIf="range.controls.end.hasError('matEndDateInvalid')">Invalid end date</mat-error>
+                    </mat-form-field>
                 </div>
                 <div class="col-sm-12 col-md-4 col-lg-2-5">
                     <label for="DateTo">Departure</label>

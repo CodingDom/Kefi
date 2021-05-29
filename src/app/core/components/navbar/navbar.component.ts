@@ -9,7 +9,7 @@ import { FormBuilder } from '@angular/forms';
 export class NavbarComponent {
   searchForm = this.formBuilder.group({
     location: '',
-    roomType: '',
+    roomType: '0',
     dateTo: '',
     dateFrom: ''
   });
