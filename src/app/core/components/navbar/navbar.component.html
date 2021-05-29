@@ -1,0 +1,89 @@
+<header>
+    <div class="container nav-container">
+        <div class="row">
+            <div class="col-sm-12">
+                <a class="navbar-brand" href="/index.aspx">
+                    <img class="nav-logo" src="./logo2.png" alt="">
+                </a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section id="close-search" class="greyed-section real-search">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <button class="btn btn-secondary pseudo-search-btn form-control">Close
+                    Search <i class="fa fa-times"></i></button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<nav class="navbar navbar-dark">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <ul>
+                    <li><a href="/" data-title="/">Home</a></li>
+                    <li><a href="/search.aspx?incmap=1" data-title="/search">Search</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<section id="search-widget" class="greyed-section">
+    <div class="container real-search">
+        <section class="search">
+            <div class="row with-forms">
+                <div class="col-sm-12 col-md-6 col-lg-2-5">
+                    <label for="location">Location</label>
+                    <div class="input-with-icon location">
+                        <div id="autocomplete-container">
+                            <input id="location" class="locationID" />
+                        </div>
+                        <a href="#"><i class="fa fa-map-marker-alt"></i></a>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-2-5">
+                    <label for="Class">Property Class</label>
+                    <div class="input-with-icon">
+                        <div id="autocomplete-container">
+                            <select name="Class" class="propertyClass">
+                                <option value="1">Standard</option>
+                                <option value="2" selected>Superior</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-4 col-lg-2-5">
+                    <label for="DateFrom">Arrival</label>
+                    <div class="input-with-icon location">
+                        <input name="DateFrom" type="text" class="DateFrom" placeholder="Arrival Date" />
+                        <a href="#"><i class="far fa-calendar-alt"></i></a>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-4 col-lg-2-5">
+                    <label for="DateTo">Departure</label>
+                    <div class="input-with-icon location">
+                        <input name="DateTo" type="text" class="DateTo" placeholder="Departure Date" />
+                        <a href="#"><i class="far fa-calendar-alt"></i></a>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-4 col-lg-2-5">
+                    <button id="search" class="btn-virgin">Find Rentals <i class="fa fa-search"></i></button>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div id="pseudo-search" class="container active">
+        <div class="row">
+            <div class="col-sm-12">
+                <button class="btn-virgin">Find Rentals <i
+                        class="fa fa-search"></i></button>
+            </div>
+        </div>
+    </div>
+</section>
