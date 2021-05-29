@@ -34,54 +34,59 @@
     </div>
 </nav>
 
-<section id="search-widget" class="greyed-section">
+<section id="search-widget" class="greyed-section pb-2">
     <div class="container real-search">
         <section class="search">
             <div class="row with-forms">
                 <div class="col-sm-12 col-md-6 col-lg-2-5">
                     <label for="location">Location</label>
-                    <div class="input-with-icon location">
+                    <div class="input-with-icon right-icon">
                         <div id="autocomplete-container">
-                            <input id="location" class="locationID" />
+                            <input id="location" class="form-control" placeholder="Orlando, FL" />
                         </div>
-                        <a href="#"><i class="fa fa-map-marker-alt"></i></a>
+                        <i class="fa fa-map-marker-alt"></i>
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-6 col-lg-2-5">
-                    <label for="Class">Property Class</label>
-                    <div class="input-with-icon">
+                    <label for="roomType">Room Type</label>
+                    <div class="input-with-icon right-icon">
                         <div id="autocomplete-container">
-                            <select name="Class" class="propertyClass">
-                                <option value="1">Standard</option>
-                                <option value="2" selected>Superior</option>
+                            <select id="roomType" name="roomType" class="form-control">
+                                <option value="0" selected>Any</option>
+                                <option value="1">Entire House</option>
+                                <option value="2">Private Room</option>
+                                <option value="3">Shared Room</option>
                             </select>
                         </div>
+                        <i class="fa fa-bed"></i>
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-4 col-lg-2-5">
                     <label for="DateFrom">Arrival</label>
-                    <div class="input-with-icon location">
-                        <input name="DateFrom" type="text" class="DateFrom" placeholder="Arrival Date" />
-                        <a href="#"><i class="far fa-calendar-alt"></i></a>
+                    <div class="input-with-icon right-icon">
+                        <input id="dateFrom" name="DateFrom" type="text" class="form-control" placeholder="Arrival Date" />
+                        <i class="far fa-calendar-alt"></i>
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-4 col-lg-2-5">
                     <label for="DateTo">Departure</label>
-                    <div class="input-with-icon location">
-                        <input name="DateTo" type="text" class="DateTo" placeholder="Departure Date" />
-                        <a href="#"><i class="far fa-calendar-alt"></i></a>
+                    <div class="input-with-icon right-icon">
+                        <input id="dateTo" name="DateTo" type="text" class="form-control" placeholder="Departure Date" />
+                        <i class="far fa-calendar-alt"></i>
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-4 col-lg-2-5">
-                    <button id="search" class="btn-virgin">Find Rentals <i class="fa fa-search"></i></button>
+                    <label for="Class">Property Class</label>
+                    <button id="search" class="btn btn-accent">Find Rentals <i class="fa fa-search"></i></button>
                 </div>
             </div>
         </section>
     </div>
-    <div id="pseudo-search" class="container active">
+
+    <div id="pseudo-search" class="container d-md-none">
         <div class="row">
             <div class="col-sm-12">
-                <button class="btn-virgin">Find Rentals <i
+                <button class="btn btn-accent">Find Rentals <i
                         class="fa fa-search"></i></button>
             </div>
         </div>

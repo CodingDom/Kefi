@@ -1,1 +1,57 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import 'variables.scss';
+.btn-accent {
+    color: white;
+    width: 100%;
+    padding: 14px 35px;
+    border-radius: 4px;
+    text-align: center;
+    background-color: $accent-color;
+    &:hover {
+        color: white;
+        background-color: $alternative-color;
+    }
+}
+
+.btn-accent-clear {
+    color: $accent-color;
+    width: 100%;
+    padding: 14px 35px;
+    border-radius: 4px;
+    text-align: center;
+    background-color: transparent;
+    border: 1px solid $accent-color;
+    font-family: $main-font;
+    &:hover {
+        color: white;
+        background-color: $accent-color;
+    }
+}
+
+.input-with-icon {
+    position: relative;
+    cursor: pointer;
+    i {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 0;
+        padding: 0 0 0 19px;
+        color: #999;
+        transition: 0.2s;
+        pointer-events: none;
+    }
+    &.right-icon {
+        i {
+            position: absolute;
+            right: 2px;
+            left: auto;
+            padding: 15px 20px 15px 15px;
+        }
+        input,
+        select {
+            padding-right: 40px !important;
+        }
+    }
+}
