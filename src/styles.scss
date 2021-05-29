@@ -137,3 +137,11 @@ a {
 .mat-icon-button {
     vertical-align: middle !important;
 }
+
+@media (min-width: 992px) {
+    .col-lg-2-5 {
+        -ms-flex: 0 0 20%;
+        flex: 0 0 20%;
+        max-width: 20%;
+    }
+}
