@@ -17,6 +17,9 @@
     text-transform: uppercase;
     cursor: pointer;
     padding: 17px 0px 15px;
+    &[aria-expanded="true"] .arrow:before {
+        content: "\f077"
+    }
 }
 
 .dom-accordion .arrow {
