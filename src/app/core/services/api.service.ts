@@ -10,11 +10,13 @@ export class ApiService {
   constructor() { }
 
   public getLocations(location: string) {
-    return axios.get(`${this.API_BASE_URL}/locations?location=${location}`);
+    return axios.get(`${this.API_BASE_URL}/locations?location=${location}`)
+    .then(resp => resp.data);
   }
 
   public getProperties(cityId: number) {
-    return axios.get(`${this.API_BASE_URL}/properties?cityId=${cityId}`);
+    return axios.get(`${this.API_BASE_URL}/properties?cityId=${cityId}`)
+    .then(resp => resp.data.properties);
   }
 
   public getVrboPropertyDetails(propertyId: string) {

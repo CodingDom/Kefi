@@ -5,7 +5,7 @@
         </div>
         <div class="col">
             <div id="propertyResultsConatiner" class="row">
-                <div *ngFor="let prop of properties;" [id]="'property-'+prop.homeaway_property_id" class="listing col-md-6 col-lg-4">
+                <div *ngFor="let prop of properties.slice(0, 9);" [id]="'property-'+prop.homeaway_property_id" class="listing col-md-6 col-lg-4">
                     <app-property [info]="prop"></app-property>
                 </div>
             </div>
