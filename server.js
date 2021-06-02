@@ -19,6 +19,9 @@ app.use(function(req, res, next) {
 const distDir = __dirname + "/dist/";
 app.use(express.static(distDir));
 
+const api = require("./apiRoutes");
+app.use("/api", api);
+
 app.listen(PORT, function() {
     console.log(
         "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
