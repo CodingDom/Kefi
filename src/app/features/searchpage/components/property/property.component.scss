@@ -1,0 +1,25 @@
+.card {
+    -webkit-box-shadow: 0 0 6px 0 rgba(0, 0, 0, .2);
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, .2);
+    border: solid 1px #d9d9d9;
+    height: 100%;
+    .prop-img {
+        height: 220px;
+        background-size: cover;
+        background-position: center;
+    }
+    .card-body a {
+        margin-bottom: 8px;
+    }
+    .tag {
+        font-family: var(--main-font);
+        font-size: 1.25rem;
+        font-weight: 400;
+        text-align: center;
+        display: block;
+    }
+    .card-body:last-child {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+}

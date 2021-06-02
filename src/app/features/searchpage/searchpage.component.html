@@ -1,7 +1,14 @@
 <div class="container mt-3">
-    <div class="row fs-listings">
+    <div class="row">
         <div class="col-md-3 col-lg-2-5 filter-col">
             <app-property-filter></app-property-filter>
+        </div>
+        <div class="col">
+            <div id="propertyResultsConatiner" class="row">
+                <div *ngFor="let prop of properties;" [id]="'property-'+prop.homeaway_property_id" class="listing col-md-6 col-lg-4">
+                    <app-property [info]="prop"></app-property>
+                </div>
+            </div>
         </div>
     </div>
 </div>

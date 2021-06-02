@@ -18,6 +18,7 @@ export class ApiService {
   }
 
   public getVrboPropertyDetails(propertyId: string) {
-    return axios.get(`${this.API_BASE_URL}/vrbo/${propertyId}`);
+    return axios.get(`${this.API_BASE_URL}/vrbo/${propertyId}`)
+    .then(resp => resp.data);
   }
 }

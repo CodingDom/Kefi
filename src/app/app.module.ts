@@ -10,9 +10,10 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatNativeDateModule} from '@angular/material/core';
 import { SearchpageComponent } from '@features/searchpage/searchpage.component';
-import { HomepageComponent } from './features/homepage/homepage.component';
-import { PropertyFilterComponent } from './features/searchpage/components/property-filter/property-filter.component';
-import { PropertyComponent } from './features/searchpage/components/property/property.component';
+import { HomepageComponent } from '@features/homepage/homepage.component';
+import { PropertyFilterComponent } from '@features/searchpage/components/property-filter/property-filter.component';
+import { PropertyComponent } from '@features/searchpage/components/property/property.component';
+import { DetailspageComponent } from '@features/detailspage/detailspage.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { PropertyComponent } from './features/searchpage/components/property/pro
     SearchpageComponent,
     HomepageComponent,
     PropertyFilterComponent,
-    PropertyComponent
+    PropertyComponent,
+    DetailspageComponent
   ],
   imports: [
     BrowserModule,
