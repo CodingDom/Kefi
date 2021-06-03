@@ -14,7 +14,7 @@
                     <button class="btn-details" [class.active]="displayMode=='map'" (click)="displayMode='map' ;">Map</button>
 
                     <div id="overview-container" class="info-section" [class.d-none]="displayMode !='overview'">
-                        <p>{{ details.listingReducer.description }}</p>
+                        <p id="description">{{ details.listingReducer.description }}</p>
                     </div>
 
                     <div id="map-container" class="info-section" [class.d-none]="displayMode !='map'">
@@ -84,7 +84,7 @@
     <div class="row">
         <div class="col-12">
             <div id="loading-wrapper">
-                <div id="load-box text-center">
+                <div id="load-box" class="text-center">
                     <div class="spinner-border text-accent" role="status">
                         <span class="visually-hidden">Loading...</span>
                     </div>
