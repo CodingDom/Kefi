@@ -138,10 +138,25 @@ a {
     vertical-align: middle !important;
 }
 
+ks-carousel-previews {
+    width: 85% !important;
+}
+
+.preview-image {
+    padding: 2px 4px;
+    height: 80px !important;
+}
+
 @media (min-width: 992px) {
     .col-lg-2-5 {
         -ms-flex: 0 0 20%;
         flex: 0 0 20%;
         max-width: 20%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1158px;
     }
 }

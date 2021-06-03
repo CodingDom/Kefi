@@ -16,6 +16,12 @@ import { PropertyComponent } from '@features/searchpage/components/property/prop
 import { DetailspageComponent } from '@features/detailspage/detailspage.component';
 import { SafePipe } from '@core/pipes/safe.pipe';
 
+// ********************** angular-modal-gallery *****************************
+import 'hammerjs'; // Mandatory for angular-modal-gallery 3.x.x or greater (`npm i --save hammerjs`)
+import 'mousetrap'; // Mandatory for angular-modal-gallery 3.x.x or greater (`npm i --save mousetrap`)
+import { GalleryModule } from '@ks89/angular-modal-gallery'; // <----------------- angular-modal-gallery library import
+// **************************************************************************
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +41,8 @@ import { SafePipe } from '@core/pipes/safe.pipe';
     NoopAnimationsModule,
     MatDatepickerModule, 
     MatFormFieldModule, 
-    MatNativeDateModule
+    MatNativeDateModule,
+    GalleryModule.forRoot()
   ],
   providers: [
   ],
