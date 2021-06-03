@@ -8,7 +8,7 @@ import { ApiService } from '@core/services/api.service';
   styleUrls: ['./searchpage.component.scss']
 })
 export class SearchpageComponent implements OnInit {
-  public properties = [];
+  public properties = null;
   
   constructor(private api: ApiService) { }
 

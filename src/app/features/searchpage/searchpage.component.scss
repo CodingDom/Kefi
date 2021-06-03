@@ -1,3 +1,18 @@
 .listing {
     margin-bottom: 15px;
 }
+
+#loading-wrapper {
+    position: relative;
+    height: calc(100vh - 252px);
+    #load-box {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        .spinner-border {
+            height: 100px;
+            width: 100px;
+            top: 50%;
+        }
+    }
+}
