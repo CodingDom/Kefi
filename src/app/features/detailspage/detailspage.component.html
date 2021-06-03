@@ -1,1 +1,80 @@
-<p>detailspage works!</p>
+<div class="container mt-2">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="content-card">
+                <h3>{{details.listingReducer.propertyName}}</h3>
+                <p>{{details.listingReducer.headline}}</p>
+                <hr />
+                <p class="starrating" data-starrating="3.5">Rating</p>
+                <div class="fotorama" data-loop="true" data-nav="thumbs">
+                    <img class="w-100" src="https://si.wsj.net/public/resources/images/B3-DM067_RIGHTS_IM_20190319162958.jpg" />
+                </div>
+                <div class="info-container">
+                    <button class="btn-details active" data-target="overview-container">Overview</button>
+                    <button class="btn-details" data-target="map-container">Map</button>
+
+                    <div id="overview-container" class="info-section active">
+                        <p>{{ details.listingReducer.description }}</p>
+                    </div>
+
+                    <div id="map-container" class="info-section">
+                        <iframe style="border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px" height="480" [src]="map_url | safe" frameborder="0" width="100%" allowfullscreen=""></iframe>
+                    </div>
+                </div>
+                <hr />
+                <div class="accordion" id="accordion1">
+                    <div class="card">
+                        <div class="card-header" id="headingOne" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <h5 class="mb-0">Availability <span class="arrow"></span></h5>
+                        </div>
+
+                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion1">
+                            <div class="card-body">
+                                This is the calendar [10/21/21]
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--End of Accordion-->
+
+                <div class="accordion" id="accordion2">
+                    <div class="card">
+                        <div class="card-header" id="headingTwo" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                            <h5 class="mb-0">Reviews <span class="arrow"></span></h5>
+                        </div>
+
+                        <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordion2">
+                            <div class="card-body">
+                                This is a review: 10/10 Good Service
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--End of Accordion-->
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div id="scroll-container" class="content-card" style="position: relative; width: unset; top: unset;">
+                <div class="row">
+                    <div id="reservationform" class="boxed-widget booking-widget margin-top-35">
+                        <div class="col-lg-12">
+                            <h3>From <span>$20</span> / night</h3>
+                        </div>
+                        <div class="row with-forms  margin-top-0">
+                            <div class="col-lg-12"><input id="DateFrom" class="DateFrom form-control hasDatepicker" readonly="readonly" placeholder="Arrival Date"> </div>
+                            <div class="col-lg-12"><input id="DateTo" class="DateTo form-control hasDatepicker" readonly="readonly" placeholder="Departure Date"> </div>
+                            <div class="col-lg-12"><select id="PoolHeat" class="form-control">
+                                    <option selected="" value="0">Pool Heat</option>
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
+                                </select> </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div id="QuotedpErrorMsg" style="color: red"></div><button class="button book-now fullwidth form-control" type="button">Get Quote</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

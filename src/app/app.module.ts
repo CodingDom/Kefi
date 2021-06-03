@@ -14,6 +14,7 @@ import { HomepageComponent } from '@features/homepage/homepage.component';
 import { PropertyFilterComponent } from '@features/searchpage/components/property-filter/property-filter.component';
 import { PropertyComponent } from '@features/searchpage/components/property/property.component';
 import { DetailspageComponent } from '@features/detailspage/detailspage.component';
+import { SafePipe } from '@core/pipes/safe.pipe';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { DetailspageComponent } from '@features/detailspage/detailspage.componen
     HomepageComponent,
     PropertyFilterComponent,
     PropertyComponent,
-    DetailspageComponent
+    DetailspageComponent,
+    SafePipe 
   ],
   imports: [
     BrowserModule,
