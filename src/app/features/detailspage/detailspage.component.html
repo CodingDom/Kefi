@@ -77,11 +77,14 @@
             </div>
         </div>
     </div>
+</div>
 
-    <div #loading class="row">
-        <div class="col-12 text-center">
+
+<ng-template #loading>
+    <div class="row">
+        <div class="col-12">
             <div id="loading-wrapper">
-                <div id="load-box">
+                <div id="load-box text-center">
                     <div class="spinner-border text-accent" role="status">
                         <span class="visually-hidden">Loading...</span>
                     </div>
@@ -89,4 +92,4 @@
             </div>
         </div>
     </div>
-</div>
+</ng-template>
