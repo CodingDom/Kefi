@@ -5,7 +5,7 @@
                 <h3>{{details.listingReducer.propertyName}}</h3>
                 <p>{{details.listingReducer.headline}}</p>
                 <hr />
-                <p class="starrating">Rating</p>
+                <p class="starrating">Rating <span class="text-accent" [innerHtml]="starrating(details.listingReducer.averageRating)"></span></p>
                 <div>
                     <ks-carousel [id]="100" [images]="carouselImages" [playConfig]="{autoPlay: false, interval: 5000, pauseOnHover: true}" [dotsConfig]="{visible: false}"></ks-carousel>
                 </div>

@@ -63,7 +63,7 @@ export class PropertyComponent implements OnInit {
         return twoStars;
     } else if (dataRating >= 1.25) {
         return oneHalfStar;
-    } else if (dataRating < 1.25) {
+    } else if (dataRating > 0) {
         return oneStar;
     } else {
         return noStars;
