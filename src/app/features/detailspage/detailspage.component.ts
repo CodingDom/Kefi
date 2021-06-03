@@ -34,7 +34,6 @@ export class DetailspageComponent implements OnInit {
         title: x.caption,
         alt: x.altText
       }));
-      console.log(this.carouselImages);
       console.log(data.listingReducer);      
     });
   }
