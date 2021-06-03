@@ -5,19 +5,19 @@
                 <h3>{{details.listingReducer.propertyName}}</h3>
                 <p>{{details.listingReducer.headline}}</p>
                 <hr />
-                <p class="starrating" data-starrating="3.5">Rating</p>
+                <p class="starrating">Rating</p>
                 <div class="fotorama" data-loop="true" data-nav="thumbs">
                     <img class="w-100" src="https://si.wsj.net/public/resources/images/B3-DM067_RIGHTS_IM_20190319162958.jpg" />
                 </div>
                 <div class="info-container">
-                    <button class="btn-details active" data-target="overview-container">Overview</button>
-                    <button class="btn-details" data-target="map-container">Map</button>
+                    <button class="btn-details" [class.active]="displayMode == 'overview'" (click)="displayMode = 'overview';">Overview</button>
+                    <button class="btn-details" [class.active]="displayMode == 'map'" (click)="displayMode = 'map';">Map</button>
 
-                    <div id="overview-container" class="info-section active">
+                    <div id="overview-container" class="info-section" [class.d-none]="displayMode != 'overview'">
                         <p>{{ details.listingReducer.description }}</p>
                     </div>
 
-                    <div id="map-container" class="info-section">
+                    <div id="map-container" class="info-section" [class.d-none]="displayMode != 'map'">
                         <iframe style="border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px" height="480" [src]="map_url | safe" frameborder="0" width="100%" allowfullscreen=""></iframe>
                     </div>
                 </div>

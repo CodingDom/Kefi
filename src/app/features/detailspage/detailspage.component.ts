@@ -11,6 +11,7 @@ import { ApiService } from '@core/services/api.service';
 export class DetailspageComponent implements OnInit {
   public details: VrboPropertyDetails;
   public map_url: string;
+  public displayMode: string = "overview";
 
   constructor(private api: ApiService, private route: ActivatedRoute) {}
   

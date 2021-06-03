@@ -1,0 +1,98 @@
+@import 'variables.scss';
+.content-card {
+    border: 2px solid #e8e8e8;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px 0 #e8e8e8;
+    padding: 15px;
+}
+
+.btn-details {
+    position: relative;
+    width: 50%;
+    padding: 15px;
+    background-color: #EEE;
+    color: #4D0055;
+    border: 1px solid #CCC;
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 15px;
+    &.active {
+        color: white;
+        background-color: #39265A;
+        border: none;
+        &::before,
+        &::after {
+            content: " ";
+            position: absolute;
+            width: 0;
+            height: 0;
+            bottom: -15px;
+            margin-left: -15px;
+            left: 50%;
+            border-left: 16px solid transparent;
+            border-right: 16px solid transparent;
+        }
+        &::before {
+            border-top: 16px solid #39265A;
+        }
+    }
+}
+
+.accordion {
+    .card {
+        border: none;
+    }
+    .card-header {
+        cursor: pointer;
+        background-color: #EEE;
+        border-radius: 0;
+        border: none;
+    }
+}
+
+hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 2px solid rgba(0, 0, 0, .1);
+    background-color: #b9b9b9;
+}
+
+#scroll-container {
+    background-color: #333;
+    padding: 20px 20px;
+    color: white;
+    h3 {
+        font-weight: 400;
+        font-size: 15px;
+        span {
+            color: $accent-color;
+            font-weight: 700;
+            font-size: 24px;
+        }
+    }
+    input,
+    select {
+        padding: 6px 20px !important;
+        outline: none;
+        margin: 0 0 16px 0;
+        max-width: 100%;
+        box-shadow: 0 1px 3px 0px rgb(0 0 0 / 6%);
+    }
+    button {
+        top: 0;
+        padding: 9px 20px;
+        margin-top: 10px;
+        margin-right: 6px;
+        color: #fff;
+        position: relative;
+        font-size: 15px;
+        font-weight: 600;
+        display: inline-block;
+        transition: all 0.2s ease-in-out;
+        overflow: hidden;
+        border: none;
+        border-radius: 50px;
+        background-color: $accent-color;
+    }
+}
