@@ -17,7 +17,9 @@ export class NavbarComponent implements OnInit {
     locationId: -1,
     roomType: '0',
     dateTo: '',
-    dateFrom: ''
+    dateFrom: '',
+    bedrooms: null,
+    guests: null
   };
   searchForm = this.formBuilder.group(this.defaultData);
 
@@ -72,6 +74,18 @@ export class NavbarComponent implements OnInit {
       else {
         this.searchForm.get("roomType").setValue(this.defaultData.roomType);
       }
+      if (params.bedrooms) {
+        this.searchForm.get("bedrooms").setValue(params.bedrooms);
+      }
+      else {
+        this.searchForm.get("bedrooms").setValue(this.defaultData.bedrooms);
+      }
+      if (params.guests) {
+        this.searchForm.get("guests").setValue(params.guests);
+      }
+      else {
+        this.searchForm.get("guests").setValue(this.defaultData.guests);
+      }
     });
   }
 
@@ -105,7 +119,6 @@ export class NavbarComponent implements OnInit {
    }
 
   onSubmit() {
-    console.log(this.searchForm.value);
     const queryParams: any = {};
     const data = this.searchForm.value;
     if (data.location.trim() != "") {
@@ -120,6 +133,12 @@ export class NavbarComponent implements OnInit {
     if (data.dateFrom && data.dateTo) {
       queryParams.dateFrom = data.dateFrom.toISOString().split("T")[0];
       queryParams.dateTo = data.dateTo.toISOString().split("T")[0];
+    }
+    if (data.bedrooms) {
+      queryParams.bedrooms = data.bedrooms;
+    }
+    if (data.guests) {
+      queryParams.guests = data.guests;
     }
     this.router.navigate(["/search"], {queryParams});
   }

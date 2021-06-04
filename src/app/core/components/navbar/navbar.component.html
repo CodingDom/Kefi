@@ -55,14 +55,12 @@
             <div class="col-sm-12 col-md-6 col-lg-2-5">
                 <label for="roomType">Room Type</label>
                 <div class="input-with-icon right-icon">
-                    <div id="autocomplete-container">
-                        <select id="roomType" formControlName="roomType" name="roomType" class="form-control">
-                                <option value="0" selected>Any</option>
-                                <option value="1">Entire Home</option>
-                                <option value="2">Private Room</option>
-                                <option value="3">Shared Room</option>
-                            </select>
-                    </div>
+                    <select id="roomType" formControlName="roomType" name="roomType" class="form-control">
+                        <option value="0" selected>Any</option>
+                        <option value="1">Entire Home</option>
+                        <option value="2">Private Room</option>
+                        <option value="3">Shared Room</option>
+                    </select>
                     <i class="fa fa-bed"></i>
                 </div>
             </div>
@@ -87,13 +85,13 @@
                     </mat-form-field>
                 </div>
             </div>
-            <!-- <div class="col-sm-12 col-md-4 col-lg-2-5">
-                    <label for="DateTo">Departure</label>
-                    <div class="input-with-icon right-icon">
-                        <input id="dateTo" formControlName="dateTo" name="DateTo" type="text" class="form-control" placeholder="Departure Date" />
-                        <i class="far fa-calendar-alt"></i>
-                    </div>
-                </div> -->
+            <div id="accomodations" class="col-sm-12 col-md-4 col-lg-2-5">
+                <label for="guests">Guests</label>
+                <div class="input-with-icon right-icon">
+                    <input type="number" formControlName="guests" name="guests" class="form-control" placeholder="Any" />
+                    <i class="fa fa-users"></i>
+                </div>
+            </div>
             <div class="col-sm-12 col-md-4 col-lg-2-5">
                 <label for="search">&nbsp;</label>
                 <button id="search" type="submit" class="btn btn-accent">Find Rentals <i class="fa fa-search"></i></button>
