@@ -1,3 +1,55 @@
+@import 'variables.scss';
+#view-buttons {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    border-radius: 4px;
+    font-size: 16px;
+    padding: 8px 0;
+    h2 {
+        display: inline-block;
+        font-weight: 400;
+    }
+    button {
+        background-color: #fff;
+        border: 2px solid #d9d9d9;
+        border-radius: 0;
+        border-right-width: 0;
+        padding: 7px;
+        margin: 0;
+        float: right;
+    }
+    button:focus {
+        outline: none;
+    }
+    button:first-of-type {
+        border-right-width: 2px;
+        border-radius: 0 4px 4px 0;
+    }
+    button:last-child {
+        border-radius: 4px 0 0 4px;
+    }
+    button:hover:not(.active) {
+        background: $accent-color;
+    }
+    button.active {
+        color: #fff;
+        background: $alternative-color;
+    }
+    .rental-num {
+        background-color: $alternative-color;
+        color: #fff;
+        padding: 5px;
+        display: inline-block;
+        text-align: center;
+        margin-left: 5px;
+        border-radius: 6px;
+        &:first-of-type {
+            margin-left: 0;
+        }
+    }
+}
+
 .listing {
     margin-bottom: 15px;
 }

@@ -4,13 +4,19 @@
             <app-property-filter></app-property-filter>
         </div>
         <div *ngIf="properties != null; else loading" class="col">
-            <div id="propertyResultsConatiner" class="row" [class.d-none]="displayMode != 'list'">
+            <div id="view-buttons">
+                <h2 id="found-rentals"><span *ngFor="let num of numberOfRentals;" class="rental-num">{{num}}</span> rentals found</h2>
+                <button [class.active]="displayMode == 'map'" (click)="displayMode = 'map';"><i class="fa fa-map-marker-alt"></i></button>
+                <button [class.active]="displayMode == 'list'" (click)="displayMode = 'list';" class="d-none d-md-inline-block"><i class="fa fa-list"></i></button>
+                <button [class.active]="displayMode == 'grid'" (click)="displayMode = 'grid';"><i class="fas fa-th"></i></button>
+            </div>
+            <div id="propertyResultsConatiner" class="row" [class.d-none]="displayMode == 'map'">
                 <div *ngFor="let prop of properties.slice(0, 9);" [id]="'property-'+prop.homeaway_property_id" class="listing col-md-6 col-lg-4">
                     <app-property [info]="prop"></app-property>
                 </div>
             </div>
             <div [class.d-none]="displayMode != 'map'">
-                <app-map [properties]="properties"></app-map>
+                <app-map *ngIf="displayMode == 'map'" [properties]="properties"></app-map>
             </div>
         </div>
     </div>

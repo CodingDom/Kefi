@@ -9,14 +9,15 @@ import { ApiService } from '@core/services/api.service';
 })
 export class SearchpageComponent implements OnInit {
   public properties = null;
-  public displayMode = "list";
-  
+  public displayMode = "grid";
+  public numberOfRentals = ["0"];
   constructor(private api: ApiService) { }
 
   ngOnInit(): void {
     this.api.getProperties(60272)
     .then((data : PropertyList[] ) => {
       this.properties = data.filter(x => x.platforms.homeaway_property_id != null);
+      this.numberOfRentals = this.properties.length.toString().split("");
     });
   }
 
