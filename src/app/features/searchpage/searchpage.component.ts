@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { PropertyList } from '@core/interfaces/property-list';
 import { ApiService } from '@core/services/api.service';
 
@@ -14,16 +15,24 @@ export class SearchpageComponent implements OnInit {
   public properties = null;
   public displayMode = "grid";
   public numberOfRentals = ["0"];
-  constructor(private api: ApiService) { }
+  constructor(
+    private api: ApiService, 
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
-    this.api.getProperties(60272)
-    .then((data : PropertyList[] ) => {
-      this.properties = data.filter(x => x.platforms.homeaway_property_id != null).sort((a,b) => (b.rating ?? 0) - (a.rating ?? 0) );
-      this.numberOfRentals = this.properties.length.toString().split("");
-      this.pageNumbers = Array(Math.ceil(this.properties.length/9)).fill(0).map((x,i)=>i+1);
-      this.updatePageNumber(1);
-    });
+    this.route.queryParams
+      .subscribe(params => {
+        this.properties = null;
+        this.api.getProperties(params.locationId ?? 60272)
+        .then((data : PropertyList[] ) => {
+          this.properties = data.filter(x => x.platforms.homeaway_property_id != null).sort((a,b) => (b.rating ?? 0) - (a.rating ?? 0) );
+          this.numberOfRentals = this.properties.length.toString().split("");
+          this.pageNumbers = Array(Math.ceil(this.properties.length/9)).fill(0).map((x,i)=>i+1);
+          this.updatePageNumber(1);
+        });
+      }
+    );
   }
 
   updatePageNumber(val) {    

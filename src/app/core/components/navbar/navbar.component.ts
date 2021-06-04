@@ -1,16 +1,17 @@
-import { Component, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, ViewChild, AfterViewInit, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { ApiService } from '@core/services/api.service';
 import { from, Observable } from 'rxjs';
 import { tap, startWith, debounceTime, distinctUntilChanged, switchMap, map } from 'rxjs/operators';
 import {MatAutocompleteTrigger} from '@angular/material/autocomplete';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit {
   searchForm = this.formBuilder.group({
     location: "",
     locationId: -1,
@@ -27,7 +28,9 @@ export class NavbarComponent {
 
   constructor(
     private formBuilder: FormBuilder,
-    private api: ApiService
+    private api: ApiService,
+    private router: Router,
+    private route: ActivatedRoute
     ) { 
       this.filteredOptions = this.searchForm.get("location").valueChanges.pipe(
         startWith(''),
@@ -38,6 +41,25 @@ export class NavbarComponent {
          }) 
       )
     }
+
+  ngOnInit() {
+    this.route.queryParams
+    .subscribe(params => {
+      if (params.location && params.locationId) {
+        this.searchForm.get('location').setValue(params.location);
+        this.searchForm.get('locationId').setValue(params.locationId);
+      }
+      if (params.dateFrom) {
+        this.searchForm.get("dateFrom").setValue(new Date(params.dateFrom));
+      }
+      if (params.dateTo) {
+        this.searchForm.get("dateTo").setValue(new Date(params.dateTo));
+      }
+      if (params.roomType) {
+        this.searchForm.get("roomType").setValue(params.roomType);
+      }
+    });
+  }
 
   ngAfterViewInit() {
       this.trigger.panelClosingActions
@@ -70,6 +92,22 @@ export class NavbarComponent {
 
   onSubmit() {
     console.log(this.searchForm.value);
+    const queryParams: any = {};
+    const data = this.searchForm.value;
+    if (data.location.trim() != "") {
+      queryParams.location = data.location;
+    }
+    if (data.locationId > -1) {
+      queryParams.locationId = data.locationId;
+    }
+    if (data.roomType > 0) {
+      queryParams.roomType = data.roomType;
+    }  
+    if (data.dateFrom && data.dateTo) {
+      queryParams.dateFrom = data.dateFrom.toISOString().split("T")[0];
+      queryParams.dateTo = data.dateTo.toISOString().split("T")[0];
+    }
+    this.router.navigate(["/search"], {queryParams});
   }
 
 }
