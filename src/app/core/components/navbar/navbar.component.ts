@@ -12,13 +12,14 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  searchForm = this.formBuilder.group({
+  private readonly defaultData = {
     location: "",
     locationId: -1,
     roomType: '0',
     dateTo: '',
     dateFrom: ''
-  });
+  };
+  searchForm = this.formBuilder.group(this.defaultData);
 
   filteredOptions: Observable<any[]>;
   lastOption;
@@ -48,15 +49,28 @@ export class NavbarComponent implements OnInit {
       if (params.location && params.locationId) {
         this.searchForm.get('location').setValue(params.location);
         this.searchForm.get('locationId').setValue(params.locationId);
+      } 
+      else {
+        this.searchForm.get('location').setValue(this.defaultData.location);
+        this.searchForm.get('locationId').setValue(this.defaultData.locationId);
       }
       if (params.dateFrom) {
         this.searchForm.get("dateFrom").setValue(new Date(params.dateFrom));
       }
+      else {
+        this.searchForm.get("dateFrom").setValue(this.defaultData.dateFrom);
+      }
       if (params.dateTo) {
         this.searchForm.get("dateTo").setValue(new Date(params.dateTo));
       }
+      else {
+        this.searchForm.get("dateTo").setValue(this.defaultData.dateTo);
+      }
       if (params.roomType) {
         this.searchForm.get("roomType").setValue(params.roomType);
+      }
+      else {
+        this.searchForm.get("roomType").setValue(this.defaultData.roomType);
       }
     });
   }
