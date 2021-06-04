@@ -54,6 +54,17 @@
     margin-bottom: 15px;
 }
 
+.page-item {
+    .page-link {
+        color: $accent-color;
+    }
+    &.active .page-link {
+        color: white;
+        background-color: $accent-color;
+        border-color: $accent-color;
+    }
+}
+
 #loading-wrapper {
     position: relative;
     height: calc(100vh - 252px);

@@ -29,7 +29,7 @@ export class PropertyComponent implements OnInit {
         '<i class="' + fifthStar + '"></i>');
 }
 
-  public starrating(dataRating: Number) : string {
+  public starrating(dataRating: number) : string {
     const fiveStars = this.starsOutput('fa fa-star', 'fa fa-star', 'fa fa-star', 'fa fa-star', 'fa fa-star');
 
     const fourHalfStars = this.starsOutput('fa fa-star', 'fa fa-star', 'fa fa-star', 'fa fa-star', 'fa fa-star-half-alt');
@@ -45,6 +45,8 @@ export class PropertyComponent implements OnInit {
     const oneStar = this.starsOutput('fa fa-star', 'far fa-star', 'far fa-star', 'far fa-star', 'far fa-star');
 
     const noStars = this.starsOutput('far fa-star', 'far fa-star', 'far fa-star', 'far fa-star', 'far fa-star');
+
+    dataRating = (dataRating/10)*5;
 
     // Rules
     if (dataRating >= 4.75) {
