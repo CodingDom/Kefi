@@ -10,6 +10,10 @@ export class ApiService {
   constructor() { }
 
   public getLocations(location: string) {
+    location = location.trim();
+    if (location == "") {
+      location = "Orlando";
+    }
     return axios.get(`${this.API_BASE_URL}/locations?location=${location}`)
     .then(resp => resp.data);
   }

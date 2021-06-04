@@ -41,7 +41,13 @@
                 <label for="location">Location</label>
                 <div class="input-with-icon right-icon">
                     <div id="autocomplete-container">
-                        <input id="location" formControlName="location" class="form-control" placeholder="Orlando, FL" />
+                        <input type="hidden" id="locationId" formControlName="locationId">
+                        <input id="location" formControlName="location" class="form-control" placeholder="Orlando, FL" [matAutocomplete]="auto">
+                        <mat-autocomplete #auto="matAutocomplete" (optionSelected)='getSelectedCity($event.option)'>
+                            <mat-option *ngFor="let option of filteredOptions | async" [value]="option.name" [id]="option.city.id">
+                                {{option.name}}
+                            </mat-option>
+                        </mat-autocomplete>
                     </div>
                     <i class="fa fa-map-marker-alt"></i>
                 </div>

@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './core/components/navbar/navbar.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatNativeDateModule} from '@angular/material/core';
 import { SearchpageComponent } from '@features/searchpage/searchpage.component';
@@ -44,6 +45,7 @@ import { MapComponent } from './core/components/map/map.component'; // <--------
     MatDatepickerModule, 
     MatFormFieldModule, 
     MatNativeDateModule,
+    MatAutocompleteModule,
     GalleryModule.forRoot()
   ],
   providers: [
