@@ -9,12 +9,12 @@ import { ApiService } from '@core/services/api.service';
   styleUrls: ['./searchpage.component.scss']
 })
 export class SearchpageComponent implements OnInit {
-  public pageNumber : number = 1;
-  public pageNumbers : number[] = [1];
-  public pageNumberSet : number[] = this.pageNumbers;
-  public properties = null;
-  public displayMode = "grid";
-  public numberOfRentals = ["0"];
+  pageNumber : number = 1;
+  pageNumbers : number[] = [1];
+  pageNumberSet : number[] = this.pageNumbers;
+  properties = null;
+  displayMode = "grid";
+  numberOfRentals = ["0"];
   constructor(
     private api: ApiService, 
     private route: ActivatedRoute

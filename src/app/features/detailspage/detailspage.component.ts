@@ -10,10 +10,10 @@ import { AccessibilityConfig, Image } from '@ks89/angular-modal-gallery';
   styleUrls: ['./detailspage.component.scss']
 })
 export class DetailspageComponent implements OnInit {
-  public details: VrboPropertyDetails;
-  public map_url: string;
-  public displayMode: string = "overview";
-  public carouselImages : Image[] = [];
+  details: VrboPropertyDetails;
+  map_url: string;
+  displayMode: string = "overview";
+  carouselImages : Image[] = [];
 
   constructor(private api: ApiService, private route: ActivatedRoute) {}
   
