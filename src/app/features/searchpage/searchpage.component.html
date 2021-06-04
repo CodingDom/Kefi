@@ -1,7 +1,7 @@
 <div class="container mt-2">
     <div class="row">
         <div class="col-md-3 col-lg-2-5 filter-col">
-            <app-property-filter></app-property-filter>
+            <app-property-filter [form]="filterOptions"></app-property-filter>
         </div>
         <div *ngIf="properties != null; else loading" class="col">
             <div id="view-buttons">
@@ -10,16 +10,18 @@
                 <button [class.active]="displayMode == 'list'" (click)="displayMode = 'list';" class="d-none d-md-inline-block"><i class="fa fa-list"></i></button>
                 <button [class.active]="displayMode == 'grid'" (click)="displayMode = 'grid';"><i class="fas fa-th"></i></button>
             </div>
-            <div id="propertyResultsConatiner" class="row" [class.d-none]="displayMode == 'map'">
-                <div *ngFor="let prop of properties.slice((pageNumber-1)*9, pageNumber*9);" [id]="'property-'+prop.homeaway_property_id" class="listing col-md-6 col-lg-4">
-                    <app-property [info]="prop"></app-property>
+            <ng-container *ngIf="filteredProperties.length > 0; else invalidFilters">
+                <div id="propertyResultsConatiner" class="row" [class.d-none]="displayMode == 'map'">
+                    <div *ngFor="let prop of filteredProperties.slice((pageNumber-1)*9, pageNumber*9);" [id]="'property-'+prop.homeaway_property_id" class="listing col-md-6 col-lg-4">
+                        <app-property [info]="prop"></app-property>
+                    </div>
                 </div>
-            </div>
-            <div [class.d-none]="displayMode != 'map'">
-                <app-map *ngIf="displayMode == 'map'" [properties]="properties"></app-map>
-            </div>
+                <div [class.d-none]="displayMode != 'map'">
+                    <app-map *ngIf="displayMode == 'map'" [properties]="filteredProperties"></app-map>
+                </div>
+            </ng-container>
 
-            <nav [class.d-none]="displayMode == 'map'" aria-label="Page navigation">
+            <nav *ngIf="filteredProperties.length > 9" [class.d-none]="displayMode == 'map'" aria-label="Page navigation">
                 <ul class="pagination justify-content-center">
                     <li class="page-item" [class.disabled]="pageNumber==1">
                         <button class="page-link" aria-label="Previous" (click)="updatePageNumber(pageNumber-1);">
@@ -37,6 +39,16 @@
         </div>
     </div>
 </div>
+
+<ng-template #invalidFilters>
+    <ng-container *ngIf="properties.length > 0; else invalidSearch">
+        <h4>No properties are available for the filters selected. Please try using other filters or <span class="text-accent" (click)="resetFilters();">reset your current filters</span>.</h4>
+    </ng-container>
+</ng-template>
+
+<ng-template #invalidSearch>
+    <h4>No properties are available for your search requirements. Please try a new search.</h4>
+</ng-template>
 
 <ng-template #loading>
     <div class="col">

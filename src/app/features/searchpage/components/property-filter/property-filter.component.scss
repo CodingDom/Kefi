@@ -33,6 +33,13 @@
 
 .dom-accordion {
     border-bottom: 1px solid rgb(217, 217, 217);
+    >div:last-child {
+        transition: .5s all linear;
+        margin-bottom: 0px;
+        &.show {
+            margin-bottom: 15px;
+        }
+    }
 }
 
 #sm-reset {
