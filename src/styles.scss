@@ -151,6 +151,10 @@ ks-carousel-previews {
     height: 80px !important;
 }
 
+.leaflet-marker-icon {
+    filter: hue-rotate(264deg);
+}
+
 @media (min-width: 992px) {
     .col-lg-2-5 {
         -ms-flex: 0 0 20%;

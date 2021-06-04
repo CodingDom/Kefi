@@ -9,6 +9,7 @@ import { ApiService } from '@core/services/api.service';
 })
 export class SearchpageComponent implements OnInit {
   public properties = null;
+  public displayMode = "list";
   
   constructor(private api: ApiService) { }
 

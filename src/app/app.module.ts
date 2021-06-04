@@ -19,7 +19,8 @@ import { SafePipe } from '@core/pipes/safe.pipe';
 // ********************** angular-modal-gallery *****************************
 import 'hammerjs'; // Mandatory for angular-modal-gallery 3.x.x or greater (`npm i --save hammerjs`)
 import 'mousetrap'; // Mandatory for angular-modal-gallery 3.x.x or greater (`npm i --save mousetrap`)
-import { GalleryModule } from '@ks89/angular-modal-gallery'; // <----------------- angular-modal-gallery library import
+import { GalleryModule } from '@ks89/angular-modal-gallery';
+import { MapComponent } from './core/components/map/map.component'; // <----------------- angular-modal-gallery library import
 // **************************************************************************
 
 @NgModule({
@@ -31,7 +32,8 @@ import { GalleryModule } from '@ks89/angular-modal-gallery'; // <---------------
     PropertyFilterComponent,
     PropertyComponent,
     DetailspageComponent,
-    SafePipe 
+    SafePipe,
+    MapComponent 
   ],
   imports: [
     BrowserModule,

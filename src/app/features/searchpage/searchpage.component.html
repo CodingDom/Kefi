@@ -4,10 +4,13 @@
             <app-property-filter></app-property-filter>
         </div>
         <div *ngIf="properties != null; else loading" class="col">
-            <div id="propertyResultsConatiner" class="row">
+            <div id="propertyResultsConatiner" class="row" [class.d-none]="displayMode != 'list'">
                 <div *ngFor="let prop of properties.slice(0, 9);" [id]="'property-'+prop.homeaway_property_id" class="listing col-md-6 col-lg-4">
                     <app-property [info]="prop"></app-property>
                 </div>
+            </div>
+            <div [class.d-none]="displayMode != 'map'">
+                <app-map [properties]="properties"></app-map>
             </div>
         </div>
     </div>
