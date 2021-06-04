@@ -19,7 +19,7 @@ export class SearchpageComponent implements OnInit {
   ngOnInit(): void {
     this.api.getProperties(60272)
     .then((data : PropertyList[] ) => {
-      this.properties = data.filter(x => x.platforms.homeaway_property_id != null);
+      this.properties = data.filter(x => x.platforms.homeaway_property_id != null).sort((a,b) => (b.rating ?? 0) - (a.rating ?? 0) );
       this.numberOfRentals = this.properties.length.toString().split("");
       this.pageNumbers = Array(Math.ceil(this.properties.length/9)).fill(0).map((x,i)=>i+1);
       this.updatePageNumber(1);
