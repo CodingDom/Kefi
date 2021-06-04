@@ -63,6 +63,10 @@
         background-color: $accent-color;
         border-color: $accent-color;
     }
+    button:focus {
+        outline: none;
+        box-shadow: none;
+    }
 }
 
 #loading-wrapper {

@@ -70,8 +70,8 @@
                     <mat-form-field appearance="fill">
                         <!-- <mat-label>Enter a date range</mat-label> -->
                         <mat-date-range-input [formGroup]="searchForm" [rangePicker]="picker">
-                            <input matStartDate formControlName="dateFrom" placeholder="Start date" class="range-input">
-                            <input matEndDate formControlName="dateTo" placeholder="End date" class="range-input">
+                            <input matStartDate formControlName="dateFrom" placeholder="Start" class="range-input">
+                            <input matEndDate formControlName="dateTo" placeholder="End" class="range-input">
                         </mat-date-range-input>
                         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                         <mat-date-range-picker #picker></mat-date-range-picker>
