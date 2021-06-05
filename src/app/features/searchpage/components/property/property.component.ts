@@ -14,6 +14,8 @@ export class PropertyComponent implements OnInit {
     this._info = val;
   }
 
+  @Input() displayMode : string;
+
   constructor() { }
 
   ngOnInit(): void {

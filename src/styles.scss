@@ -76,7 +76,7 @@ a {
 .btn-accent {
     color: white;
     width: 100%;
-    padding: 14px 35px;
+    padding: 9px 20px;
     border-radius: 4px;
     text-align: center;
     background-color: $accent-color;
@@ -89,7 +89,7 @@ a {
 .btn-accent-clear {
     color: $accent-color;
     width: 100%;
-    padding: 14px 35px;
+    padding: 9px 20px;
     border-radius: 4px;
     text-align: center;
     background-color: transparent;
@@ -167,6 +167,12 @@ ks-carousel-previews {
 
 .leaflet-marker-icon {
     filter: hue-rotate(264deg);
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 100%;
+    }
 }
 
 @media (min-width: 992px) {

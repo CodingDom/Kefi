@@ -23,3 +23,41 @@
         flex-direction: column-reverse;
     }
 }
+
+@media (min-width: 768px) {
+    .card {
+        &.list-view {
+            flex-direction: row;
+            .prop-img {
+                height: 100%;
+                width: 30% !important;
+            }
+            .card-body {
+                height: 100%;
+                &:nth-child(2) {
+                    width: 46%;
+                }
+                &:last-child {
+                    width: 24%;
+                    .btn {
+                        padding: 9px 8px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 992px) {
+    .card {
+        &.list-view {
+            .card-body {
+                &:last-child {
+                    .btn {
+                        padding: 9px 20px;
+                    }
+                }
+            }
+        }
+    }
+}

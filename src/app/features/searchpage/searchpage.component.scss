@@ -29,10 +29,11 @@
     button:last-child {
         border-radius: 4px 0 0 4px;
     }
-    button:hover:not(.active) {
-        background: $alternative-color;
+    button:hover:not(.active):not(.mobile-active) {
+        background: #EEE;
     }
-    button.active {
+    button.active,
+    button.mobile-active {
         color: #fff;
         background: $accent-color;
     }
@@ -50,8 +51,14 @@
     }
 }
 
-.listing {
-    margin-bottom: 15px;
+#propertyResultsConatiner {
+    >.listing {
+        margin-bottom: 15px;
+    }
+    &.list-view>.listing {
+        max-width: 100%;
+        flex: 0 0 100%;
+    }
 }
 
 .page-item {
@@ -80,6 +87,18 @@
             height: 100px;
             width: 100px;
             top: 50%;
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    #view-buttons {
+        button.mobile-active {
+            background: #fff;
+            color: inherit;
+        }
+        button:hover:not(.active).mobile-active {
+            background: #EEE;
         }
     }
 }

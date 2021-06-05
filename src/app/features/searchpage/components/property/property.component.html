@@ -1,4 +1,4 @@
-<div *ngIf="info" class="card" style="width: 100%;">
+<div *ngIf="info" class="card" [class.list-view]="displayMode == 'list'" style="width: 100%;">
     <div style="background-image:url('{{info.img_cover}}');cursor:pointer;" [title]="info.title" class="w-100 prop-img"></div>
     <div class="card-body text-center">
         <p class="starrating text-center text-accent" [innerHtml]="starrating(info.rating ?? 0)"></p>
@@ -13,7 +13,7 @@
         <a [routerLink]="['/details', info.homeaway_property_id]" class="btn btn-accent">CONTINUE</a>
         <hr />
         <span class="tag"><span class="price"><b>{{info.adr | currency}}</b>
-                <span>/night</span></span>
+                <span> /night</span></span>
         </span>
     </div>
 </div>
