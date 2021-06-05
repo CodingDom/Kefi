@@ -16,9 +16,18 @@ export class MapComponent implements AfterViewInit {
   }
   set properties(val) {
     this._properties = val;
+    if (this.map != null) {
+      this.createMarkers();
+    }
   }
 
   private _properties = null;
+
+  constructor() { }
+
+  ngAfterViewInit(): void {
+    this.initMap();
+  }
 
   private initMap(): void {
     this.map = L.map('map', {
@@ -33,6 +42,17 @@ export class MapComponent implements AfterViewInit {
     });
 
     tiles.addTo(this.map);
+
+    this.createMarkers();
+  }
+
+  createMarkers() {
+    if (this.markers.length > 0) {
+      this.markers.forEach(x => {
+        this.map.removeLayer(x);
+      });
+      this.markers = [];
+    }
 
     for (let i = 0; i < this.properties.length; i++) {
       const info = this.properties[i];
@@ -54,12 +74,6 @@ export class MapComponent implements AfterViewInit {
         padding: L.point(36, 36),
         animate: true,
     });
-
-  }
-  constructor() { }
-
-  ngAfterViewInit(): void {
-    this.initMap();
   }
 
 }
