@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { PropertyList } from '@core/interfaces/property-list';
+import { Currency, PropertyList, PropertyListQueryOptions, RoomTypes } from '@core/interfaces/property-list';
 import { ApiService } from '@core/services/api.service';
 
 @Component({
@@ -19,6 +19,7 @@ export class SearchpageComponent implements OnInit {
   pageNumber : number = 1;
   pageNumbers : number[] = [1];
   pageNumberSet : number[] = this.pageNumbers;
+  propertiesPerPage: number = 9;
   properties: PropertyList[] = null;
   propertyTypes: string[] = [];
   filteredProperties = null;
@@ -37,14 +38,15 @@ export class SearchpageComponent implements OnInit {
     this.route.queryParams
       .subscribe(params => {
         this.properties = null;
-        this.api.getProperties(params.locationId ?? 60272)
+        const options: PropertyListQueryOptions = this.createQueryOptions(params);
+        this.api.getProperties(params.locationId ?? 60272, options)
         .then((data : PropertyList[] ) => {          
           this.filteredProperties = data.filter(x => x.platforms.homeaway_property_id != null).sort((a,b) => (b.rating ?? 0) - (a.rating ?? 0) );
           this.properties = this.filteredProperties;
           this.propertyTypes = this.properties.map(x => x.property_type).filter((x, i, self) => self.indexOf(x) == i).sort();
           this.resetFilters();
           this.numberOfRentals = this.filteredProperties.length.toString().split("");
-          this.pageNumbers = Array(Math.ceil(this.filteredProperties.length/9)).fill(0).map((x,i)=>i+1);
+          this.pageNumbers = Array(Math.ceil(this.filteredProperties.length/this.propertiesPerPage)).fill(0).map((x,i)=>i+1);
           this.updatePageNumber(1);
         });
       }
@@ -67,7 +69,7 @@ export class SearchpageComponent implements OnInit {
             return allowProperty;
           });
           this.numberOfRentals = this.filteredProperties.length.toString().split("");
-          this.pageNumbers = Array(Math.ceil(this.filteredProperties.length/9)).fill(0).map((x,i)=>i+1);
+          this.pageNumbers = Array(Math.ceil(this.filteredProperties.length/this.propertiesPerPage)).fill(0).map((x,i)=>i+1);
           this.updatePageNumber(1);
         }
       });
@@ -89,4 +91,25 @@ export class SearchpageComponent implements OnInit {
       this.pageNumberSet = this.pageNumbers.slice(val-5,val+4);
     }    
   }
+
+  createQueryOptions(params: any) : PropertyListQueryOptions {
+    const options : PropertyListQueryOptions = {};
+    if (params.roomType && parseInt(params.roomType) > 0) {
+      options.room_types = RoomTypes[parseInt(params.roomType)];
+    }
+    if (params.guests) {
+      options.accommodates = parseInt(params.guests);
+    }
+    if (params.dateFrom && params.dateTo) {
+      options.start_date = params.dateFrom;
+      options.months = this.monthDiff(new Date(params.dateFrom), new Date(params.dateTo));
+    }
+    options.currency = Currency.USD;
+    return options;
+  }
+
+  monthDiff(dateFrom: Date, dateTo: Date) {
+    return dateTo.getMonth() - dateFrom.getMonth() + 
+      (12 * (dateTo.getFullYear() - dateFrom.getFullYear()))
+   }
 }

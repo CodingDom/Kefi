@@ -12,7 +12,7 @@
             </div>
             <ng-container *ngIf="filteredProperties.length > 0; else invalidFilters">
                 <div id="propertyResultsConatiner" class="row" [class.d-none]="displayMode == 'map'">
-                    <div *ngFor="let prop of filteredProperties.slice((pageNumber-1)*9, pageNumber*9);" [id]="'property-'+prop.homeaway_property_id" class="listing col-md-6 col-lg-4">
+                    <div *ngFor="let prop of filteredProperties.slice((pageNumber-1)*propertiesPerPage, pageNumber*propertiesPerPage);" [id]="'property-'+prop.homeaway_property_id" class="listing col-md-6 col-lg-4">
                         <app-property [info]="prop"></app-property>
                     </div>
                 </div>

@@ -1,3 +1,23 @@
+export interface PropertyListQueryOptions {
+    accommodates?: number;
+    room_types?: string;
+    currency?: Currency;
+    start_date?: string;
+    months?: number;
+}
+
+export enum Currency {
+    USD = "usd",
+    Native = "native"
+}
+
+export enum RoomTypes {
+    any,
+    entire_place,
+    private_room,
+    shared_room
+}
+
 export interface PropertyList {
     airbnb_property_id?:     number;
     rating?:                 number | null;

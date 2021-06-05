@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { PropertyListQueryOptions } from '@core/interfaces/property-list';
 import axios from 'axios';
 
 @Injectable({
@@ -18,8 +19,12 @@ export class ApiService {
     .then(resp => resp.data);
   }
 
-  public getProperties(cityId: number) {
-    return axios.get(`${this.API_BASE_URL}/properties?cityId=${cityId}`)
+  public getProperties(cityId: number, options?: PropertyListQueryOptions) {
+    let extras = "";
+    Object.keys(options).forEach(x => {
+      extras = `${extras}&${x}=${options[x]}`;
+    });
+    return axios.get(`${this.API_BASE_URL}/properties?cityId=${cityId}${extras}`)
     .then(resp => resp.data.properties);
   }
 
