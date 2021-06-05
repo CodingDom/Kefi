@@ -1,7 +1,7 @@
 <div class="container mt-2">
     <div class="row">
         <div class="col-md-3 col-lg-2-5 filter-col">
-            <app-property-filter [form]="filterOptions"></app-property-filter>
+            <app-property-filter [form]="filterOptions" [propertyTypes]="propertyTypes"></app-property-filter>
         </div>
         <div *ngIf="properties != null; else loading" class="col">
             <div id="view-buttons">
@@ -42,7 +42,7 @@
 
 <ng-template #invalidFilters>
     <ng-container *ngIf="properties.length > 0; else invalidSearch">
-        <h4>No properties are available for the filters selected. Please try using other filters or <span class="text-accent" (click)="resetFilters();">reset your current filters</span>.</h4>
+        <h4>No properties are available for the filters selected. Please try selecting other options or <span class="text-accent" (click)="resetFilters();">reset your current filters</span>.</h4>
     </ng-container>
 </ng-template>
 

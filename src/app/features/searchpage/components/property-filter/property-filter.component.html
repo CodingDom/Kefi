@@ -18,7 +18,7 @@
                 <option value="">
                     Any
                 </option>
-                
+                <option *ngFor="let propType of propertyTypes" [value]="propType">{{propType}}</option>
             </select>
         </div>
     </div>

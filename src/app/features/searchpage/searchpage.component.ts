@@ -20,6 +20,7 @@ export class SearchpageComponent implements OnInit {
   pageNumbers : number[] = [1];
   pageNumberSet : number[] = this.pageNumbers;
   properties: PropertyList[] = null;
+  propertyTypes: string[] = [];
   filteredProperties = null;
   filterOptions = this.formBuilder.group(this.defaultData);
 
@@ -40,6 +41,7 @@ export class SearchpageComponent implements OnInit {
         .then((data : PropertyList[] ) => {
           this.filteredProperties = data.filter(x => x.platforms.homeaway_property_id != null).sort((a,b) => (b.rating ?? 0) - (a.rating ?? 0) );
           this.properties = this.filteredProperties;
+          this.propertyTypes = this.properties.map(x => x.property_type).filter((x, i, self) => self.indexOf(x) == i).sort();
           this.numberOfRentals = this.filteredProperties.length.toString().split("");
           this.pageNumbers = Array(Math.ceil(this.filteredProperties.length/9)).fill(0).map((x,i)=>i+1);
           this.updatePageNumber(1);
@@ -53,6 +55,9 @@ export class SearchpageComponent implements OnInit {
         this.filteredProperties = this.properties.filter(x => {
           let allowProperty = true;
           if (options.bedrooms > 0 && options.bedrooms != x.bedrooms) {
+            allowProperty = false;
+          }
+          if (options.propertyType != "" && options.propertyType != x.property_type) {
             allowProperty = false;
           }
           return allowProperty;
