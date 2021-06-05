@@ -38,10 +38,11 @@ export class SearchpageComponent implements OnInit {
       .subscribe(params => {
         this.properties = null;
         this.api.getProperties(params.locationId ?? 60272)
-        .then((data : PropertyList[] ) => {
+        .then((data : PropertyList[] ) => {          
           this.filteredProperties = data.filter(x => x.platforms.homeaway_property_id != null).sort((a,b) => (b.rating ?? 0) - (a.rating ?? 0) );
           this.properties = this.filteredProperties;
           this.propertyTypes = this.properties.map(x => x.property_type).filter((x, i, self) => self.indexOf(x) == i).sort();
+          this.resetFilters();
           this.numberOfRentals = this.filteredProperties.length.toString().split("");
           this.pageNumbers = Array(Math.ceil(this.filteredProperties.length/9)).fill(0).map((x,i)=>i+1);
           this.updatePageNumber(1);
@@ -51,24 +52,24 @@ export class SearchpageComponent implements OnInit {
 
     this.filterOptions.valueChanges
       .subscribe(options => {
-        console.log(options);
-        this.filteredProperties = this.properties.filter(x => {
-          let allowProperty = true;
-          if (options.bathrooms > 0 && options.bathrooms != x.bathrooms) {
-            allowProperty = false;
-          }
-          if (options.bedrooms > 0 && options.bedrooms != x.bedrooms) {
-            allowProperty = false;
-          }
-          if (options.propertyType != "" && options.propertyType != x.property_type) {
-            allowProperty = false;
-          }
-          return allowProperty;
-        });
-        console.log(this.filteredProperties);
-        this.numberOfRentals = this.filteredProperties.length.toString().split("");
-        this.pageNumbers = Array(Math.ceil(this.filteredProperties.length/9)).fill(0).map((x,i)=>i+1);
-        this.updatePageNumber(1);
+        if (this.properties) {
+          this.filteredProperties = this.properties.filter(x => {
+            let allowProperty = true;
+            if (options.bathrooms > 0 && options.bathrooms != x.bathrooms) {
+              allowProperty = false;
+            }
+            if (options.bedrooms > 0 && options.bedrooms != x.bedrooms) {
+              allowProperty = false;
+            }
+            if (options.propertyType != "" && options.propertyType != x.property_type) {
+              allowProperty = false;
+            }
+            return allowProperty;
+          });
+          this.numberOfRentals = this.filteredProperties.length.toString().split("");
+          this.pageNumbers = Array(Math.ceil(this.filteredProperties.length/9)).fill(0).map((x,i)=>i+1);
+          this.updatePageNumber(1);
+        }
       });
   }
 
