@@ -140,7 +140,8 @@ export class NavbarComponent implements OnInit {
     if (data.guests) {
       queryParams.guests = data.guests;
     }
-    this.router.navigate(["/search"], {queryParams});
+    this.toggleSearchWidget(false);
+    this.router.navigate(["/search"], {queryParams});    
   }
 
 }
