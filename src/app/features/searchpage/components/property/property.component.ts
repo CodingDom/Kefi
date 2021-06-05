@@ -19,7 +19,7 @@ export class PropertyComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    
+    console.log(this.info);
   }
 
   private starsOutput(firstStar, secondStar, thirdStar, fourthStar, fifthStar) : string {
