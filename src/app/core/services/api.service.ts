@@ -5,7 +5,7 @@ import axios from 'axios';
   providedIn: 'root'
 })
 export class ApiService {
-  private API_BASE_URL = "http://localhost:3000/api";
+  private API_BASE_URL = "https://kefi-api.herokuapp.com/api";//"http://localhost:3000/api";
 
   constructor() { }
 
