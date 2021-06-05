@@ -9,6 +9,7 @@ import { FormGroup } from '@angular/forms';
 export class PropertyFilterComponent implements OnInit {
   @Input() form: FormGroup;
   @Input() propertyTypes: string[];
+  @Input() resetFilters: Function;
 
   constructor() { }
 

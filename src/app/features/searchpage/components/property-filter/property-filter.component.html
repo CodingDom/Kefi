@@ -1,5 +1,5 @@
 <div id="filter-container" [formGroup]="form">
-    <h4>Filter by... <button id="sm-reset" class="btn btn-accent-clear d-none d-md-inline">Reset</button><i class="fas fa-chevron-down arrow d-md-none"></i></h4>
+    <h4>Filter by... <button id="sm-reset" class="btn btn-accent-clear d-none d-md-inline" (click)="resetFilters()">Reset</button><i class="fas fa-chevron-down arrow d-md-none"></i></h4>
     <div id="bedroom-accordion" class="dom-accordion">
         <div aria-expanded="false" aria-controls="collapseTwo" id="headingTwo" class="accordion-header" data-bs-target="#collapseTwo" data-bs-toggle="collapse">
             <h6 class="mb-0">Bedrooms <i class="fas fa-chevron-down arrow"></i></h6>
@@ -88,5 +88,5 @@
         </div>
     </div> -->
     <!--End of Accordion-->
-    <button id="mobile-reset" class="btn-accent-clear d-md-none">Reset</button>
+    <button id="mobile-reset" class="btn-accent-clear d-md-none" (click)="resetFilters()">Reset</button>
 </div>
