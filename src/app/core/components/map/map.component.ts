@@ -21,6 +21,8 @@ export class MapComponent implements AfterViewInit {
     }
   }
 
+  @Input() popUp: boolean;
+
   private _properties = null;
 
   constructor() { }
@@ -60,12 +62,17 @@ export class MapComponent implements AfterViewInit {
         [info.latitude, info.longitude], 
         {icon: new L.icon({iconUrl: "./leaflet/images/marker-icon-2x.png", iconSize: [25, 41], iconAnchor: [12, 41]})}
         );
-      this.markers.push(marker);
-      marker.addTo(this.map)
-          .bindPopup(`<div>
-    <img src="${info.img_cover}" width="150px" height="80px" style="object-fit:cover;"/>
-    <p style="max-width:60px;">${info.title}</p>			
-    </div>`);
+        this.markers.push(marker);
+        if (this.popUp) {          
+          marker.addTo(this.map)
+              .bindPopup(`<div>
+        <img src="${info.img_cover}" width="150px" height="80px" style="object-fit:cover;"/>
+        <p style="max-width:60px;">${info.title}</p>			
+        </div>`);
+        } 
+        else {
+          marker.addTo(this.map);
+        }
 
   }
 

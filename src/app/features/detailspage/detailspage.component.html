@@ -18,7 +18,7 @@
                     </div>
 
                     <div id="map-container" class="info-section" [class.d-none]="displayMode !='map'">
-                        <iframe style="border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px" height="480" [src]="map_url | safe" frameborder="0" width="100%" allowfullscreen=""></iframe>
+                        <app-map *ngIf="displayMode == 'map'" [properties]="[details.listingReducer.geoCode]"></app-map>
                     </div>
                 </div>
                 <hr />
