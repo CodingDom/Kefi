@@ -11,9 +11,9 @@ import { ApiService } from '@core/services/api.service';
 })
 export class SearchpageComponent implements OnInit {
   private readonly defaultData = {
+    bathrooms: '',
     bedrooms: '',
-    propertyType: "",
-    amenities: []
+    propertyType: ''
   };
 
   pageNumber : number = 1;
@@ -54,6 +54,9 @@ export class SearchpageComponent implements OnInit {
         console.log(options);
         this.filteredProperties = this.properties.filter(x => {
           let allowProperty = true;
+          if (options.bathrooms > 0 && options.bathrooms != x.bathrooms) {
+            allowProperty = false;
+          }
           if (options.bedrooms > 0 && options.bedrooms != x.bedrooms) {
             allowProperty = false;
           }
@@ -62,6 +65,7 @@ export class SearchpageComponent implements OnInit {
           }
           return allowProperty;
         });
+        console.log(this.filteredProperties);
         this.numberOfRentals = this.filteredProperties.length.toString().split("");
         this.pageNumbers = Array(Math.ceil(this.filteredProperties.length/9)).fill(0).map((x,i)=>i+1);
         this.updatePageNumber(1);

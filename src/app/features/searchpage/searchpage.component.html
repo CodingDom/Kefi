@@ -42,7 +42,7 @@
 
 <ng-template #invalidFilters>
     <ng-container *ngIf="properties.length > 0; else invalidSearch">
-        <h4>No properties are available for the filters selected. Please try selecting other options or <span class="text-accent" (click)="resetFilters();">reset your current filters</span>.</h4>
+        <h4>No properties are available for the filters selected. Please try selecting other options or <span class="cursor-pointer text-accent" (click)="resetFilters();">reset your current filters</span>.</h4>
     </ng-container>
 </ng-template>
 

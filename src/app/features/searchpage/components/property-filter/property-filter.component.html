@@ -8,6 +8,14 @@
             <input class="form-control" formControlName="bedrooms" placeholder="Any" />
         </div>
     </div>
+    <div id="bathroom-accordion" class="dom-accordion">
+        <div aria-expanded="false" aria-controls="collapseBathrooms" id="headingTwo" class="accordion-header" data-bs-target="#collapseBathrooms" data-bs-toggle="collapse">
+            <h6 class="mb-0">Bathrooms <i class="fas fa-chevron-down arrow"></i></h6>
+        </div>
+        <div id="collapseBathrooms" style="height:0;" class="collapse" aria-labelledby="headingTwo" data-bs-parent="#bathroom-accordion">
+            <input class="form-control" formControlName="bathrooms" placeholder="Any" />
+        </div>
+    </div>
     <!--End of Accordion-->
     <div id="type-accordion" class="dom-accordion">
         <div aria-expanded="false" aria-controls="collapse4" id="heading4" class="accordion-header" data-bs-target="#collapse4" data-bs-toggle="collapse">
@@ -23,7 +31,7 @@
         </div>
     </div>
     <!--End of Accordion-->
-    <div id="amenities-accordion" class="dom-accordion">
+    <!-- <div id="amenities-accordion" class="dom-accordion">
         <div aria-expanded="false" aria-controls="collapse6" id="heading6" class="accordion-header" data-bs-target="#collapse6" data-bs-toggle="collapse">
             <h6 class="mb-0">Amenities <i class="fas fa-chevron-down arrow"></i></h6>
         </div>
@@ -78,7 +86,7 @@
                 <label for="wifi">Wi-Fi</label>
             </div>
         </div>
-    </div>
+    </div> -->
     <!--End of Accordion-->
     <button id="mobile-reset" class="btn-accent-clear d-md-none">Reset</button>
 </div>
