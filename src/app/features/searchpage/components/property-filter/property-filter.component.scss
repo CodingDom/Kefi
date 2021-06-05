@@ -104,5 +104,10 @@ input[type="checkbox"] {
         color: white;
         font-size: 36px;
         line-height: 32px;
+        transition: transform .1s linear;
+        transform: rotateX(0);
+    }
+    #filter-container.active h4 .arrow {
+        transform: rotateX(180deg);
     }
 }
