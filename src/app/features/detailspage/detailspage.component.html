@@ -37,7 +37,7 @@
                 </div>
                 <!--End of Accordion-->
 
-                <div id="reviews-accordion" class="accordion">
+                <div id="reviews-accordion" class="accordion" *ngIf="details.reviewsReducer.reviews.length > 0">
                     <div class="card">
                         <div id="reviews-heading" class="card-header" data-bs-toggle="collapse" data-bs-target="#collapse-reviews" aria-expanded="true" aria-controls="collapse-reviews">
                             <h5 class="mb-0">Reviews <span class="fas fa-chevron-down float-end"></span></h5>
@@ -45,7 +45,14 @@
 
                         <div id="collapse-reviews" class="collapse show" aria-labelledby="reviews-heading" data-bs-parent="#reviews-accordion">
                             <div class="card-body">
-                                This is a review: 10/10 Good Service
+                                <ng-container *ngFor="let review of details.reviewsReducer.reviews; index as i;">
+                                    <div>
+                                        <p>{{review.reviewer.nickname}}</p>
+                                        <h6>{{review.headline}}</h6>
+                                        <p>{{review.body}}</p>
+                                        <hr *ngIf="i != (details.reviewsReducer.reviews.length-1)" />
+                                    </div>
+                                </ng-container>
                             </div>
                         </div>
                     </div>

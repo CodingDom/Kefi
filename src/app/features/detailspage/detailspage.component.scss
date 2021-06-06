@@ -43,22 +43,22 @@
 }
 
 .accordion {
-    .card {
+    >.card {
         border: none;
-    }
-    .card-header {
-        cursor: pointer;
-        color: white;
-        background-color: $secondary-color;
-        border-radius: 0;
-        border: none;
-        .fa-chevron-down {
-            transform: rotateX(0deg);
-            transition: transform 0.3s linear;
-        }
-        &[aria-expanded="true"] {
+        >.card-header {
+            cursor: pointer;
+            color: white;
+            background-color: $secondary-color;
+            border-radius: 0;
+            border: none;
             .fa-chevron-down {
-                transform: rotateX(180deg);
+                transform: rotateX(0deg);
+                transition: transform 0.3s linear;
+            }
+            &[aria-expanded="true"] {
+                .fa-chevron-down {
+                    transform: rotateX(180deg);
+                }
             }
         }
     }

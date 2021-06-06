@@ -34,6 +34,8 @@ export class DetailspageComponent implements OnInit {
         title: x.caption,
         alt: x.altText
       })); 
+      
+    console.log(this.details.reviewsReducer.reviews);
     });
   }
 
