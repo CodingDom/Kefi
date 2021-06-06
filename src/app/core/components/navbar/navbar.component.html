@@ -99,10 +99,10 @@
         </div>
     </div>
 
-    <div id="pseudo-search" class="container d-md-none" [class.d-none]='open_search' (click)='toggleSearchWidget(true)'>
+    <div id="pseudo-search" class="container d-md-none" [class.d-none]='open_search'>
         <div class="row">
             <div class="col-sm-12">
-                <button class="btn btn-accent">Find Rentals <i
+                <button type="button" class="btn btn-accent" (click)='toggleSearchWidget(true)'>Find Rentals <i
                         class="fa fa-search"></i></button>
             </div>
         </div>

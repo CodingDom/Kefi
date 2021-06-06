@@ -48,6 +48,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
     this.route.queryParams
     .subscribe(params => {
+      console.log(this.route.pathFromRoot);
       if (params.location && params.locationId) {
         this.searchForm.get('location').setValue(params.location);
         this.searchForm.get('locationId').setValue(params.locationId);

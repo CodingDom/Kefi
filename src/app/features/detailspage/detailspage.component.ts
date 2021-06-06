@@ -33,8 +33,7 @@ export class DetailspageComponent implements OnInit {
         description: x.caption,
         title: x.caption,
         alt: x.altText
-      }));
-      console.log(data.listingReducer);      
+      })); 
     });
   }
 
