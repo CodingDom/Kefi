@@ -2,9 +2,9 @@ import { Component, ViewChild, AfterViewInit, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { ApiService } from '@core/services/api.service';
 import { from, Observable } from 'rxjs';
-import { tap, startWith, debounceTime, distinctUntilChanged, switchMap, map } from 'rxjs/operators';
+import { tap, startWith, debounceTime, distinctUntilChanged, switchMap, map, take } from 'rxjs/operators';
 import {MatAutocompleteTrigger} from '@angular/material/autocomplete';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -22,6 +22,7 @@ export class NavbarComponent implements OnInit {
     guests: null
   };
   searchForm = this.formBuilder.group(this.defaultData);
+  queryParams: any = {};
 
   filteredOptions: Observable<any[]>;
   lastOption;
@@ -48,7 +49,10 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
     this.route.queryParams
     .subscribe(params => {
-      console.log(this.route.pathFromRoot);
+      console.log(this.router.url);
+      if (this.router.url.indexOf("search") == -1)
+        return;
+
       if (params.location && params.locationId) {
         this.searchForm.get('location').setValue(params.location);
         this.searchForm.get('locationId').setValue(params.locationId);
@@ -141,6 +145,7 @@ export class NavbarComponent implements OnInit {
     if (data.guests) {
       queryParams.guests = data.guests;
     }
+    this.queryParams = queryParams;
     this.toggleSearchWidget(false);
     this.router.navigate(["/search"], {queryParams});    
   }
