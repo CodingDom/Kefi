@@ -22,8 +22,9 @@ export class SearchpageComponent implements OnInit {
   propertiesPerPage: number = 9;
   properties: PropertyList[] = null;
   propertyTypes: string[] = [];
-  filteredProperties = null;
+  filteredProperties: PropertyList[] = null;
   filterOptions = this.formBuilder.group(this.defaultData);
+  sortOrder: string = "0";
 
   displayMode = "grid";
   numberOfRentals = ["0"];  
@@ -41,7 +42,8 @@ export class SearchpageComponent implements OnInit {
         const options: PropertyListQueryOptions = this.createQueryOptions(params);
         this.api.getProperties(params.locationId ?? 60272, options)
         .then((data : PropertyList[] ) => {          
-          this.filteredProperties = data.filter(x => x.platforms.homeaway_property_id != null).sort((a,b) => (b.rating ?? 0) - (a.rating ?? 0) );
+          this.filteredProperties = data.filter(x => x.platforms.homeaway_property_id != null);
+          this.sortBy(this.sortOrder);
           this.properties = this.filteredProperties;
           this.propertyTypes = this.properties.map(x => x.property_type).filter((x, i, self) => self.indexOf(x) == i).sort();
           this.resetFilters();
@@ -111,5 +113,26 @@ export class SearchpageComponent implements OnInit {
   monthDiff(dateFrom: Date, dateTo: Date) {
     return dateTo.getMonth() - dateFrom.getMonth() + 
       (12 * (dateTo.getFullYear() - dateFrom.getFullYear()))
+   }
+
+   sortBy(val: string) {
+     switch(val) {
+       case "0": 
+        this.filteredProperties.sort((a,b) => (b.rating ?? 0) - (a.rating ?? 0) );
+       break;
+       case "1":
+        this.filteredProperties.sort((a,b) => (a.adr ?? 0) - (b.adr ?? 0));
+       break;
+       case "2":
+        this.filteredProperties.sort((a,b) => (b.adr ?? 0) - (a.adr ?? 0));
+        console.log("Works");
+       break;
+       case "3": 
+        this.filteredProperties.sort((a,b) => (a.rating ?? 0) - (b.rating ?? 0) );
+       break;
+       default: 
+        console.log("This one works tho...");
+     }
+     this.sortOrder = val;
    }
 }
