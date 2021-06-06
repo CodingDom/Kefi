@@ -2,7 +2,7 @@ import { Component, ViewChild, AfterViewInit, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { ApiService } from '@core/services/api.service';
 import { from, Observable } from 'rxjs';
-import { tap, startWith, debounceTime, distinctUntilChanged, switchMap, map, take } from 'rxjs/operators';
+import { tap, startWith, debounceTime, distinctUntilChanged, switchMap, map, take, filter } from 'rxjs/operators';
 import {MatAutocompleteTrigger} from '@angular/material/autocomplete';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 
@@ -47,50 +47,10 @@ export class NavbarComponent implements OnInit {
     }
 
   ngOnInit() {
-    this.route.queryParams
-    .subscribe(params => {
-      console.log(this.router.url);
-      if (this.router.url.indexOf("search") == -1)
-        return;
-
-      if (params.location && params.locationId) {
-        this.searchForm.get('location').setValue(params.location);
-        this.searchForm.get('locationId').setValue(params.locationId);
-      } 
-      else {
-        this.searchForm.get('location').setValue(this.defaultData.location);
-        this.searchForm.get('locationId').setValue(this.defaultData.locationId);
-      }
-      if (params.dateFrom) {
-        this.searchForm.get("dateFrom").setValue(new Date(params.dateFrom));
-      }
-      else {
-        this.searchForm.get("dateFrom").setValue(this.defaultData.dateFrom);
-      }
-      if (params.dateTo) {
-        this.searchForm.get("dateTo").setValue(new Date(params.dateTo));
-      }
-      else {
-        this.searchForm.get("dateTo").setValue(this.defaultData.dateTo);
-      }
-      if (params.roomType) {
-        this.searchForm.get("roomType").setValue(params.roomType);
-      }
-      else {
-        this.searchForm.get("roomType").setValue(this.defaultData.roomType);
-      }
-      if (params.bedrooms) {
-        this.searchForm.get("bedrooms").setValue(params.bedrooms);
-      }
-      else {
-        this.searchForm.get("bedrooms").setValue(this.defaultData.bedrooms);
-      }
-      if (params.guests) {
-        this.searchForm.get("guests").setValue(params.guests);
-      }
-      else {
-        this.searchForm.get("guests").setValue(this.defaultData.guests);
-      }
+    this.router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe((event: NavigationEnd) => {
+      if (event.url.indexOf("search") == -1)
+        return;      
+      this.populateFields();
     });
   }
 
@@ -148,6 +108,49 @@ export class NavbarComponent implements OnInit {
     this.queryParams = queryParams;
     this.toggleSearchWidget(false);
     this.router.navigate(["/search"], {queryParams});    
+  }
+
+  populateFields() {
+    this.route.queryParams.pipe(take(1)).subscribe(params => {
+    if (params.location && params.locationId) {
+      this.searchForm.get('location').setValue(params.location);
+      this.searchForm.get('locationId').setValue(params.locationId);
+    } 
+    else {
+      this.searchForm.get('location').setValue(this.defaultData.location);
+      this.searchForm.get('locationId').setValue(this.defaultData.locationId);
+    }
+    if (params.dateFrom) {
+      this.searchForm.get("dateFrom").setValue(new Date(params.dateFrom));
+    }
+    else {
+      this.searchForm.get("dateFrom").setValue(this.defaultData.dateFrom);
+    }
+    if (params.dateTo) {
+      this.searchForm.get("dateTo").setValue(new Date(params.dateTo));
+    }
+    else {
+      this.searchForm.get("dateTo").setValue(this.defaultData.dateTo);
+    }
+    if (params.roomType) {
+      this.searchForm.get("roomType").setValue(params.roomType);
+    }
+    else {
+      this.searchForm.get("roomType").setValue(this.defaultData.roomType);
+    }
+    if (params.bedrooms) {
+      this.searchForm.get("bedrooms").setValue(params.bedrooms);
+    }
+    else {
+      this.searchForm.get("bedrooms").setValue(this.defaultData.bedrooms);
+    }
+    if (params.guests) {
+      this.searchForm.get("guests").setValue(params.guests);
+    }
+    else {
+      this.searchForm.get("guests").setValue(this.defaultData.guests);
+    }
+  });
   }
 
 }
