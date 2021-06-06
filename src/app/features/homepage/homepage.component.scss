@@ -1,0 +1,40 @@
+@import 'variables.scss';
+#landing-image {
+    height: 50vh;
+    background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('https://hawaiihideaways.com/wp-content/uploads/2019/08/sunray01-1920x880.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    >div {
+        position: absolute;
+        width: 100%;
+        top: 50%;
+        transform: translateY(-50%);
+        h1 {
+            text-shadow: 4px 2px 5px black;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+        h4 {
+            font-weight: 200;
+            color: rgb(195, 195, 195);
+            text-shadow: 4px 2px 5px black;
+        }
+        a {
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+    }
+}
+
+.heading {
+    font-weight: 600;
+    hr {
+        margin-top: 3px;
+        width: 55px;
+        height: 3px;
+        opacity: 1;
+        background-color: $accent-color;
+    }
+}

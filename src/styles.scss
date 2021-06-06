@@ -80,6 +80,7 @@ a {
     border-radius: 4px;
     text-align: center;
     background-color: $accent-color;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
     &:hover {
         color: white;
         background-color: $alternative-color;
@@ -95,6 +96,7 @@ a {
     background-color: transparent;
     border: 1px solid $accent-color;
     font-family: $main-font;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
     &:hover {
         color: white;
         background-color: $accent-color;
