@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import { PropertyListQueryOptions } from '@core/interfaces/property-list';
+import { PropertyList, PropertyListQueryOptions } from '@core/interfaces/property-list';
+import { TravelNews } from '@core/interfaces/travel-news';
+import { VrboPropertyDetails } from '@core/interfaces/vrbo-property-details';
 import axios from 'axios';
 
 @Injectable({
@@ -19,7 +21,7 @@ export class ApiService {
     .then(resp => resp.data);
   }
 
-  public getProperties(cityId: number, options?: PropertyListQueryOptions) {
+  public getProperties(cityId: number, options?: PropertyListQueryOptions) : Promise<PropertyList[]> {
     let extras = "";
     Object.keys(options).forEach(x => {
       extras = `${extras}&${x}=${options[x]}`;
@@ -28,8 +30,13 @@ export class ApiService {
     .then(resp => resp.data.properties);
   }
 
-  public getVrboPropertyDetails(propertyId: string) {
+  public getVrboPropertyDetails(propertyId: string) : Promise<VrboPropertyDetails> {
     return axios.get(`${this.API_BASE_URL}/vrbo/${propertyId}`)
+    .then(resp => resp.data);
+  }
+
+  public getTravelNews() : Promise<TravelNews[]> {
+    return axios.get(`${this.API_BASE_URL}/travel-news`)
     .then(resp => resp.data);
   }
 }

@@ -41,7 +41,7 @@ export class SearchpageComponent implements OnInit {
         this.properties = null;
         const options: PropertyListQueryOptions = this.createQueryOptions(params);
         this.api.getProperties(params.locationId ?? 60272, options)
-        .then((data : PropertyList[] ) => {          
+        .then((data) => {          
           this.filteredProperties = data.filter(x => x.platforms.homeaway_property_id != null);
           this.sortBy(this.sortOrder);
           this.properties = this.filteredProperties;

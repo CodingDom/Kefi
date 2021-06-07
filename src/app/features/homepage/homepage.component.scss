@@ -38,3 +38,19 @@
         background-color: $accent-color;
     }
 }
+
+#destinations {
+    .card {
+        min-height: 100%;
+        .card-body {
+            display: flex;
+            .card-flex-body {
+                display: flex;
+                flex-direction: column;
+                h4 {
+                    flex: 1;
+                }
+            }
+        }
+    }
+}

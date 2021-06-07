@@ -20,7 +20,7 @@ export class DetailspageComponent implements OnInit {
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
     this.api.getVrboPropertyDetails(id)
-    .then((data: VrboPropertyDetails) => {
+    .then((data) => {
       this.details = data;
       this.map_url = `https://maps.google.com/maps?q=${data.listingReducer.geoCode.latitude},${data.listingReducer.geoCode.longitude}&hl=es;z=14&amp;output=embed`;
       this.carouselImages = data.listingReducer.images.map((x, i) => new Image(i, 
