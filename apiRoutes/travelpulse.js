@@ -6,6 +6,7 @@ module.exports = function(router) {
         axios.get("https://travelpulse.com/destinations")
             .then(function(resp) {
                 const $ = cheerio.load(resp.data);
+                const destinations = [];
 
                 $(".regional_news li").each((index, elem) => {
                     const locationLink = $(elem).find("> p").first().find("a");
