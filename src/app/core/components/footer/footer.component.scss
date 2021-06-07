@@ -1,5 +1,6 @@
 @import 'variables.scss';
 footer {
+    letter-spacing: 1px;
     margin-top: 10px;
     padding-top: 10px;
     background-color: $secondary-color;
@@ -27,7 +28,8 @@ footer {
 
 @media (min-width: 768px) {
     footer {
-        padding-top: 20px;
+        padding-top: 40px;
+        padding-bottom: 10px;
         ul {
             margin: 0;
         }
