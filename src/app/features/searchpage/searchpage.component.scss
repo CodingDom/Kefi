@@ -80,11 +80,17 @@
     }
 }
 
+#force-height {
+    min-height: 120px;
+}
+
 #loading-wrapper {
+    padding-top: 66px;
     position: absolute;
     height: 100%;
     width: 100%;
     left: 0;
+    top: 0;
     #load-box {
         position: relative;
         top: 50%;
@@ -98,6 +104,9 @@
 }
 
 @media screen and (min-width: 768px) {
+    #loading-wrapper {
+        padding-top: 0;
+    }
     #view-buttons {
         button.mobile-active {
             background: #fff;
