@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { VrboPropertyDetails } from '@core/interfaces/vrbo-property-details';
 import { ApiService } from '@core/services/api.service';
 import { AccessibilityConfig, Image } from '@ks89/angular-modal-gallery';
@@ -17,7 +17,11 @@ export class DetailspageComponent implements OnInit {
   availability = null;
   openQuote: boolean = false;
 
-  constructor(private api: ApiService, private route: ActivatedRoute) {}
+  constructor(
+    private api: ApiService, 
+    private route: ActivatedRoute,
+    private router: Router
+    ) {}
   
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
@@ -38,6 +42,9 @@ export class DetailspageComponent implements OnInit {
       })); 
       
     console.log(this.details.reviewsReducer.reviews);
+    })
+    .catch(err => {
+      this.router.navigate(["/404"]);
     });
   }
 
