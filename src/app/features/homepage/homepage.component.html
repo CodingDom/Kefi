@@ -20,21 +20,44 @@
             </div>
         </div>
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
-            <div class="col mb-2" *ngFor="let destination of destinations">
-                <div class="card">
-                    <div class="card-header p-0">
-                        <img [src]="destination.thumbnail.src" [alt]="destination.thumbnail.alt" class="w-100" />
-                    </div>
-                    <div class="card-body">
-                        <div class="card-flex-body">
-                            <h4>{{destination.headline}}</h4>
-                            <small class="text-muted mb-1"><i class="fas fa-map-marker-alt"></i> {{destination.location.title}}</small>
-                            <!-- <a *ngIf="locationSearch && locationSearch[destination.location.title]" [routerLink]="['/search']" [queryParams]="locationSearch[destination.location.title]" class="text-center text-muted">Browse Properties</a> -->
-                            <a (click)="searchByLocation(destination.location.title)" class="text-center text-muted">Browse Properties</a>
+            <ng-container *ngIf="destinations != null && destinations.length > 0; else destinations_loading">
+                <div class="col mb-3" *ngFor="let destination of destinations">
+                    <div class="card">
+                        <a [href]="destination.url" target="_blank" class="card-header p-0">
+                            <img [src]="destination.thumbnail.src" [alt]="destination.thumbnail.alt" class="w-100" />
+                        </a>
+                        <div class="card-body">
+                            <div class="card-flex-body">
+                                <a [href]="destination.url" target="_blank">
+                                    <h4>{{destination.headline}}</h4>
+                                </a>
+                                <small class="text-muted mb-1"><i class="fas fa-map-marker-alt"></i> {{destination.location.title}}</small>
+                                <!-- <a *ngIf="locationSearch && locationSearch[destination.location.title]" [routerLink]="['/search']" [queryParams]="locationSearch[destination.location.title]" class="text-center text-muted">Browse Properties</a> -->
+                                <a (click)="searchByLocation(destination.location.title)" class="text-center text-muted">Browse Properties</a>
+                            </div>
                         </div>
                     </div>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</section>
+
+<ng-template #destinations_loading>
+    <div *ngFor="let n of numSequence(6)" class="col mb-3">
+        <div class="card ph-item-animation">
+            <div class="card-header p-0">
+                <div class="ph-picture"></div>
+            </div>
+            <div class="card-body d-block">
+                <div class="ph-row">
+                    <div class="ph-col-10 big"></div>
+                    <div class="ph-col-2 empty big"></div>
+                    <div class="ph-col-2"></div>
+                    <div class="ph-col-10 empty"></div>
+                    <div class="ph-col-4"></div>
                 </div>
             </div>
         </div>
     </div>
-</section>
+</ng-template>

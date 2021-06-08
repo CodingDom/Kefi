@@ -46,4 +46,8 @@ export class HomepageComponent implements OnInit {
     });
   }
 
+  numSequence(n: number): Array<number> {
+    return Array(n);
+  }
+
 }
