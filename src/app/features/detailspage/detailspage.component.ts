@@ -15,6 +15,7 @@ export class DetailspageComponent implements OnInit {
   displayMode: string = "overview";
   carouselImages : Image[] = [];
   availability = null;
+  openQuote: boolean = false;
 
   constructor(private api: ApiService, private route: ActivatedRoute) {}
   

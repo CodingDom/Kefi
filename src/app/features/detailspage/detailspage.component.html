@@ -63,20 +63,16 @@
             </div>
         </div>
         <div class="col-md-4">
-            <div id="scroll-container" class="content-card" style="position: relative; width: unset; top: unset;">
+            <div id="scroll-container" class="content-card d-md-block" [class.d-none]="!openQuote">
                 <div class="row">
                     <div id="reservationform" class="boxed-widget booking-widget margin-top-35">
                         <div class="col-lg-12">
                             <h3>From <span>{{details.listingReducer.priceSummary.amount | currency}}</span> / night</h3>
+                            <i id="exit-quote" class="fas fa-times d-md-none text-white" (click)="openQuote = false"></i>
                         </div>
                         <div class="row with-forms margin-top-0">
                             <div class="col-lg-12"><input id="DateFrom" class="DateFrom form-control hasDatepicker" readonly="readonly" placeholder="Arrival Date"> </div>
                             <div class="col-lg-12"><input id="DateTo" class="DateTo form-control hasDatepicker" readonly="readonly" placeholder="Departure Date"> </div>
-                            <div class="col-lg-12"><select id="PoolHeat" class="form-control">
-                                    <option selected="" value="0">Pool Heat</option>
-                                    <option value="1">Yes</option>
-                                    <option value="0">No</option>
-                                </select> </div>
                         </div>
                         <div class="col-lg-12">
                             <div id="QuotedpErrorMsg" style="color: red"></div><button class="button book-now fullwidth form-control" type="button">Get Quote</button>
@@ -88,6 +84,8 @@
     </div>
 </div>
 
+<button id="mobile-book" class="btn-accent d-md-none" *ngIf="!openQuote" (click)="openQuote = true">BOOK</button>
+<div id="overlay" class="d-md-none" [class.d-none]="!openQuote"></div>
 
 <ng-template #loading>
     <div class="row">

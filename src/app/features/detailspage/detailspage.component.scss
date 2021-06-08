@@ -83,10 +83,32 @@ hr {
     background-color: #b9b9b9;
 }
 
+#mobile-book {
+    position: fixed;
+    padding: 20px 10px;
+    width: unset;
+    border-color: white;
+    border-radius: 50%;
+    bottom: 20px;
+    right: 10px;
+    z-index: 9999;
+}
+
 #scroll-container {
+    position: fixed;
+    width: 90%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     background-color: #333;
     padding: 20px 20px;
     color: white;
+    z-index: 9999;
+    #exit-quote {
+        position: absolute;
+        top: 5px;
+        right: 10px;
+    }
     h3 {
         font-weight: 400;
         font-size: 15px;
@@ -122,6 +144,17 @@ hr {
     }
 }
 
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: 0.6;
+    z-index: 1;
+}
+
 #force-height {
     min-height: 120px;
 }
@@ -140,5 +173,16 @@ hr {
             width: 100px;
             top: 50%;
         }
+    }
+}
+
+@media (min-width: 768px) {
+    #scroll-container {
+        display: block;
+        position: sticky;
+        top: 0;
+        left: unset;
+        width: unset;
+        transform: unset;
     }
 }
