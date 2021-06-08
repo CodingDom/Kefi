@@ -14,8 +14,6 @@
 
 URL: https://staykefi.com/
 
-<hr/>
-
 ## API Documentation
 Use the API base URL: https://kefi-api.herokuapp.com/
 
@@ -179,8 +177,6 @@ Returns json data for all information on a property gathered from Vrbo.
 ```
   </li>
 </ul>
-
-<hr/>
 
 ## Specifications
 <ul>
