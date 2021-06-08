@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationStart, Router } from '@angular/router';
 import { TravelNews } from '@core/interfaces/travel-news';
 import { ApiService } from '@core/services/api.service';
+import { Observable } from 'rxjs';
+import { filter, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-homepage',
@@ -22,6 +24,10 @@ export class HomepageComponent implements OnInit {
       this.shuffleArray(data);
       this.destinations = data.slice(0, 6);
     });
+    
+    if (history.state.destinations) {
+      document.querySelector("#destinations").scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   }
 
   shuffleArray(array) {
