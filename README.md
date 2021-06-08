@@ -1,9 +1,9 @@
-<span style="float:right;font-size:16px;color:grey;">
+<div style="font-size:16px;color:grey;margin-bottom:0!important;" align="right">
     <a href="#about" style="color:white;">About</a> |
     <a href="#api-documentation" style="color:white;">Docs</a> |
     <a href="#specifications" style="color:white;">Specs</a> |
     <a href="#technologies" style="color:white;">Tech</a>
-    </span>
+</div>
 <h1>Kefi Rentals</h1>
 
 ## Preview
