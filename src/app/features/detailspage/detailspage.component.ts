@@ -97,4 +97,8 @@ public starrating(dataRating: Number) : string {
   }
 }
 
+scrollTo(el: HTMLElement) {
+  el.scrollIntoView();
+}
+
 }

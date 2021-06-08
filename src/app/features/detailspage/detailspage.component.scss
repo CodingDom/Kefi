@@ -42,6 +42,13 @@
     }
 }
 
+#review-count {
+    cursor: pointer;
+    &:hover small:first-of-type {
+        text-decoration: underline;
+    }
+}
+
 #description {
     white-space: pre-line;
 }

@@ -5,7 +5,8 @@
                 <h3>{{details.listingReducer.propertyName}}</h3>
                 <p>{{details.listingReducer.headline}}</p>
                 <hr />
-                <p class="starrating">Rating <span class="text-accent" [innerHtml]="starrating(details.listingReducer.averageRating)"></span></p>
+                <p id="review-count" class="d-inline-block" (click)="scrollTo(reviews_section)" *ngIf="details.reviewsReducer.reviews.length > 0"><span class="text-accent" [innerHtml]="starrating(details.listingReducer.averageRating)"></span> <small> {{details.reviewsReducer.reviews.length}} Reviews</small><br/><small>Rating: {{details.listingReducer.averageRating | number : '1.0-2'}}/5</small>
+                </p>
                 <div>
                     <ks-carousel [id]="100" [images]="carouselImages" [playConfig]="{autoPlay: false, interval: 5000, pauseOnHover: true}" [dotsConfig]="{visible: false}"></ks-carousel>
                 </div>
@@ -21,7 +22,7 @@
                         <app-map *ngIf="displayMode == 'map'" [properties]="[details.listingReducer.geoCode]"></app-map>
                     </div>
                 </div>
-                <hr />
+                <hr *ngIf="availability || details.reviewsReducer.reviews.length > 0" />
                 <div id="availability-accordion" class="accordion mb-2" *ngIf="availability">
                     <div class="card">
                         <div id="availability-heading" class="card-header" data-bs-toggle="collapse" data-bs-target="#collapse-availability" aria-expanded="true" aria-controls="collapse-availability">
@@ -37,7 +38,7 @@
                 </div>
                 <!--End of Accordion-->
 
-                <div id="reviews-accordion" class="accordion" *ngIf="details.reviewsReducer.reviews.length > 0">
+                <div #reviews_section id="reviews-accordion" class="accordion" [class.d-none]="details.reviewsReducer.reviews.length == 0">
                     <div class="card">
                         <div id="reviews-heading" class="card-header" data-bs-toggle="collapse" data-bs-target="#collapse-reviews" aria-expanded="true" aria-controls="collapse-reviews">
                             <h5 class="mb-0">Reviews <span class="fas fa-chevron-down float-end"></span></h5>
