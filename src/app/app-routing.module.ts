@@ -8,8 +8,8 @@ import { SearchpageComponent } from '@features/searchpage/searchpage.component';
 const routes: Routes = [
   { path: '', component: HomepageComponent, pathMatch: "full" },
   { path: 'search', component: SearchpageComponent },
-  { path: 'details', component: DetailspageComponent, pathMatch: "full"},
-  { path: 'details/:id', component:DetailspageComponent }
+  // { path: 'property', component: DetailspageComponent, pathMatch: "full"},
+  { path: 'property/:id', component:DetailspageComponent }
 ];
 
 @NgModule({
