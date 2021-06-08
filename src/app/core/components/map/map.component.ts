@@ -1,4 +1,5 @@
 import { Component, AfterViewInit, Input } from '@angular/core';
+import { PropertyList } from '@core/interfaces/property-list';
 import * as L from 'leaflet';
 
 @Component({
@@ -11,7 +12,7 @@ export class MapComponent implements AfterViewInit {
   private markers = [];
 
   @Input()
-  get properties() {
+  get properties() : PropertyList[] {
     return this._properties;
   }
   set properties(val) {
@@ -65,9 +66,22 @@ export class MapComponent implements AfterViewInit {
         this.markers.push(marker);
         if (this.popUp) {          
           marker.addTo(this.map)
-              .bindPopup(`<div>
-        <img src="${info.img_cover}" width="150px" height="80px" style="object-fit:cover;"/>
-        <p style="max-width:60px;">${info.title}</p>			
+              .bindPopup(`<div style="width:150px">
+              <div style="height:66px;"></div>
+        <img src="${info.img_cover}" width="100%" height="80px" style="position:absolute;top:0;left:0;object-fit:cover;"/>
+        <div class="row text-center mt-1">
+          <div class="col">
+            <i class="fas fa-users"></i> ${info.accommodates}
+          </div>
+          <div class="col">
+            <i class="fas fa-bed"></i> ${info.bedrooms}
+          </div>    
+          <div class="col">
+            <i class="fas fa-bath"></i> ${info.bathrooms}
+          </div>
+        </div>
+        <p>${info.title}</p>			
+        <div class="text-center"><a href="/property/${info.platforms.homeaway_property_id}" class="btn-accent py-2 px-4" style="color:white;">View</a></div>
         </div>`);
         } 
         else {
