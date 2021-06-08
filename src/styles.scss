@@ -172,6 +172,15 @@ ks-carousel-previews {
     filter: hue-rotate(264deg);
 }
 
+input,
+select,
+button {
+    &:focus {
+        box-shadow: none !important;
+        outline: none;
+    }
+}
+
 @media (min-width: 768px) {
     .container {
         max-width: 100%;
