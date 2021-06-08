@@ -1,0 +1,23 @@
+img {
+    width: 75%;
+    object-fit: contain;
+}
+
+#notFound-message {
+    position: absolute;
+    top: 30%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+}
+
+@media (min-width: 768px) {
+    img {
+        max-height: calc(100vh - 255px);
+    }
+    h1 {
+        font-size: 60px;
+    }
+    p {
+        font-size: 30px;
+    }
+}

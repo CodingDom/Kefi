@@ -15,14 +15,16 @@ import { HomepageComponent } from '@features/homepage/homepage.component';
 import { PropertyFilterComponent } from '@features/searchpage/components/property-filter/property-filter.component';
 import { PropertyComponent } from '@features/searchpage/components/property/property.component';
 import { DetailspageComponent } from '@features/detailspage/detailspage.component';
+import { MapComponent } from './core/components/map/map.component';
+import { FooterComponent } from './core/components/footer/footer.component';
+import { NotFoundComponent } from './features/not-found/not-found.component';
 import { SafePipe } from '@core/pipes/safe.pipe';
+
 
 // ********************** angular-modal-gallery *****************************
 import 'hammerjs'; // Mandatory for angular-modal-gallery 3.x.x or greater (`npm i --save hammerjs`)
 import 'mousetrap'; // Mandatory for angular-modal-gallery 3.x.x or greater (`npm i --save mousetrap`)
-import { GalleryModule } from '@ks89/angular-modal-gallery';
-import { MapComponent } from './core/components/map/map.component';
-import { FooterComponent } from './core/components/footer/footer.component'; // <----------------- angular-modal-gallery library import
+import { GalleryModule } from '@ks89/angular-modal-gallery'; // <----------------- angular-modal-gallery library import
 // **************************************************************************
 
 @NgModule({
@@ -36,7 +38,8 @@ import { FooterComponent } from './core/components/footer/footer.component'; // 
     DetailspageComponent,
     SafePipe,
     MapComponent,
-    FooterComponent 
+    FooterComponent,
+    NotFoundComponent 
   ],
   imports: [
     BrowserModule,
