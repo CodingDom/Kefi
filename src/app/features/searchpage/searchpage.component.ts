@@ -24,7 +24,7 @@ export class SearchpageComponent implements OnInit {
   propertyTypes: string[] = [];
   filteredProperties: PropertyList[] = null;
   filterOptions = this.formBuilder.group(this.defaultData);
-  sortOrder: string = "0";
+  sortOrder: any = "0";
 
   displayMode = "grid";
   numberOfRentals = ["0"];  
@@ -42,8 +42,9 @@ export class SearchpageComponent implements OnInit {
         const options: PropertyListQueryOptions = this.createQueryOptions(params);
         this.api.getProperties(params.locationId ?? 60272, options)
         .then((data) => {          
-          this.filteredProperties = data.filter(x => x.platforms.homeaway_property_id != null);
-          this.sortBy(this.sortOrder);
+          const tempFilteredProperties = data.filter(x => x.platforms.homeaway_property_id != null);
+          this.sortBy(this.sortOrder, tempFilteredProperties);
+          this.filteredProperties = tempFilteredProperties;
           this.properties = this.filteredProperties;
           this.propertyTypes = this.properties.map(x => x.property_type).filter((x, i, self) => self.indexOf(x) == i).sort();
           this.resetFilters();
@@ -115,23 +116,23 @@ export class SearchpageComponent implements OnInit {
       (12 * (dateTo.getFullYear() - dateFrom.getFullYear()))
    }
 
-   sortBy(val: string) {
-     switch(val) {
-       case "0": 
-        this.filteredProperties.sort((a,b) => (b.rating ?? 0) - (a.rating ?? 0) );
+   sortBy(val: any, arr?: PropertyList[]) {
+     if (arr == null) 
+      arr = this.filteredProperties;
+
+     switch(parseInt(val)) {
+       case 1:
+        arr.sort((a,b) => (a.adr ?? 0) - (b.adr ?? 0));
        break;
-       case "1":
-        this.filteredProperties.sort((a,b) => (a.adr ?? 0) - (b.adr ?? 0));
-       break;
-       case "2":
-        this.filteredProperties.sort((a,b) => (b.adr ?? 0) - (a.adr ?? 0));
+       case 2:
+        arr.sort((a,b) => (b.adr ?? 0) - (a.adr ?? 0));
         console.log("Works");
        break;
-       case "3": 
-        this.filteredProperties.sort((a,b) => (a.rating ?? 0) - (b.rating ?? 0) );
+       case 3: 
+        arr.sort((a,b) => (a.rating ?? 0) - (b.rating ?? 0) );
        break;
        default: 
-        console.log("This one works tho...");
+       arr.sort((a,b) => (b.rating ?? 0) - (a.rating ?? 0) );
      }
      this.sortOrder = val;
    }

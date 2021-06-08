@@ -12,13 +12,16 @@
             </div>
             <div class="row mb-3">
                 <div class="col-md-6 col-lg-4">
-                    <select class="form-control" (change)="sortBy($event.target.value)">
-                        <option value="0">Recommended</option>
-                        <option value="1">Price Low to High</option>
-                        <option value="2">Price High to Low</option>
-                        <option value="3">Rating Low to High</option>
-                        <option value="0">Rating High to Low</option>
-                    </select>
+                    <div class="input-with-icon right-icon">
+                        <select class="form-control" (change)="sortBy($event.target.value)" [value]="sortOrder">
+                            <option value="0">Recommended</option>
+                            <option value="1">Price Low to High</option>
+                            <option value="2">Price High to Low</option>
+                            <option value="3">Rating Low to High</option>
+                            <option value="4">Rating High to Low</option>
+                        </select>
+                        <i class="fas" [class.fa-sort]="sortOrder == 0" [class.fa-sort-amount-up-alt]="sortOrder%2 == 1" [class.fa-sort-amount-down-alt]="sortOrder > 0 && sortOrder%2 == 0"></i>
+                    </div>
                 </div>
             </div>
             <ng-container *ngIf="filteredProperties.length > 0; else invalidFilters">
