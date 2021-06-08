@@ -1,11 +1,10 @@
-<h1>Kefi Rentals 
-    <span style="float:right;font-size:16px;color:grey;">
+<span style="float:right;font-size:16px;color:grey;">
     <a href="#about" style="color:white;">About</a> |
     <a href="#api-documentation" style="color:white;">Docs</a> |
     <a href="#specifications" style="color:white;">Specs</a> |
     <a href="#technologies" style="color:white;">Tech</a>
     </span>
-</h1>
+<h1>Kefi Rentals</h1>
 
 ## Preview
 <img src="./readme-assets/mockup-design2.png">
