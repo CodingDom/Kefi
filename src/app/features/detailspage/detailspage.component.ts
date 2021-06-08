@@ -14,6 +14,7 @@ export class DetailspageComponent implements OnInit {
   map_url: string;
   displayMode: string = "overview";
   carouselImages : Image[] = [];
+  availability = null;
 
   constructor(private api: ApiService, private route: ActivatedRoute) {}
   

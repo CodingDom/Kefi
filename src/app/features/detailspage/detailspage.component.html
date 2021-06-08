@@ -22,7 +22,7 @@
                     </div>
                 </div>
                 <hr />
-                <div id="availability-accordion" class="accordion mb-2">
+                <div id="availability-accordion" class="accordion mb-2" *ngIf="availability">
                     <div class="card">
                         <div id="availability-heading" class="card-header" data-bs-toggle="collapse" data-bs-target="#collapse-availability" aria-expanded="true" aria-controls="collapse-availability">
                             <h5 class="mb-0">Availability <span class="fas fa-chevron-down float-end"></span></h5>
@@ -47,10 +47,11 @@
                             <div class="card-body">
                                 <ng-container *ngFor="let review of details.reviewsReducer.reviews; index as i;">
                                     <div>
-                                        <p>{{review.reviewer.nickname}}</p>
+                                        <hr *ngIf="i != 0" />
+                                        <p class="m-0 text-capital"><b>{{review.reviewer.nickname}}</b><span class="float-end text-accent" [innerHtml]="starrating(review.rating)"></span></p>
+                                        <div class="mb-3"><small>{{review.createdDate}}</small></div>
                                         <h6>{{review.headline}}</h6>
                                         <p>{{review.body}}</p>
-                                        <hr *ngIf="i != (details.reviewsReducer.reviews.length-1)" />
                                     </div>
                                 </ng-container>
                             </div>
