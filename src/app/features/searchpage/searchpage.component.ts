@@ -16,6 +16,7 @@ export class SearchpageComponent implements OnInit {
     propertyType: ''
   };
 
+  searchError: boolean = false;
   pageNumber : number = 1;
   pageNumbers : number[] = [1];
   pageNumberSet : number[] = this.pageNumbers;
@@ -41,9 +42,10 @@ export class SearchpageComponent implements OnInit {
         this.properties = null;
         const options: PropertyListQueryOptions = this.createQueryOptions(params);
         this.api.getProperties(params.locationId ?? 60272, options)
-        .then((data) => {          
+        .then((data) => {                    
           const tempFilteredProperties = data.filter(x => x.platforms.homeaway_property_id != null);
           this.sortBy(this.sortOrder, tempFilteredProperties);
+          this.searchError = false;
           this.filteredProperties = tempFilteredProperties;
           this.properties = this.filteredProperties;
           this.propertyTypes = this.properties.map(x => x.property_type).filter((x, i, self) => self.indexOf(x) == i).sort();
@@ -51,6 +53,12 @@ export class SearchpageComponent implements OnInit {
           this.numberOfRentals = this.filteredProperties.length.toString().split("");
           this.pageNumbers = Array(Math.ceil(this.filteredProperties.length/this.propertiesPerPage)).fill(0).map((x,i)=>i+1);
           this.updatePageNumber(1);
+        })
+        .catch(err => {
+          console.log(err);
+          this.searchError = true;
+          this.filteredProperties = [];
+          this.properties = [];
         });
       }
     );

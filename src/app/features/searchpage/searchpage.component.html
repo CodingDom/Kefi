@@ -61,7 +61,8 @@
 </ng-template>
 
 <ng-template #invalidSearch>
-    <h4>No properties are available for your search requirements. Please try a new search.</h4>
+    <h4 *ngIf="!searchError">No properties are available for your search requirements. Please try a new search.</h4>
+    <h4 *ngIf="searchError">An error occured in your search, please try again. If the error reoccurs, try searching with other options.</h4>
 </ng-template>
 
 <ng-template #loading>
