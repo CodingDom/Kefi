@@ -97,7 +97,7 @@ hr {
 #scroll-container {
     position: fixed;
     width: 90%;
-    max-width: 220px;
+    max-width: 300px;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -184,6 +184,7 @@ hr {
         top: 0;
         left: unset;
         width: unset;
+        max-width: unset;
         transform: unset;
     }
 }
