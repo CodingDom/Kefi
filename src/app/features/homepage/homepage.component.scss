@@ -2,7 +2,7 @@
 @import 'variables.scss';
 #landing-image {
     height: 50vh;
-    background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('https://hawaiihideaways.com/wp-content/uploads/2019/08/sunray01-1920x880.jpg');
+    background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('/assets/images/landing-image.jpg');
     background-size: cover;
     background-position: center;
     position: relative;
