@@ -1,3 +1,3 @@
 # Kefi
 
-<img src="./src/assets/images/mockup-design.png">
+<img src="./src/assets/images/mockup-design2.png">
