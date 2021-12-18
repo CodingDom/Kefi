@@ -22,12 +22,25 @@ export class HomepageComponent implements OnInit {
   ngOnInit(): void {
     this.api.getTravelNews().then(data => {
       this.shuffleArray(data);
-      this.destinations = data.slice(0, 6);
+      this.preloadDestinations(data.slice(0,6));
     });
     
     if (history.state.destinations) {
       document.querySelector("#destinations").scrollIntoView({ behavior: "smooth", block: "start" });
     }
+  }
+
+  preloadDestinations(data) {
+    let loaded = 0;
+    data.forEach(d => {
+      const img = new Image();
+      img.src = d.thumbnail.src;
+      img.onload = () => {
+        loaded++;
+        if (loaded === data.length)
+          this.destinations = data;
+      }
+    });
   }
 
   shuffleArray(array) {

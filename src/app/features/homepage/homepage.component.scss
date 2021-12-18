@@ -68,6 +68,7 @@
     }
     .card {
         min-height: 100%;
+        overflow-x: hidden;
         .ph-picture {
             height: 220px;
         }
