@@ -16,6 +16,19 @@ export class PropertyComponent implements OnInit {
 
   @Input() displayMode : string;
 
+  starsObject = {
+    fiveStars: this.starsOutput('fa fa-star', 'fa fa-star', 'fa fa-star', 'fa fa-star', 'fa fa-star'),
+    fourHalfStars: this.starsOutput('fa fa-star', 'fa fa-star', 'fa fa-star', 'fa fa-star', 'fa fa-star-half-alt'),
+    fourStars: this.starsOutput('fa fa-star', 'fa fa-star', 'fa fa-star', 'fa fa-star', 'far fa-star'),
+    threeHalfStars: this.starsOutput('fa fa-star', 'fa fa-star', 'fa fa-star', 'fa fa-star-half-alt', 'far fa-star'),
+    threeStars: this.starsOutput('fa fa-star', 'fa fa-star', 'fa fa-star', 'far fa-star', 'far fa-star'),
+    twoHalfStars: this.starsOutput('fa fa-star', 'fa fa-star', 'fa fa-star-half-alt', 'far fa-star', 'far fa-star'),
+    twoStars: this.starsOutput('fa fa-star', 'fa fa-star', 'far fa-star', 'far fa-star', 'far fa-star'),
+    oneHalfStar: this.starsOutput('fa fa-star', 'fa fa-star-half-alt', 'far fa-star', 'far fa-star', 'far fa-star'),
+    oneStar: this.starsOutput('fa fa-star', 'far fa-star', 'far fa-star', 'far fa-star', 'far fa-star'),
+    noStars: this.starsOutput('far fa-star', 'far fa-star', 'far fa-star', 'far fa-star', 'far fa-star')
+  }
+
   constructor() { }
 
   ngOnInit(): void {
@@ -31,45 +44,29 @@ export class PropertyComponent implements OnInit {
 }
 
   public starrating(dataRating: number) : string {
-    const fiveStars = this.starsOutput('fa fa-star', 'fa fa-star', 'fa fa-star', 'fa fa-star', 'fa fa-star');
-
-    const fourHalfStars = this.starsOutput('fa fa-star', 'fa fa-star', 'fa fa-star', 'fa fa-star', 'fa fa-star-half-alt');
-    const fourStars = this.starsOutput('fa fa-star', 'fa fa-star', 'fa fa-star', 'fa fa-star', 'far fa-star');
-
-    const threeHalfStars = this.starsOutput('fa fa-star', 'fa fa-star', 'fa fa-star', 'fa fa-star-half-alt', 'far fa-star');
-    const threeStars = this.starsOutput('fa fa-star', 'fa fa-star', 'fa fa-star', 'far fa-star', 'far fa-star');
-
-    const twoHalfStars = this.starsOutput('fa fa-star', 'fa fa-star', 'fa fa-star-half-alt', 'far fa-star', 'far fa-star');
-    const twoStars = this.starsOutput('fa fa-star', 'fa fa-star', 'far fa-star', 'far fa-star', 'far fa-star');
-
-    const oneHalfStar = this.starsOutput('fa fa-star', 'fa fa-star-half-alt', 'far fa-star', 'far fa-star', 'far fa-star');
-    const oneStar = this.starsOutput('fa fa-star', 'far fa-star', 'far fa-star', 'far fa-star', 'far fa-star');
-
-    const noStars = this.starsOutput('far fa-star', 'far fa-star', 'far fa-star', 'far fa-star', 'far fa-star');
-
     dataRating = (dataRating/10)*5;
 
     // Rules
     if (dataRating >= 4.75) {
-        return fiveStars;
+        return this.starsObject.fiveStars;
     } else if (dataRating >= 4.25) {
-        return fourHalfStars;
+        return this.starsObject.fourHalfStars;
     } else if (dataRating >= 3.75) {
-        return fourStars;
+        return this.starsObject.fourStars;
     } else if (dataRating >= 3.25) {
-        return threeHalfStars;
+        return this.starsObject.threeHalfStars;
     } else if (dataRating >= 2.75) {
-        return threeStars;
+        return this.starsObject.threeStars;
     } else if (dataRating >= 2.25) {
-        return twoHalfStars;
+        return this.starsObject.twoHalfStars;
     } else if (dataRating >= 1.75) {
-        return twoStars;
+        return this.starsObject.twoStars;
     } else if (dataRating >= 1.25) {
-        return oneHalfStar;
+        return this.starsObject.oneHalfStar;
     } else if (dataRating > 0) {
-        return oneStar;
+        return this.starsObject.oneStar;
     } else {
-        return noStars;
+        return this.starsObject.noStars;
     }
   }
 
