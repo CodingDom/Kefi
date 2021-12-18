@@ -3,7 +3,7 @@ const cheerio = require('cheerio');
 
 module.exports = function(router) {
     router.get('/travel-news', function(req, res) {
-        axios.get("https://travelpulse.com/news/destinations")
+        axios.get("https://www.travelpulse.com/destinations/")
             .then(function(resp) {
                 const $ = cheerio.load(resp.data);
                 const destinations = [];
