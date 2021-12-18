@@ -23,6 +23,7 @@ $Kefi-theme: mat.define-light-theme($Kefi-primary, $Kefi-accent, $Kefi-warn);
 /* You can add global styles to this file, and also import other style files */
 
 @import 'variables.scss';
+@import 'font-awesome.scss';
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 html,
 body {
@@ -179,103 +180,6 @@ button {
         box-shadow: none !important;
         outline: none;
     }
-}
-
-.fa,
-.fas,
-.far {
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  display: inline-block;
-  font-style: normal;
-  font-variant: normal;
-  text-rendering: auto;
-  line-height: 1; 
-}
-
-.fa-users:before {
-    content: "\f0c0"; 
-}
-
-.fa-bath:before {
-    content: "\f2cd"; 
-}
-
-.fa-bed:before {
-    content: "\f236"; 
-}
-
-.fa-calendar-alt:before {
-    content: "\f073"; 
-}
-
-.fa-chevron-down:before {
-    content: "\f078"; 
-}
-
-.fa-list:before {
-    content: "\f03a"; 
-}
-
-.fa-map-marker-alt:before {
-    content: "\f3c5"; 
-}
-
-.fa-search:before {
-    content: "\f002"; 
-}
-
-.fa-sort:before {
-    content: "\f0dc"; 
-}
-
-.fa-sort-amount-down-alt:before {
-    content: "\f884"; 
-}
-
-.fa-sort-amount-up-alt:before {
-    content: "\f885"; 
-}
-
-.fa-star:before {
-    content: "\f005"; 
-}
-
-.fa-star-half-alt:before {
-    content: "\f5c0"; 
-}
-
-.fa-th:before {
-    content: "\f00a"; 
-}
-
-.fa-times:before {
-    content: "\f00d"; 
-}
-
-@font-face {
-    font-family: 'Font Awesome 5 Free';
-    font-style: normal;
-    font-weight: 400;
-    font-display: block;
-    src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/webfonts/fa-regular-400.eot");
-    src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/webfonts/fa-regular-400.eot?#iefix") format("embedded-opentype"), url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/webfonts/fa-regular-400.woff2") format("woff2"), url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/webfonts/fa-regular-400.woff") format("woff"), url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/webfonts/fa-regular-400.ttf") format("truetype"), url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/webfonts/fa-regular-400.svg#fontawesome") format("svg"); }
-.far {
-    font-family: 'Font Awesome 5 Free';
-    font-weight: 400; 
-}
-@font-face {
-    font-family: 'Font Awesome 5 Free';
-    font-style: normal;
-    font-weight: 900;
-    font-display: block;
-    src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/webfonts/fa-solid-900.eot");
-    src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/webfonts/fa-solid-900.eot?#iefix") format("embedded-opentype"), url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/webfonts/fa-solid-900.woff2") format("woff2"), url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/webfonts/fa-solid-900.woff") format("woff"), url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/webfonts/fa-solid-900.ttf") format("truetype"), url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/webfonts/fa-solid-900.svg#fontawesome") format("svg"); }
-    
-.fa,
-.fas {
-    font-family: 'Font Awesome 5 Free';
-    font-weight: 900; 
 }
 
 @media (min-width: 768px) {

@@ -27,8 +27,8 @@
                             "src/assets",
                             {
                                 "glob": "**/*",
-                                "input": "./node_modules/leaflet/dist/images",
-                                "output": "./leaflet/images"
+                                "input": "./node_modules/leaflet/dist",
+                                "output": "./leaflet"
                             },
                             {
                                 "glob": "_redirects",
@@ -37,7 +37,11 @@
                             }
                         ],
                         "styles": [
-                            "./node_modules/leaflet/dist/leaflet.css",
+                            {
+                                "input": "./node_modules/leaflet/dist/leaflet.css",
+                                "bundleName": "leaflet-style",
+                                "inject": false
+                            },
                             "src/styles.scss"
                         ],
                         "stylePreprocessorOptions": {
