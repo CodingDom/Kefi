@@ -1,16 +1,23 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { DetailspageComponent } from '@features/detailspage/detailspage.component';
-import { HomepageComponent } from '@features/homepage/homepage.component';
 import { NotFoundComponent } from '@features/not-found/not-found.component';
-import { SearchpageComponent } from '@features/searchpage/searchpage.component';
 
 
 const routes: Routes = [
-  { path: '', component: HomepageComponent, pathMatch: "full" },
-  { path: 'search', component: SearchpageComponent },
+  { 
+    path: '', 
+    pathMatch: "full" ,
+    loadChildren: () => import("@features/homepage/homepage.module").then(m => m.HomepageModule)
+  },
+  { 
+    path: 'search',
+    loadChildren: () => import("@features/searchpage/searchpage.module").then(m => m.SearchpageModule)
+  },
   // { path: 'property', component: DetailspageComponent, pathMatch: "full"},
-  { path: 'property/:id', component:DetailspageComponent },
+  { 
+    path: 'property/:id', 
+    loadChildren: () => import('@features/detailspage/detailspage.module').then(m => m.DetailsModule) 
+  },
   {path: '404', component: NotFoundComponent},
   {path: '**', redirectTo: '/404'}
 ];
