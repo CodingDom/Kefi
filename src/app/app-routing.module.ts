@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { NotFoundComponent } from '@features/not-found/not-found.component';
-
 
 const routes: Routes = [
   { 
@@ -18,7 +16,10 @@ const routes: Routes = [
     path: 'property/:id', 
     loadChildren: () => import('@features/detailspage/detailspage.module').then(m => m.DetailsModule) 
   },
-  {path: '404', component: NotFoundComponent},
+  {
+    path: '404',
+    loadChildren: () => import("@features/not-found/not-found.module").then(m => m.NotFoundModule);
+  },
   {path: '**', redirectTo: '/404'}
 ];
 
