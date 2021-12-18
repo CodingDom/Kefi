@@ -1,12 +1,22 @@
 @import "~/node_modules/placeholder-loading/src/scss/placeholder-loading";
 @import 'variables.scss';
-#landing-image {
-    height: 50vh;
-    background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('/assets/images/landing-image.jpg');
-    background-size: cover;
-    background-position: center;
+#landing-header {
+    height: 50vh;   
     position: relative;
-    >div {
+    #landing-image {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+    #landing-overlay {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background:rgba(0, 0, 0, 0.5);
+    }
+    #landing-message {
         position: absolute;
         width: 100%;
         top: 50%;
@@ -16,7 +26,7 @@
             letter-spacing: 4px;
             text-transform: uppercase;
         }
-        h4 {
+        p {
             font-weight: 200;
             color: rgb(195, 195, 195);
             text-shadow: 4px 2px 5px black;
