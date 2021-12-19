@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { Meta } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { Currency, PropertyList, PropertyListQueryOptions, RoomTypes } from '@core/interfaces/property-list';
 import { ApiService } from '@core/services/api.service';
@@ -33,10 +34,15 @@ export class SearchpageComponent implements OnInit {
   constructor(
     private api: ApiService, 
     private route: ActivatedRoute,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private metaTagService: Meta
   ) { }
-
+  
   ngOnInit(): void {
+    this.metaTagService.updateTag({ 
+      name: 'description', 
+      content: "Search anywhere in the world for your dream vacation home through Kefi Rentals." 
+    });
     this.route.queryParams
       .subscribe(params => {
         this.properties = null;

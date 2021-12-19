@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationStart, Router } from '@angular/router';
+import { Meta } from '@angular/platform-browser';
 import { TravelNews } from '@core/interfaces/travel-news';
 import { ApiService } from '@core/services/api.service';
 import { Observable } from 'rxjs';
@@ -16,10 +17,15 @@ export class HomepageComponent implements OnInit {
 
   constructor(
     private api : ApiService,
-    private router: Router
+    private router: Router,
+    private metaTagService: Meta
   ) { }
 
   ngOnInit(): void {
+    this.metaTagService.updateTag({ 
+      name: 'description', 
+      content: "Book your dream vacation home anywhere in the world through Kefi Rentals." 
+    });
     this.api.getTravelNews().then(data => {
       this.shuffleArray(data);
       this.preloadDestinations(data.slice(0,6));

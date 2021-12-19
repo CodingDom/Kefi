@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Meta } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { VrboPropertyDetails } from '@core/interfaces/vrbo-property-details';
 import { ApiService } from '@core/services/api.service';
@@ -20,10 +21,15 @@ export class DetailspageComponent implements OnInit {
   constructor(
     private api: ApiService, 
     private route: ActivatedRoute,
-    private router: Router
-    ) {}
+    private router: Router,
+    private metaTagService: Meta
+  ) { }
   
   ngOnInit(): void {
+    this.metaTagService.updateTag({ 
+      name: 'description', 
+      content: "Take a look at this beautiful vacation home through Kefi Rentals." 
+    });
     const id = this.route.snapshot.paramMap.get('id');
     this.api.getVrboPropertyDetails(id)
     .then((data) => {
