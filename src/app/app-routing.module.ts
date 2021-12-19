@@ -17,10 +17,9 @@ const routes: Routes = [
     loadChildren: () => import('@features/detailspage/detailspage.module').then(m => m.DetailsModule) 
   },
   {
-    path: '404',
+    path: '**',
     loadChildren: () => import("@features/not-found/not-found.module").then(m => m.NotFoundModule)
-  },
-  {path: '**', redirectTo: '/404'}
+  }
 ];
 
 @NgModule({
