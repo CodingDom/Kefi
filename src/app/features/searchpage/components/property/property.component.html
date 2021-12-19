@@ -1,5 +1,5 @@
 <div *ngIf="info" class="card" [class.list-view]="displayMode == 'list'" style="width: 100%;">
-    <div style="background-image:url('{{info.img_cover}}');cursor:pointer;" [title]="info.title" class="w-100 prop-img"></div>
+    <a [routerLink]="['/property', info.platforms.homeaway_property_id]"style="background-image:url('{{info.img_cover}}');" [title]="info.title" class="w-100 prop-img"></a>
     <div class="card-body text-center">
         <p class="starrating text-center text-accent" [innerHtml]="starrating(info.rating ?? 0)"></p>
         <h5 class="text-center">{{info.title}}</h5>
