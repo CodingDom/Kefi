@@ -3,8 +3,9 @@ const fs = require('fs').promises
 
 module.exports = {
     onPostBuild: async ({ inputs, constants, utils }) => {
+        console.log(constants.PUBLISH_DIR);
         const purgeCSSResults = await new purgecss.PurgeCSS().purge({
-            content: [constants.PUBLISH_DIR + '/**/*.html'],
+            content: ["src/app" + '/**/*.html', constants.PUBLISH_DIR + '/**/*.js'],
             css: [constants.PUBLISH_DIR + '/**/*.css']
         })
 
