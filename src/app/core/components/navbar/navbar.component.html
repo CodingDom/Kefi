@@ -12,11 +12,15 @@
         margin-right: calc(var(--bs-gutter-x)/ -2);
         margin-left: calc(var(--bs-gutter-x)/ -2);
     }
-
+    
     @media (min-width: 992px) {
         .col-lg-2-5 {
             flex: 0 0 20%;
             max-width: 20%;
+        }
+        .row-cols-lg-3>* {
+            flex: 0 0 auto;
+            width: 33.3333333333%;
         }
     }
 
@@ -24,9 +28,13 @@
         .real-search {
             display: block;
         }
-        .col-md-6 {
+        .row-cols-md-2>*,.col-md-6 {
             flex: 0 0 auto;
             width: 50%;
+        }
+        .col-md-3 {
+            flex: 0 0 auto;
+            width: 25%;
         }
     }
 </style>

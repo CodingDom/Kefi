@@ -1,8 +1,6 @@
 @import "~/node_modules/placeholder-loading/src/scss/placeholder-loading";
 @import 'variables.scss';
 #landing-header {
-    height: 50vh;   
-    position: relative;
     #landing-image {
         height: 100%;
         width: 100%;
@@ -17,10 +15,6 @@
         background:rgba(0, 0, 0, 0.5);
     }
     #landing-message {
-        position: absolute;
-        width: 100%;
-        top: 50%;
-        transform: translateY(-50%);
         h1 {
             text-shadow: 4px 2px 5px black;
             letter-spacing: 4px;
