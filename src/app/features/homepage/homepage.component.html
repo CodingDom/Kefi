@@ -1,20 +1,8 @@
 <link rel="preconnect" href="https://kefi-api.herokuapp.com/api/travel-news">
-<style scoped>
-    #landing-header {
-        position: relative;
-        height: 50vh;
-    }
-    #landing-message {
-        position: absolute;
-        width: 100%;
-        top: 50%;
-        transform: translateY(-50%);
-    }
-</style>
 <div class="container-fluid">
     <div class="row">
         <div class="col-12 p-0">
-            <header id="landing-header" >
+            <header id="landing-header" style="position:relative;height: 50vh;" >
                 <img id="landing-image" height="100%" sizes="(max-width: 1400px) 100vw, 1400px"
                     srcset="/assets/images/landing-images/landing-image_scale_w_200.webp 200w,
                     /assets/images/landing-images/landing-image_scale_w_480.webp 480w,
@@ -28,7 +16,7 @@
                     src="/assets/images/landing-images/landing-image_scale_w_1400.webp"
                     alt="Picture of a Resort">
                 <div id="landing-overlay"></div>
-                <div id="landing-message" class="text-center">
+                <div id="landing-message" style="position:absolute;width:100%;top:50%;transform:translateY(-50%);text-align:center;">
                     <h1 class="text-white">Serving Happiness</h1>
                     <p class="mb-4">Book your stay with Kefi</p>
                     <a class="btn-accent" [routerLink]="['/search']">Book Now</a>
