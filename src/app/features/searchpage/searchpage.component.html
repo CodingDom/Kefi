@@ -6,9 +6,9 @@
         <div *ngIf="properties != null; else loading" class="col">
             <div id="view-buttons">
                 <h2 id="found-rentals"><span *ngFor="let num of numberOfRentals;" class="rental-num">{{num}}</span> rentals found</h2>
-                <button [class.active]="displayMode == 'map'" (click)="displayMode = 'map';"><i class="fa fa-map-marker-alt"></i></button>
-                <button [class.active]="displayMode == 'list'" (click)="displayMode = 'list';" class="d-none d-md-inline-block"><i class="fa fa-list"></i></button>
-                <button [class.active]="displayMode == 'grid'" [class.mobile-active]="displayMode == 'list'" (click)="displayMode = 'grid';"><i class="fas fa-th"></i></button>
+                <button [class.active]="displayMode == 'map'" (click)="displayMode = 'map';" aria-label="Toggle map display"><i class="fa fa-map-marker-alt"></i></button>
+                <button [class.active]="displayMode == 'list'" (click)="displayMode = 'list';" class="d-none d-md-inline-block" aria-label="Toggle list display"><i class="fa fa-list"></i></button>
+                <button [class.active]="displayMode == 'grid'" [class.mobile-active]="displayMode == 'list'" (click)="displayMode = 'grid';" aria-label="Toggle grid display"><i class="fas fa-th"></i></button>
             </div>
             <div class="row mb-3">
                 <div class="col-md-6 col-lg-4">
