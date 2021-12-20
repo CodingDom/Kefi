@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { PropertyList, PropertyListQueryOptions } from '@core/interfaces/property-list';
 import { TravelNews } from '@core/interfaces/travel-news';
 import { VrboPropertyDetails } from '@core/interfaces/vrbo-property-details';
-import axios from 'axios';
 
 @Injectable({
   providedIn: 'root'
@@ -17,8 +16,8 @@ export class ApiService {
     if (location == "") {
       location = "Orlando";
     }
-    return axios.get(`${this.API_BASE_URL}/locations?location=${location}`)
-    .then(resp => resp.data);
+    return fetch(`${this.API_BASE_URL}/locations?location=${location}`)
+    .then(resp => resp.json());
   }
 
   public getProperties(cityId: number, options?: PropertyListQueryOptions) : Promise<PropertyList[]> {
@@ -26,17 +25,18 @@ export class ApiService {
     Object.keys(options).forEach(x => {
       extras = `${extras}&${x}=${options[x]}`;
     });
-    return axios.get(`${this.API_BASE_URL}/properties?cityId=${cityId}${extras}`)
-    .then(resp => resp.data.properties);
+    return fetch(`${this.API_BASE_URL}/properties?cityId=${cityId}${extras}`)
+    .then(resp => resp.json())
+    .then(data => data.properties);
   }
 
   public getVrboPropertyDetails(propertyId: string) : Promise<VrboPropertyDetails> {
-    return axios.get(`${this.API_BASE_URL}/vrbo/${propertyId}`)
-    .then(resp => resp.data);
+    return fetch(`${this.API_BASE_URL}/vrbo/${propertyId}`)
+    .then(resp => resp.json());
   }
 
   public getTravelNews() : Promise<TravelNews[]> {
-    return axios.get(`${this.API_BASE_URL}/travel-news`)
-    .then(resp => resp.data);
+    return fetch(`${this.API_BASE_URL}/travel-news`)
+    .then(resp => resp.json());
   }
 }
