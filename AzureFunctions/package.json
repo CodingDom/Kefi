@@ -1,0 +1,17 @@
+{
+  "name": "kefi-playwright",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "func start",
+    "test": "echo \"No tests yet...\""
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {},
+  "dependencies": {
+    "axios": "^0.25.0",
+    "dotenv": "^16.0.0"
+  }
+}
