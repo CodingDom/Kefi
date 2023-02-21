@@ -6,18 +6,20 @@ module.exports = async function (context, req) {
     try {
         const body = new URLSearchParams({
             username: process.env.AIRDNA_EMAIL,
-            password: process.env.AIRDNA_PASSWORD,
-            remember_me: false
+            password: process.env.AIRDNA_PASSWORD
         });
-        const { data } = await axios.post("https://www.airdna.co/api/v1/account/login", 
+        console.log("Logging in!");
+        const { data } = await axios.post("https://api.airdna.co/auth/v1/login", 
             body,
             {
                 headers: { "Content-Type": "application/x-www-form-urlencoded" }
             }
         );
-
+        console.log(data);
         if (data.token) {
-            await axios.patch("https://api.heroku.com/apps/88a262b1-d1ab-4da1-b9c4-b543aff1e29d/config-vars",
+            console.log("Attempting heroku update");
+            try {
+            const config = await axios.patch("https://api.heroku.com/apps/88a262b1-d1ab-4da1-b9c4-b543aff1e29d/config-vars",
             {
                 AIRDNA_API_KEY: data.token
             },
@@ -28,12 +30,16 @@ module.exports = async function (context, req) {
                 }
             });
 
+            console.log(config);
+            console.log("Successfuly updated token");
             context.res = {
                 body: {
                     message: "Successfully updated token!",
                     token: data.token
                 }
             }
+            }
+            catch(e) {console.log(e)}
         }
         else {
             context.res = {
