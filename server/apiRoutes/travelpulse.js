@@ -3,24 +3,24 @@ const cheerio = require('cheerio');
 
 module.exports = function(router) {
     router.get('/travel-news', function(req, res) {
-        axios.get("https://www.travelpulse.com/destinations/")
+        axios.get("https://www.travelpulse.com/destinations")
             .then(function(resp) {
                 const $ = cheerio.load(resp.data);
                 const destinations = [];
 
-                $(".regional_news li").each((index, elem) => {
-                    const locationLink = $(elem).find("> p").first().find("a");
-                    const locationName = locationLink.text();
+                $(".img-grid-content").each((index, elem) => {
+                    const locationLink = $(elem).find("> a");
+                    const locationName = $(elem).find(".destionation-details--place").text();
                     const locationUrl = locationLink.attr("href");
-                    const thumbnail = $(elem).find("> a").find("img");
+                    const thumbnail = $(elem).find(".destination-image img");
                     const thumbnailAlt = thumbnail.attr("alt");
                     const thumbnailSrc = thumbnail.data("src");
-                    const titleLink = $(elem).find("> a").next().find("a");
-                    const titleUrl = titleLink.attr("href");
+                    const titleLink = $(elem).find(".destionation-details--title");
+                    // const titleUrl = titleLink.attr("href");
                     const titleText = titleLink.text();
-                    const categoryLink = $(elem).find("> p").last().find("a");
-                    const categoryText = categoryLink.text();
-                    const categoryUrl = categoryLink.attr("href");
+                    // const categoryLink = $(elem).find("> p").last().find("a");
+                    // const categoryText = categoryLink.text();
+                    // const categoryUrl = categoryLink.attr("href");
 
                     destinations.push({
                         location: {
@@ -31,12 +31,12 @@ module.exports = function(router) {
                             alt: thumbnailAlt,
                             src: thumbnailSrc
                         },
-                        category: {
-                            url: categoryUrl,
-                            title: categoryText
-                        },
+                        // category: {
+                        //     url: locationUrl,
+                        //     title: categoryText
+                        // },
                         headline: titleText,
-                        url: titleUrl
+                        url: locationUrl
                     });
                 });
 
