@@ -15,3 +15,10 @@ export interface TravelNewsThumbnail {
     alt: string;
     src: string;
 }
+
+export interface TravelNewsQueryParams  { 
+    [key: string]: { 
+        location: string; 
+        locationId: string 
+    } 
+}

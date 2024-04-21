@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { NavigationStart, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Meta } from '@angular/platform-browser';
-import { TravelNews } from '@core/interfaces/travel-news';
+import { TravelNews, TravelNewsQueryParams } from '@core/interfaces/travel-news';
 import { ApiService } from '@core/services/api.service';
-import { Observable } from 'rxjs';
-import { filter, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-homepage',
@@ -13,6 +11,7 @@ import { filter, map } from 'rxjs/operators';
 })
 export class HomepageComponent implements OnInit {
   destinations: TravelNews[] = [];
+  queryParams: TravelNewsQueryParams = {};
   locationSearch: any;
 
   constructor(
@@ -28,7 +27,9 @@ export class HomepageComponent implements OnInit {
     });
     this.api.getTravelNews().then(data => {
       this.shuffleArray(data);
-      this.preloadDestinations(data.slice(0,6));
+      const initialSet = data.slice(0,6);
+      this.setLocationQueries(initialSet);
+      this.preloadDestinations(initialSet);
     });
     
     if (history.state.destinations) {
@@ -56,18 +57,20 @@ export class HomepageComponent implements OnInit {
       }
   }
 
-  searchByLocation(name: string) {
-    this.api.getLocations(name)
-    .then(({items}) => {          
-      const location = items[Math.floor(Math.random() * items.length)];  
-      const query = {
-        location: location.name,
-        locationId: location.city.id
-      };          
-      this.router.navigate(['/search'], { queryParams: query });
-    })
-    .catch(err => {
-      console.log(err);
+  setLocationQueries(destinations: TravelNews[]) {
+    destinations.forEach(destination => {
+      const title = destination.location.title;      
+      this.api.getLocations(title)
+      .then(({items}) => {          
+        const location = items[Math.floor(Math.random() * items.length)];  
+        this.queryParams[title] = {
+          location: location.name,
+          locationId: location.city.id
+        };          
+      })
+      .catch(err => {
+        console.log(err);
+      });
     });
   }
 
