@@ -1,5 +1,6 @@
 const axios = require("axios");
 const cheerio = require('cheerio');
+const mockNews = require('../mock/travel-news.json');
 
 module.exports = function(router) {
     router.get('/travel-news', function(req, res) {
@@ -16,11 +17,7 @@ module.exports = function(router) {
                     const thumbnailAlt = thumbnail.attr("alt");
                     const thumbnailSrc = thumbnail.attr("src");
                     const titleLink = $(elem).find(".destionation-details--title");
-                    // const titleUrl = titleLink.attr("href");
                     const titleText = titleLink.text();
-                    // const categoryLink = $(elem).find("> p").last().find("a");
-                    // const categoryText = categoryLink.text();
-                    // const categoryUrl = categoryLink.attr("href");
 
                     destinations.push({
                         location: {
@@ -31,10 +28,6 @@ module.exports = function(router) {
                             alt: thumbnailAlt,
                             src: thumbnailSrc
                         },
-                        // category: {
-                        //     url: locationUrl,
-                        //     title: categoryText
-                        // },
                         headline: titleText,
                         url: locationUrl
                     });
@@ -42,9 +35,8 @@ module.exports = function(router) {
 
                 res.send(destinations);
             })
-            .catch(function(err) {
-                console.log(err);
-                res.status(500).send(err.message);
+            .catch(function() {
+                res.send(mockNews);
             });
     });
 

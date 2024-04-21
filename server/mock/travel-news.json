@@ -1,0 +1,50 @@
+[
+    {
+        "location": {
+            "url": "/destinations/caribbean/antigua-travel-guide",
+            "title": "Antigua"
+        },
+        "thumbnail": {
+            "alt": "Caribbean view from Shirley Heights, Antigua and Barbuda. (Photo via Sean Pavone Photo / iStock / Getty Images Plus)",
+            "src": "https://ik.imgkit.net/3vlqs5axxjf/MM-TP/ik-seo/https://cdn.travelpulse.com/images/a9aaedf4-a957-df11-b491-006073e71405/d9a82877-c5eb-4eda-8ed0-87277221ef79/source/Antigua.jpg?tr=w-1401%2Ch-610%2Cfo-auto"
+        },
+        "headline": "The Island of Antigua is part of the West Indies, situated east-southeast of Puerto Rico and northeast...",
+        "url": "/destinations/caribbean/antigua-travel-guide"
+    },
+    {
+        "location": {
+            "url": "/destinations/asia/korea-travel-guide",
+            "title": "Korea"
+        },
+        "thumbnail": {
+            "alt": "Seoul, South Korea.",
+            "src": "https://ik.imgkit.net/3vlqs5axxjf/MM-TP/ik-seo/https://cdn.travelpulse.com/images/99999999-9999-9999-9999-999999999999/b7161efe-cac7-5c77-5427-7d70baf7ec59/source/Korea.jpg?tr=w-1401%2Ch-610%2Cfo-auto"
+        },
+        "headline": "A perfect balance between exhilarating city life and breathtakingly scenic sections of nature, South...",
+        "url": "/destinations/asia/korea-travel-guide"
+    },
+    {
+        "location": {
+            "url": "/destinations/caribbean/bahamas",
+            "title": "Bahamas"
+        },
+        "thumbnail": {
+            "alt": "Travelers Atlantis Bahamas",
+            "src": "https://ik.imgkit.net/3vlqs5axxjf/MM-TP/ik-seo/https://cdn.travelpulse.com/images/99999999-9999-9999-9999-999999999999/8ff951bb-de75-19f5-db16-2e2e5296a663/source/Bahamas.jpg?tr=w-1401%2Ch-610%2Cfo-auto"
+        },
+        "headline": "Located in the Lucayan Archipelago in the Caribbean, the Bahamas is made up of over 700 different...",
+        "url": "/destinations/caribbean/bahamas"
+    },
+    {
+        "location": {
+            "url": "/destinations/north-america/new-york-city-travel-guide",
+            "title": "New York City"
+        },
+        "thumbnail": {
+            "alt": "A view from the Top of the Rockefeller Center in New York City",
+            "src": "https://ik.imgkit.net/3vlqs5axxjf/MM-TP/ik-seo/https://cdn.travelpulse.com/images/99999999-9999-9999-9999-999999999999/a5640550-047d-b0cc-23ef-1638fea14417/source/New-York-City.jpg?tr=w-1401%2Ch-610%2Cfo-auto"
+        },
+        "headline": "Are you a New York City newbie? Traveling to NYC for the first time can be daunting, but we’re here to...",
+        "url": "/destinations/north-america/new-york-city-travel-guide"
+    }
+]
