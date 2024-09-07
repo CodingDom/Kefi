@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { AirdnaPropertyDetails } from '@core/interfaces/airdna-property-details';
 import { PropertyList, PropertyListQueryOptions } from '@core/interfaces/property-list';
 import { TravelNews } from '@core/interfaces/travel-news';
 import { VrboPropertyDetails } from '@core/interfaces/vrbo-property-details';
@@ -28,6 +29,11 @@ export class ApiService {
     return fetch(`${this.API_BASE_URL}/properties?cityId=${cityId}${extras}`)
     .then(resp => resp.json())
     .then(data => data.properties);
+  }
+
+  public getAirdnaPropertyDetails(propertyId: string) : Promise<AirdnaPropertyDetails> {
+    return fetch(`${this.API_BASE_URL}/properties/${propertyId}`)
+    .then(resp => resp.json());
   }
 
   public getVrboPropertyDetails(propertyId: string) : Promise<VrboPropertyDetails> {
