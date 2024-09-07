@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { PropertyList } from '@core/interfaces/property-list';
 
 @Component({
   selector: 'app-property',
@@ -68,6 +69,18 @@ export class PropertyComponent implements OnInit {
     } else {
         return this.starsObject.noStars;
     }
+  }
+
+  public getPropertyId(property: PropertyList): string | number {
+    if (property.platforms.airbnb_property_id) {
+      return property.airbnb_property_id;
+    } else if (property.platforms.homeaway_property_id) {
+      return property.homeaway_property_id;
+    } else if (property.m_homeaway_property_id) {
+      return property.m_homeaway_property_id;
+    }
+
+    return property.id;
   }
 
 }

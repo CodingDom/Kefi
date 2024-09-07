@@ -1,5 +1,5 @@
 <div *ngIf="info" class="card" [class.list-view]="displayMode == 'list'" style="width: 100%;">
-    <a [routerLink]="['/property', info.platforms.homeaway_property_id]"style="background-image:url('{{info.img_cover}}');" [title]="info.title" class="w-100 prop-img"></a>
+    <a [routerLink]="['/property', getPropertyId(info)]"style="background-image:url('{{info.img_cover}}');" [title]="info.title" class="w-100 prop-img"></a>
     <div class="card-body text-center">
         <p class="starrating text-center text-accent" [innerHtml]="starrating(info.rating ?? 0)"></p>
         <h5 class="text-center">{{info.title}}</h5>
@@ -10,7 +10,7 @@
         </ul> -->
     </div>
     <div class="card-body" style="background-color:#f5f5f5;border-top:1px solid #e8e8e8;">
-        <a [routerLink]="['/property', info.platforms.homeaway_property_id]" class="btn btn-accent">CONTINUE</a>
+        <a [routerLink]="['/property', getPropertyId(info)]" class="btn btn-accent">CONTINUE</a>
         <hr />
         <span class="tag"><span class="price"><b>{{info.adr | currency}}</b>
                 <span> /night</span></span>
