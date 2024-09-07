@@ -1,11 +1,11 @@
 <div class="container mt-2">
-    <div *ngIf="details != null; else loading" class="row">
+    <div *ngIf="payload != null; else loading" class="row">
         <div class="col-md-8">
             <div class="content-card">
-                <h3>{{details.listingReducer.propertyName}}</h3>
-                <p>{{details.listingReducer.headline}}</p>
+                <h3>{{payload.details.title}}</h3>
+                <p>This demo does not include booking functionality</p>
                 <hr />
-                <p id="review-count" class="d-inline-block" (click)="scrollTo(reviews_section)" *ngIf="details.reviewsReducer.reviews.length > 0"><span class="text-accent" [innerHtml]="starrating(details.listingReducer.averageRating)"></span> <small> {{details.reviewsReducer.reviews.length}} Reviews</small><br/><small>Rating: {{details.listingReducer.averageRating | number : '1.0-2'}}/5</small>
+                <p id="review-count" class="d-inline-block" (click)="scrollTo(reviews_section)" *ngIf="payload.details.reviews > 0"><span class="text-accent" [innerHtml]="starrating(payload.details.rating)"></span> <small> {{payload.details.reviews}} Reviews</small><br/><small>Rating: {{payload.details.rating | number : '1.0-2'}}/5</small>
                 </p>
                 <div>
                     <ks-carousel [id]="100" [images]="carouselImages" [playConfig]="{autoPlay: false, interval: 5000, pauseOnHover: true}" [dotsConfig]="{visible: false}"></ks-carousel>
@@ -15,14 +15,22 @@
                     <button class="btn-details" [class.active]="displayMode=='map'" (click)="displayMode='map' ;">Map</button>
 
                     <div id="overview-container" class="info-section" [class.d-none]="displayMode !='overview'">
-                        <p id="description">{{ details.listingReducer.description }}</p>
+                        <p id="description">
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius ab temporibus, doloribus voluptas alias, odio laborum ad unde expedita consectetur nisi. Modi laborum sint accusantium ab, blanditiis qui minus esse!
+                            <br/>
+                            <br/>
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur dignissimos eaque reiciendis placeat praesentium accusamus aliquid in sed rerum non laudantium beatae consequatur cumque eum, rem impedit ad? Unde, quidem.
+                            <br/>
+                            <br/>
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit fugiat veritatis, deleniti modi dolores autem quod ipsam libero quos laboriosam a, praesentium facilis. Expedita delectus dolores laboriosam esse. Sint, nobis.
+                        </p>
                     </div>
 
                     <div id="map-container" class="info-section" [class.d-none]="displayMode !='map'">
-                        <app-map *ngIf="displayMode == 'map'" [properties]="[details.listingReducer.geoCode]"></app-map>
+                        <app-map *ngIf="displayMode == 'map'" [properties]="[{ latitude: payload.location.lat, longitude: payload.location.lng }]"></app-map>
                     </div>
                 </div>
-                <hr *ngIf="availability || details.reviewsReducer.reviews.length > 0" />
+                <hr *ngIf="availability || payload.details.reviews > 0" />
                 <div id="availability-accordion" class="accordion mb-2" *ngIf="availability">
                     <div class="card">
                         <div id="availability-heading" class="card-header" data-bs-toggle="collapse" data-bs-target="#collapse-availability" aria-expanded="true" aria-controls="collapse-availability">
@@ -38,18 +46,18 @@
                 </div>
                 <!--End of Accordion-->
 
-                <div #reviews_section id="reviews-accordion" class="accordion" [class.d-none]="details.reviewsReducer.reviews.length == 0">
-                    <div class="card">
+                <div #reviews_section id="reviews-accordion" class="accordion" [class.d-none]="payload.details.reviews == 0">
+                    <!-- <div class="card">
                         <div id="reviews-heading" class="card-header" data-bs-toggle="collapse" data-bs-target="#collapse-reviews" aria-expanded="true" aria-controls="collapse-reviews">
                             <h5 class="mb-0">Reviews <span class="fas fa-chevron-down float-end"></span></h5>
                         </div>
 
                         <div id="collapse-reviews" class="collapse show" aria-labelledby="reviews-heading" data-bs-parent="#reviews-accordion">
                             <div class="card-body">
-                                <ng-container *ngFor="let review of details.reviewsReducer.reviews; index as i;">
+                                <ng-container *ngFor="let review of payload.details.reviews; index as i;">
                                     <div>
                                         <hr *ngIf="i != 0" />
-                                        <p class="m-0 text-capital"><b>{{review.reviewer.nickname}}</b><span class="float-end text-accent" [innerHtml]="starrating(review.rating)"></span></p>
+                                        <p class="m-0 text-capital"><b>John Doe</b><span class="float-end text-accent" [innerHtml]="starrating(review.rating)"></span></p>
                                         <div class="mb-3"><small>{{review.createdDate}}</small></div>
                                         <h6>{{review.headline}}</h6>
                                         <p>{{review.body}}</p>
@@ -57,7 +65,7 @@
                                 </ng-container>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <!--End of Accordion-->
             </div>
@@ -67,7 +75,7 @@
                 <div class="row">
                     <div id="reservationform" class="boxed-widget booking-widget margin-top-35">
                         <div class="col-lg-12">
-                            <h3>From <span>{{details.listingReducer.priceSummary.amount | currency}}</span> / night</h3>
+                            <h3>From <span>{{payload.metrics.adr | currency}}</span> / night</h3>
                             <i id="exit-quote" class="fas fa-times d-md-none text-white" (click)="openQuote = false"></i>
                         </div>
                         <div class="row with-forms margin-top-0">
