@@ -1,3 +1,4 @@
+const _ = require('lodash');
 const axios = require("axios");
 const token = process.env.AIRDNA_API_KEY;
 
@@ -33,5 +34,36 @@ module.exports = function(router) {
             .catch(function(err) {
                 res.status(500).send(err.message);
             });
+    });
+
+    router.get('/properties/:id', async function(req, res) {
+        const id = req.params.id;
+
+        if (!id) {
+            return res.status(404).send('No property ID provided!');
+        }
+
+        try {
+            // First API call to search for the property
+            const searchResp = await axios.get(`https://api.airdna.co/api/search/v1/strs/verbose?q=${id}&limit=1`, {
+                headers: {
+                    'Cookie': `mmm-cookie=${token};`
+                }
+            });
+    
+            // Extract the cleanId using lodash
+            const cleanId = _.get(searchResp, 'data.payload.search_results[0].document.staticCombinedPropertyId', '');
+    
+            if (!cleanId) {
+                return res.status(404).send('Property not found!');
+            }
+    
+            // Second API call using the cleanId to get the property details
+            const propertyResp = await axios.get(`https://api.airdna.co/api/explorer/v1/listing/${cleanId}?access_token=${token}&currency=usd&use_native_currency=false`);
+    
+            res.send(propertyResp.data);
+        } catch (err) {
+            res.status(err.response?.status || 500).send(err.message);
+        }
     });
 }
