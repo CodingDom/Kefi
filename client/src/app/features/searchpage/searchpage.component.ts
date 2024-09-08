@@ -49,7 +49,7 @@ export class SearchpageComponent implements OnInit {
         const options: PropertyListQueryOptions = this.createQueryOptions(params);
         this.api.getProperties(params.locationId ?? 60272, options)
         .then((data) => {                    
-          const tempFilteredProperties = data.filter(x => x.platforms.homeaway_property_id != null);
+          const tempFilteredProperties = data.filter(x => x.platforms.airbnb_property_id != null);
           this.sortBy(this.sortOrder, tempFilteredProperties);
           this.searchError = false;
           this.filteredProperties = tempFilteredProperties;
@@ -140,7 +140,6 @@ export class SearchpageComponent implements OnInit {
        break;
        case 2:
         arr.sort((a,b) => (b.adr ?? 0) - (a.adr ?? 0));
-        console.log("Works");
        break;
        case 3: 
         arr.sort((a,b) => (a.rating ?? 0) - (b.rating ?? 0) );
