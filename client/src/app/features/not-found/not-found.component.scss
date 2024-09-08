@@ -3,15 +3,12 @@ img {
 }
 
 #notFound-message {
-    position: absolute;
-    top: 30%;
-    left: 30%;
-    transform: translate(-50%, -50%);
+    text-align: center;
 }
 
 @media (min-width: 768px) {
     img {
-        max-height: calc(100vh - 255px);
+        max-height: calc(100vh - 400px);
     }
     h1 {
         font-size: 60px;
