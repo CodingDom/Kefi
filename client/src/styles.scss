@@ -253,6 +253,9 @@ button {
     .container {
         max-width: 100%;
     }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
     .row-cols-md-2>*,
     .col-md-6 {
         flex: 0 0 auto;
@@ -266,15 +269,15 @@ button {
 }
 
 @media (min-width: 992px) {
-    .col-lg-2-5 {
-        -ms-flex: 0 0 20%;
-        flex: 0 0 20%;
-        max-width: 20%;
-    }
     .row-cols-lg-3>* {
         flex: 0 0 auto;
         width: 33.3333333333%;
     }
+    .col-lg-2-5 {
+        -ms-flex: 0 0 20%;
+        flex: 0 0 20%;
+        max-width: 20%;
+    }    
 }
 
 @media (min-width: 1200px) {
