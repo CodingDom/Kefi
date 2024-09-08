@@ -6,19 +6,13 @@
     color: $alternative-color;
 }
 
-// #filter-container .btn-accent,
-// #filter-container .btn-accent-clear {
-//     border: none;
-//     padding: 5px 0;
-//     margin-top: 12px;
-// }
 .accordion-header {
     text-transform: uppercase;
     cursor: pointer;
     padding: 17px 0px 15px;
     .fa-chevron-down {
         transform: rotateX(0deg);
-        transition: transform 0.75s linear;
+        transition: transform 0.25s linear;
     }
     &[aria-expanded="true"] {
         .fa-chevron-down {
@@ -40,7 +34,7 @@
 .dom-accordion {
     border-bottom: 1px solid rgb(217, 217, 217);
     >div:last-child {
-        transition: .5s all linear;
+        transition: .15s all linear;
         margin-bottom: 0px;
         &.show {
             margin-bottom: 15px;
