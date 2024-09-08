@@ -6,14 +6,8 @@ import { FormGroup } from '@angular/forms';
   templateUrl: './property-filter.component.html',
   styleUrls: ['./property-filter.component.scss']
 })
-export class PropertyFilterComponent implements OnInit {
+export class PropertyFilterComponent {
   @Input() form: FormGroup;
   @Input() propertyTypes: string[];
   @Input() resetFilters: Function;
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
 }
