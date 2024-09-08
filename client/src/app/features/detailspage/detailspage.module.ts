@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { MapModule } from '@shared/app-map/map.module';
+import { MapModule } from '@shared/map/map.module';
 import { DetailspageComponent } from '@features/detailspage/detailspage.component';
 
 // ********************** angular-modal-gallery *****************************
