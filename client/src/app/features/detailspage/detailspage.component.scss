@@ -23,7 +23,7 @@
     margin-bottom: 15px;
     &.active {
         color: white;
-        background-color: $secondary-color;
+        background-color: $accent-color;
         border: none;
         &::before,
         &::after {
@@ -38,7 +38,7 @@
             border-right: 16px solid transparent;
         }
         &::before {
-            border-top: 16px solid $secondary-color;
+            border-top: 16px solid $accent-color;
         }
     }
 }
