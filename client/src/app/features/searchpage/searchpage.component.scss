@@ -11,7 +11,8 @@
         font-weight: 400;
     }
     button {
-        background-color: #fff;
+        color: $view-button-color;
+        background-color: $view-button-background-color;
         border: 2px solid #d9d9d9;
         border-radius: 0;
         border-right-width: 0;
@@ -30,11 +31,11 @@
         border-radius: 4px 0 0 4px;
     }
     button:hover:not(.active):not(.mobile-active) {
-        background: #EEE;
+        background: $view-button-background-color-hover;
     }
     button.active,
     button.mobile-active {
-        color: #fff;
+        color: $view-button-color-active;
         background: $accent-color;
     }
     .rental-num {
@@ -103,17 +104,17 @@
     }
 }
 
-@media screen and (min-width: 768px) {
+@media all and (min-width: 768px) {
     #loading-wrapper {
         padding-top: 0;
     }
     #view-buttons {
         button.mobile-active {
-            background: #fff;
-            color: inherit;
+            background: $view-button-background-color;
+            color: $view-button-color;
         }
         button:hover:not(.active).mobile-active {
-            background: #EEE;
+            background: $view-button-background-color-hover;
         }
     }
 }

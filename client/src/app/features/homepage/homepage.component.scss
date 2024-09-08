@@ -63,6 +63,9 @@
     .card {
         min-height: 100%;
         overflow-x: hidden;
+        background: $card-background-color;
+        border-color: $card-border-color;
+
         .ph-picture {
             height: 220px;
         }
@@ -77,7 +80,7 @@
                 >.headline {
                     flex: 1;
                     a {
-                        color: black;
+                        color: $text-color;
                         font-size: 20px;
                         font-weight: 500;
                         &:hover {

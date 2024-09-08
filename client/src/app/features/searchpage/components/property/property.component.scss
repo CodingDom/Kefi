@@ -1,26 +1,37 @@
+@import 'variables.scss';
+
 .card {
-    -webkit-box-shadow: 0 0 6px 0 rgba(0, 0, 0, .2);
-    box-shadow: 0 0 6px 0 rgba(0, 0, 0, .2);
-    border: solid 1px #d9d9d9;
+    -webkit-box-shadow: 0 0 6px 0 $card-box-shadow-color;
+    box-shadow: 0 0 6px 0 $card-box-shadow-color;
+    background-color: $card-background-color;
+    border: solid 1px $card-border-color;
     height: 100%;
+
     .prop-img {
         height: 220px;
         background-size: cover;
         background-position: center;
     }
-    .card-body a {
-        margin-bottom: 8px;
+
+    .card-body {        
+        &:last-child {
+            display: flex;
+            flex-direction: column-reverse;
+            background-color: $card-background-secondary-color;
+            border-top: 1px solid $card-border-color-secondary;
+        }
+
+        a {
+            margin-bottom: 8px;
+        }
     }
+
     .tag {
-        font-family: var(--main-font);
+        font-family: $main-font;
         font-size: 1.25rem;
         font-weight: 400;
         text-align: center;
         display: block;
-    }
-    .card-body:last-child {
-        display: flex;
-        flex-direction: column-reverse;
     }
 }
 
@@ -28,17 +39,22 @@
     .card {
         &.list-view {
             flex-direction: row;
+
             .prop-img {
                 height: 100%;
                 width: 30% !important;
             }
+
             .card-body {
                 height: 100%;
+
                 &:nth-child(2) {
                     width: 46%;
                 }
+
                 &:last-child {
                     width: 24%;
+
                     .btn {
                         padding: 9px 8px;
                     }
