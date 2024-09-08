@@ -3,7 +3,8 @@
         <div class="row">
             <div class="col-sm-12">
                 <a class="navbar-brand" routerLink="/">
-                    <img class="nav-logo" src="/assets/images/logo.png" alt="Kefi Rentals Logo" width="231px" height="88px">
+                    <img class="nav-logo" src="/assets/images/logo.png" alt="Kefi Rentals Logo" width="231px"
+                        height="88px">
                 </a>
             </div>
         </div>
@@ -12,7 +13,7 @@
 
 
 <section id="close-search" class="greyed-section real-search d-md-none" (click)='toggleSearchWidget(false)'
-    *ngIf="open_search">
+    *ngIf="openSearch">
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
@@ -33,13 +34,18 @@
                     <li><a [routerLink]="['/search']" [queryParams]="queryParams" routerLinkActive="active">Search</a>
                     </li>
                 </ul>
+                <button id="theme-toggle" (click)="toggleTheme()"
+                    attr.aria-label="Activate {{isDarkMode ? 'light' : 'dark'}} mode, to change color scheme of website"
+                    title="Toggle dark/light mode">
+                    <i class="fa fa-circle-half-stroke"></i>
+                </button>
             </div>
         </div>
     </div>
 </nav>
 
 <form id="search-widget" class="greyed-section" [formGroup]="searchForm" (ngSubmit)="onSubmit()">
-    <div class="container real-search d-md-block" [class.d-none]='!open_search'>
+    <div class="container real-search d-md-block" [class.d-none]='!openSearch'>
         <div class="row with-forms">
             <div class="col-sm-12 col-md-6 col-lg-2-5">
                 <label for="location">Location</label>
@@ -109,7 +115,7 @@
         </div>
     </div>
 
-    <div id="pseudo-search" class="container d-md-none" [class.d-none]='open_search'>
+    <div id="pseudo-search" class="container d-md-none" [class.d-none]='openSearch'>
         <div class="row">
             <div class="col-sm-12">
                 <button type="button" class="btn btn-accent" (click)='toggleSearchWidget(true)'>Find Rentals <i
