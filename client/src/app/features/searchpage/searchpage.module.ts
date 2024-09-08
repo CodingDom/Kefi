@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Routes,RouterModule} from '@angular/router';
+import { RouterModule} from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MapModule } from '@shared/map/map.module';
@@ -8,12 +8,13 @@ import { SearchpageComponent } from './searchpage.component';
 import { PropertyFilterComponent } from './components/property-filter/property-filter.component';
 import { PropertyComponent } from './components/property/property.component';
 import { SearchpageRoutingModule } from './searchpage-routing.module';
+import { RatingModule } from '@shared/rating/rating.module';
 
 @NgModule({
-  declarations: [
-    SearchpageComponent,
+  declarations: [    
     PropertyFilterComponent,
-    PropertyComponent
+    PropertyComponent,
+    SearchpageComponent
   ],
   imports: [
     MapModule,
@@ -21,7 +22,8 @@ import { SearchpageRoutingModule } from './searchpage-routing.module';
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
-    SearchpageRoutingModule
+    SearchpageRoutingModule,
+    RatingModule
   ]
 })
 export class SearchpageModule { }

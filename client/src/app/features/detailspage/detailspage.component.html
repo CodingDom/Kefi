@@ -5,7 +5,7 @@
                 <h3>{{payload.details.title}}</h3>
                 <p>This demo does not include booking functionality</p>
                 <hr />
-                <p id="review-count" class="d-inline-block" (click)="scrollTo(reviews_section)" *ngIf="payload.details.reviews > 0"><span class="text-accent" [innerHtml]="starrating(payload.details.rating)"></span> <small> {{payload.details.reviews}} Reviews</small><br/><small>Rating: {{payload.details.rating | number : '1.0-2'}}/5</small>
+                <p id="review-count" class="d-inline-block" (click)="scrollTo(reviews_section)" *ngIf="payload.details.reviews > 0"><span class="text-accent"><app-rating [rating]="payload.details.rating"></app-rating></span> <small> {{payload.details.reviews}} Reviews</small><br/><small>Rating: {{payload.details.rating/2 | number : '1.0-2'}}/5</small>
                 </p>
                 <div>
                     <ks-carousel [id]="100" [images]="carouselImages" [playConfig]="{autoPlay: false, interval: 5000, pauseOnHover: true}" [dotsConfig]="{visible: false}"></ks-carousel>
