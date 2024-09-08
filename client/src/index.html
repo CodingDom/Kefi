@@ -26,62 +26,6 @@
         media="print" onload="this.media='all'">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" media="print"
         onload="this.media='all'">
-    <style>
-        .real-search {
-            display: none;
-        }
-
-        .row {
-            --bs-gutter-x: 1.5rem;
-            --bs-gutter-y: 0;
-            display: flex;
-            flex-wrap: wrap;
-            margin-top: calc(var(--bs-gutter-y) * -1);
-            margin-right: calc(var(--bs-gutter-x)/ -2);
-            margin-left: calc(var(--bs-gutter-x)/ -2);
-        }
-
-        .card {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            min-width: 0;
-            word-wrap: break-word;
-            background-color: #fff;
-            background-clip: border-box;
-            border: 1px solid rgba(0, 0, 0, .125);
-            border-radius: 0.25rem;
-        }
-
-        @media (min-width: 992px) {
-            .col-lg-2-5 {
-                flex: 0 0 20%;
-                max-width: 20%;
-            }
-
-            .row-cols-lg-3>* {
-                flex: 0 0 auto;
-                width: 33.3333333333%;
-            }
-        }
-
-        @media (min-width: 768px) {
-            .real-search {
-                display: block;
-            }
-
-            .row-cols-md-2>*,
-            .col-md-6 {
-                flex: 0 0 auto;
-                width: 50%;
-            }
-
-            .col-md-3 {
-                flex: 0 0 auto;
-                width: 25%;
-            }
-        }
-    </style>
 </head>
 
 <body>
