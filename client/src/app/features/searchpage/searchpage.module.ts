@@ -9,6 +9,7 @@ import { PropertyFilterComponent } from './components/property-filter/property-f
 import { PropertyComponent } from './components/property/property.component';
 import { SearchpageRoutingModule } from './searchpage-routing.module';
 import { RatingModule } from '@shared/rating/rating.module';
+import { PaginationModule } from '@shared/pagination/pagination.module';
 
 @NgModule({
   declarations: [    
@@ -22,6 +23,7 @@ import { RatingModule } from '@shared/rating/rating.module';
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
+    PaginationModule,
     SearchpageRoutingModule,
     RatingModule
   ]

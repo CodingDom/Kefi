@@ -1,0 +1,15 @@
+<nav *ngIf="pages > 1" aria-label="Page navigation">
+    <ul class="pagination justify-content-center">
+        <li class="page-item" [class.disabled]="currentPage==1">
+            <button class="page-link" aria-label="Previous" (click)="updatePageNumber(currentPage-1);">
+                <span aria-hidden="true">&laquo;</span>
+            </button>
+        </li>
+        <li *ngFor="let num of visiblePageNumbers" class="page-item" [class.active]="num == currentPage"><button class="page-link" (click)="updatePageNumber(num);">{{num}}</button></li>
+        <li class="page-item" [class.disabled]="currentPage==pageNumbers.length">
+            <button class="page-link" aria-label="Next" (click)="updatePageNumber(currentPage+1);">
+                <span aria-hidden="true">&raquo;</span>
+            </button>
+        </li>
+    </ul>
+</nav>

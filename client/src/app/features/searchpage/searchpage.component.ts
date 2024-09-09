@@ -18,10 +18,11 @@ export class SearchpageComponent implements OnInit {
   };
 
   searchError: boolean = false;
-  pageNumber : number = 1;
-  pageNumbers : number[] = [1];
-  pageNumberSet : number[] = this.pageNumbers;
+
+  pageNumber: number = 1;
+  pageNumbers: number;
   propertiesPerPage: number = 9;
+  
   properties: PropertyList[] = null;
   propertyTypes: string[] = [];
   filteredProperties: PropertyList[] = null;
@@ -57,7 +58,7 @@ export class SearchpageComponent implements OnInit {
           this.propertyTypes = this.properties.map(x => x.property_type).filter((x, i, self) => self.indexOf(x) == i).sort();
           this.resetFilters();
           this.numberOfRentals = this.filteredProperties.length.toString().split("");
-          this.pageNumbers = Array(Math.ceil(this.filteredProperties.length/this.propertiesPerPage)).fill(0).map((x,i)=>i+1);
+          this.pageNumbers = Math.ceil(this.filteredProperties.length/this.propertiesPerPage);
           this.updatePageNumber(1);
         })
         .catch(err => {
@@ -86,7 +87,7 @@ export class SearchpageComponent implements OnInit {
             return allowProperty;
           });
           this.numberOfRentals = this.filteredProperties.length.toString().split("");
-          this.pageNumbers = Array(Math.ceil(this.filteredProperties.length/this.propertiesPerPage)).fill(0).map((x,i)=>i+1);
+          this.pageNumbers = Math.ceil(this.filteredProperties.length/this.propertiesPerPage);
           this.updatePageNumber(1);
         }
       });
@@ -98,15 +99,6 @@ export class SearchpageComponent implements OnInit {
 
   updatePageNumber(val) {    
     this.pageNumber = val;
-    if (val < 5 || this.pageNumbers.length <= 9) {
-      this.pageNumberSet = this.pageNumbers.slice(0, 9);
-    } 
-    else if (val > this.pageNumbers.length-5) {
-      this.pageNumberSet = this.pageNumbers.slice(this.pageNumbers.length-9, this.pageNumbers.length);
-    }
-    else {
-      this.pageNumberSet = this.pageNumbers.slice(val-5,val+4);
-    }    
   }
 
   createQueryOptions(params: any) : PropertyListQueryOptions {

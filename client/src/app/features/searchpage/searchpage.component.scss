@@ -67,22 +67,6 @@
     margin-top: 8px;
 }
 
-.page-item {
-    .page-link {
-        color: $accent-color;
-        background-color: $view-button-background-color;
-    }
-    &.active .page-link {
-        color: white;
-        background-color: $accent-color;
-        border-color: $accent-color;
-    }
-    button:focus {
-        outline: none;
-        box-shadow: none;
-    }
-}
-
 #force-height {
     min-height: 120px;
 }

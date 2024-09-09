@@ -10,6 +10,7 @@ import 'mousetrap'; // Mandatory for angular-modal-gallery 3.x.x or greater (`np
 import { GalleryModule } from '@ks89/angular-modal-gallery'; // <----------------- angular-modal-gallery library import
 import { DetailspageRoutingModule } from './detailspage-routing.module';
 import { RatingModule } from '@shared/rating/rating.module';
+import { PaginationModule } from '@shared/pagination/pagination.module';
 // **************************************************************************
 
 @NgModule({
@@ -21,6 +22,7 @@ import { RatingModule } from '@shared/rating/rating.module';
     MapModule,
     CommonModule,
     DetailspageRoutingModule,
+    PaginationModule,
     RatingModule
   ]
 })

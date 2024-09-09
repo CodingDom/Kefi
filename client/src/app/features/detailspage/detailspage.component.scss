@@ -57,6 +57,8 @@
 .accordion {
     >.card {
         border: none;
+        background-color: $card-background-color;
+
         >.card-header {
             cursor: pointer;
             color: white;

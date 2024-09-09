@@ -5,7 +5,7 @@
                 <h3>{{payload.details.title}}</h3>
                 <p>This demo does not include booking functionality</p>
                 <hr />
-                <p id="review-count" class="d-inline-block" (click)="scrollTo(reviews_section)" *ngIf="payload.details.reviews > 0"><span class="text-accent"><app-rating [rating]="payload.details.rating"></app-rating></span> <small> {{payload.details.reviews}} Reviews</small><br/><small>Rating: {{payload.details.rating/2 | number : '1.0-2'}}/5</small>
+                <p id="review-count" class="d-inline-block" (click)="scrollTo(reviews_section)" *ngIf="payload.details.reviews > 0"><span class="text-accent"><app-rating [rating]="payload.details.rating*2"></app-rating></span> <small> {{payload.details.reviews}} Reviews</small><br/><small>Rating: {{payload.details.rating | number : '1.0-2'}}/5</small>
                 </p>
                 <div>
                     <ks-carousel [id]="100" [images]="carouselImages" [playConfig]="{autoPlay: false, interval: 5000, pauseOnHover: true}" [dotsConfig]="{visible: false}"></ks-carousel>
@@ -30,7 +30,7 @@
                         <app-map *ngIf="displayMode == 'map'" [properties]="[{ latitude: payload.location.lat, longitude: payload.location.lng }]"></app-map>
                     </div>
                 </div>
-                <hr *ngIf="availability || payload.details.reviews > 0" />
+                <hr *ngIf="availability || reviews?.length" />
                 <div id="availability-accordion" class="accordion mb-2" *ngIf="availability">
                     <div class="card">
                         <div id="availability-heading" class="card-header" data-bs-toggle="collapse" data-bs-target="#collapse-availability" aria-expanded="true" aria-controls="collapse-availability">
@@ -46,26 +46,27 @@
                 </div>
                 <!--End of Accordion-->
 
-                <div #reviews_section id="reviews-accordion" class="accordion" [class.d-none]="payload.details.reviews == 0">
-                    <!-- <div class="card">
+                <div #reviews_section id="reviews-accordion" class="accordion" [class.d-none]="!reviews?.length">
+                    <div class="card">
                         <div id="reviews-heading" class="card-header" data-bs-toggle="collapse" data-bs-target="#collapse-reviews" aria-expanded="true" aria-controls="collapse-reviews">
                             <h5 class="mb-0">Reviews <span class="fas fa-chevron-down float-end"></span></h5>
                         </div>
 
                         <div id="collapse-reviews" class="collapse show" aria-labelledby="reviews-heading" data-bs-parent="#reviews-accordion">
                             <div class="card-body">
-                                <ng-container *ngFor="let review of payload.details.reviews; index as i;">
+                                <ng-container *ngFor="let review of reviews; index as i;">
                                     <div>
                                         <hr *ngIf="i != 0" />
-                                        <p class="m-0 text-capital"><b>John Doe</b><span class="float-end text-accent" [innerHtml]="starrating(review.rating)"></span></p>
-                                        <div class="mb-3"><small>{{review.createdDate}}</small></div>
+                                        <p class="m-0 text-capital"><b>{{review.name}}</b><span class="float-end text-accent"><app-rating [rating]="review.rating*2"></app-rating></span></p>
+                                        <div class="mb-3"><small>{{review.createdDate | date: 'MM/dd/yyyy hh:mm a'}}</small></div>
                                         <h6>{{review.headline}}</h6>
-                                        <p>{{review.body}}</p>
+                                        <p>{{review.description}}</p>
                                     </div>
                                 </ng-container>
                             </div>
+                            <app-pagination *ngIf="ratings?.length > reviewsPerPage" [pages]="ratings.length/reviewsPerPage" [maxVisiblePagination]="8" (pageChanged)="updateReviews($event)"></app-pagination>
                         </div>
-                    </div> -->
+                    </div>
                 </div>
                 <!--End of Accordion-->
             </div>

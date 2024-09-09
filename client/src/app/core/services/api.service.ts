@@ -45,4 +45,12 @@ export class ApiService {
     return fetch(`${this.API_BASE_URL}/travel-news`)
     .then(resp => resp.json());
   }
+
+  public getRandomUsers(page: number, results: number, seed?: string) : Promise<any> {
+    let url = `${this.API_BASE_URL}/reviewers?page=${page}&results=${results}`;
+    if (seed) {
+      url += `&seed=${seed}`
+    }
+    return fetch(url).then(resp => resp.json());
+  }
 }
