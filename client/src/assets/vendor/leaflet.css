@@ -50,6 +50,10 @@
     display: block;
 }
 
+.leaflet-marker-icon {
+    filter: hue-rotate(264deg);
+}
+
 /* .leaflet-container svg: reset svg max-width decleration shipped in Joomla! (joomla.org) 3.x */
 /* .leaflet-container img: map is broken in FF if you have max-width: 100% on tiles */
 .leaflet-container .leaflet-overlay-pane svg,
@@ -644,7 +648,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
     margin: 0 auto;
 
     -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=0.70710678, M12=0.70710678, M21=-0.70710678, M22=0.70710678)";
-    filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.70710678, M12=0.70710678, M21=-0.70710678, M22=0.70710678);
+    filter: "progid:DXImageTransform.Microsoft.Matrix(M11=0.70710678, M12=0.70710678, M21=-0.70710678, M22=0.70710678)";
 }
 
 .leaflet-oldie .leaflet-popup-tip-container {
