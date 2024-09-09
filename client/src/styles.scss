@@ -270,6 +270,10 @@ button {
     border-radius: 0.25rem;
 }
 
+.leaflet-default-icon-path {
+    background-image: url('/assets/images/marker-icon.png');
+}
+
 @media (min-width: 768px) {
     .container {
         max-width: 100%;

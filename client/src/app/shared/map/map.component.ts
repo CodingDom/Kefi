@@ -61,7 +61,7 @@ export class MapComponent implements AfterViewInit {
       const info = this.properties[i];
       const marker = L.marker(
         [info.latitude, info.longitude], 
-        {icon: new L.icon({iconUrl: "./leaflet/images/marker-icon-2x.png", iconSize: [25, 41], iconAnchor: [12, 41]})}
+        {icon: new L.icon({iconUrl: "assets/images/marker-icon.png", iconSize: [25, 41], iconAnchor: [12, 41]})}
         );
         this.markers.push(marker);
         if (this.popUp) {          
