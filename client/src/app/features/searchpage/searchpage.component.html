@@ -30,7 +30,7 @@
                         <app-property [info]="prop" [displayMode]="displayMode"></app-property>
                     </div>
                 </div>
-                <div [class.d-none]="displayMode != 'map'">
+                <div id="results-map" [class.d-none]="displayMode != 'map'">
                     <app-map *ngIf="displayMode == 'map'" [properties]="filteredProperties" [popUp]="true"></app-map>
                 </div>
             </ng-container>

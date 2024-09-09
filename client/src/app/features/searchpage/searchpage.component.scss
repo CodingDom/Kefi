@@ -54,8 +54,10 @@
 }
 
 #propertyResultsConatiner {
+    margin-bottom: 8px;
+
     >.listing {
-        margin-bottom: 15px;
+        margin-bottom: 16px;
     }
     &.list-view>.listing {
         max-width: 100%;
@@ -63,8 +65,8 @@
     }
 }
 
-.pagination {
-    margin-top: 8px;
+#results-map {
+    margin-bottom: 24px;
 }
 
 #force-height {
