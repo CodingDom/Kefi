@@ -81,7 +81,7 @@ export class MapComponent implements AfterViewInit {
           </div>
         </div>
         <p>${info.title}</p>			
-        <div class="text-center"><a href="/property/${info.platforms.homeaway_property_id}" class="btn-accent py-2 px-4" style="color:white;">View</a></div>
+        <div class="text-center"><a href="/property/${info.platforms.airbnb_property_id}" class="btn-accent py-2 px-4" style="color:white;">View</a></div>
         </div>`);
         } 
         else {
