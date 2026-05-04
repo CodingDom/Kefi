@@ -86,7 +86,8 @@
       "property_manager_name_or_host": "OrlandoVillas411",
       "adr": 966.85,
       "latitude": 28.47859,
-      "longitude": -81.44122
+      "longitude": -81.44122,
+      "property_type": "House"
   },
   {
       "property_id": "abnb_1348536700271901408",
@@ -279,7 +280,8 @@
       "property_manager_name_or_host": "Magical Vacation Homes",
       "adr": 967.08,
       "latitude": 28.56245,
-      "longitude": -81.75656
+      "longitude": -81.75656,
+      "property_type": "Castle"
   },
   {
       "property_id": "abnb_623008156988672120",
@@ -385,7 +387,8 @@
       "property_manager_name_or_host": "Reunion Resort",
       "adr": 501.97,
       "latitude": 28.47785333,
-      "longitude": -81.256157358
+      "longitude": -81.256157358,
+      "property_type": "Villa"
   },
   {
       "property_id": "vrbo_3440856",
@@ -460,7 +463,8 @@
       "property_manager_name_or_host": null,
       "adr": 918.67,
       "latitude": 28.4731,
-      "longitude": -81.2666
+      "longitude": -81.2666,
+      "property_type": "House"
   },
   {
       "property_id": "abnb_623008412293231882",
@@ -614,7 +618,8 @@
       "property_manager_name_or_host": "Reunion Resort",
       "adr": 502.08,
       "latitude": 28.36804906,
-      "longitude": -81.680642485
+      "longitude": -81.680642485,
+      "property_type": "House"
   },
   {
       "property_id": "abnb_1243533243340606980",
@@ -808,7 +813,8 @@
       "property_manager_name_or_host": "abnb_350298791",
       "adr": 148.24,
       "latitude": 28.3937,
-      "longitude": -81.47426
+      "longitude": -81.47426,
+      "property_type": "Mansion"
   },
   {
       "property_id": "vrbo_3780521",
@@ -944,7 +950,8 @@
       "property_manager_name_or_host": "DB Ventures Iternational",
       "adr": 229.15,
       "latitude": 28.337195602,
-      "longitude": -81.489659397
+      "longitude": -81.489659397,
+      "property_type": "Mansion"
   },
   {
       "property_id": "abnb_1345888734767242359",
@@ -1076,7 +1083,8 @@
       "property_manager_name_or_host": "Top Tier Reunion",
       "adr": 32.28,
       "latitude": 28.2108115,
-      "longitude": -81.3145111
+      "longitude": -81.3145111,
+      "property_type": "Mansion"
   },
   {
       "property_id": "abnb_1095046238281341075",
@@ -1308,7 +1316,8 @@
       "property_manager_name_or_host": "abnb_361832847",
       "adr": 54.05,
       "latitude": 28.3209878,
-      "longitude": -81.4180653
+      "longitude": -81.4180653,
+      "property_type": "House"
   },
   {
       "property_id": "abnb_37587728",
@@ -1447,7 +1456,8 @@
       "property_manager_name_or_host": "Reunion Resort",
       "adr": 447.13,
       "latitude": 28.424285595,
-      "longitude": -81.444629418
+      "longitude": -81.444629418,
+      "property_type": "Palace"
   },
   {
       "property_id": "abnb_749177046120621196",
@@ -1591,7 +1601,8 @@
       "property_manager_name_or_host": "Diamond Vacation Homes",
       "adr": 191.5,
       "latitude": 28.3126265,
-      "longitude": -81.4842
+      "longitude": -81.4842,
+      "property_type": "House"
   },
   {
       "property_id": "abnb_1381123110820595114",
@@ -1775,7 +1786,8 @@
       "property_manager_name_or_host": "Top Tier Reunion",
       "adr": 825.56,
       "latitude": 28.4292,
-      "longitude": -81.4461
+      "longitude": -81.4461,
+      "property_type": "House"
   },
   {
       "property_id": "vrbo_7099574ha",
@@ -1864,7 +1876,8 @@
       "property_manager_name_or_host": null,
       "adr": 509.74,
       "latitude": 28.4279,
-      "longitude": -81.44428
+      "longitude": -81.44428,
+      "property_type": "Island"
   },
   {
       "property_id": "vrbo_4326408",
@@ -2009,7 +2022,8 @@
       "property_manager_name_or_host": null,
       "adr": 23.35,
       "latitude": 28.518257423,
-      "longitude": -81.301456342
+      "longitude": -81.301456342,
+      "property_type": "House"
   },
   {
       "property_id": "vrbo_3870650",
@@ -2246,7 +2260,8 @@
       "property_manager_name_or_host": null,
       "adr": 928.03,
       "latitude": 28.21528,
-      "longitude": -81.17628
+      "longitude": -81.17628,
+      "property_type": "House"
   },
   {
       "property_id": "vrbo_3784971",
@@ -2422,7 +2437,8 @@
       "property_manager_name_or_host": "DB Ventures Iternational",
       "adr": 282.24,
       "latitude": 28.6656,
-      "longitude": -81.4915
+      "longitude": -81.4915,
+      "property_type": "Villa"
   },
   {
       "property_id": "abnb_1257246406406377493",
@@ -2589,7 +2605,8 @@
       "property_manager_name_or_host": "Magical Vacation Homes",
       "adr": 145.95,
       "latitude": 28.49314078,
-      "longitude": -81.442734042
+      "longitude": -81.442734042,
+      "property_type": "Mansion"
   },
   {
       "property_id": "abnb_655696146457211961",
@@ -2750,7 +2767,8 @@
       "property_manager_name_or_host": "Magical Vacation Homes",
       "adr": 137.9,
       "latitude": 28.80218,
-      "longitude": -81.62064
+      "longitude": -81.62064,
+      "property_type": "Mansion"
   },
   {
       "property_id": "abnb_1056567827935156600",
@@ -2893,7 +2911,8 @@
       "property_manager_name_or_host": "Magical Vacation Homes",
       "adr": 440.38,
       "latitude": 28.32748,
-      "longitude": -81.4635
+      "longitude": -81.4635,
+      "property_type": "Mansion"
   },
   {
       "property_id": "vrbo_3948406",
@@ -2960,7 +2979,8 @@
       "property_manager_name_or_host": null,
       "adr": 271.05,
       "latitude": 28.322108703,
-      "longitude": -81.59235578
+      "longitude": -81.59235578,
+      "property_type": "House"
   },
   {
       "property_id": "vrbo_4182434",
@@ -3041,7 +3061,8 @@
       "property_manager_name_or_host": null,
       "adr": 400.96,
       "latitude": 28.35242,
-      "longitude": -81.48612
+      "longitude": -81.48612,
+      "property_type": "House"
   },
   {
       "property_id": "abnb_6959273",
@@ -3216,7 +3237,8 @@
       "property_manager_name_or_host": "abnb_15837948",
       "adr": 317.59,
       "latitude": 28.4074,
-      "longitude": -81.40992
+      "longitude": -81.40992,
+      "property_type": "Island"
   },
   {
       "property_id": "vrbo_2967047",
@@ -3309,7 +3331,8 @@
       "property_manager_name_or_host": null,
       "adr": 875.53,
       "latitude": 28.42602,
-      "longitude": -81.47533
+      "longitude": -81.47533,
+      "property_type": "House"
   },
   {
       "property_id": "abnb_1396399968101041624",
@@ -3457,7 +3480,8 @@
       "property_manager_name_or_host": "Top Tier Reunion",
       "adr": 639.12,
       "latitude": 28.586723,
-      "longitude": -81.288083
+      "longitude": -81.288083,
+      "property_type": "House"
   },
   {
       "property_id": "abnb_1356404479453635768",
@@ -3649,7 +3673,8 @@
       "property_manager_name_or_host": "Top Tier Reunion",
       "adr": 502.69,
       "latitude": 28.33709,
-      "longitude": -81.64714
+      "longitude": -81.64714,
+      "property_type": "House"
   },
   {
       "property_id": "abnb_39695743",
@@ -3739,7 +3764,8 @@
       "property_manager_name_or_host": "Villatel",
       "adr": 475.74,
       "latitude": 28.25153,
-      "longitude": -81.63528
+      "longitude": -81.63528,
+      "property_type": "House"
   },
   {
       "property_id": "abnb_7820290",
@@ -3869,7 +3895,8 @@
       "property_manager_name_or_host": "Magical Vacation Homes",
       "adr": 176.03,
       "latitude": 28.455899214,
-      "longitude": -81.462941411
+      "longitude": -81.462941411,
+      "property_type": "House"
   },
   {
       "property_id": "abnb_1095016183536453262",
@@ -4048,7 +4075,8 @@
       "property_manager_name_or_host": "abnb_361832847",
       "adr": 647.05,
       "latitude": 28.3598,
-      "longitude": -81.4233
+      "longitude": -81.4233,
+      "property_type": "House"
   },
   {
       "property_id": "abnb_1348536675908028708",
@@ -4134,7 +4162,8 @@
       "property_manager_name_or_host": "Magical Vacation Homes",
       "adr": 401.76,
       "latitude": 28.2753,
-      "longitude": -81.59652
+      "longitude": -81.59652,
+      "property_type": "House"
   },
   {
       "property_id": "abnb_1108784145733738334",
@@ -4314,7 +4343,8 @@
       "property_manager_name_or_host": "abnb_15837948",
       "adr": 66.23,
       "latitude": 28.48464,
-      "longitude": -81.22905
+      "longitude": -81.22905,
+      "property_type": "Mansion"
   },
   {
       "property_id": "abnb_816495164346277770",
@@ -4403,7 +4433,8 @@
       "property_manager_name_or_host": "RedAwning",
       "adr": 822.87,
       "latitude": 28.34658,
-      "longitude": -81.63694
+      "longitude": -81.63694,
+      "property_type": "House"
   },
   {
       "property_id": "abnb_1446365319106999170",
@@ -4616,7 +4647,8 @@
       "property_manager_name_or_host": "Magical Vacation Homes",
       "adr": 834.92,
       "latitude": 28.274900425,
-      "longitude": -81.468993642
+      "longitude": -81.468993642,
+      "property_type": "Mansion"
   },
   {
       "property_id": "abnb_1095032485319670614",
@@ -4799,7 +4831,8 @@
       "property_manager_name_or_host": "abnb_361832847",
       "adr": 373.88,
       "latitude": 28.492416329,
-      "longitude": -81.452978494
+      "longitude": -81.452978494,
+      "property_type": "House"
   },
   {
       "property_id": "abnb_1566840454351956183",
@@ -4927,7 +4960,8 @@
       "property_manager_name_or_host": "abnb_576530786",
       "adr": 862.5,
       "latitude": 28.48087,
-      "longitude": -81.40581
+      "longitude": -81.40581,
+      "property_type": "Resort"
   },
   {
       "property_id": "abnb_871946969116600911",
@@ -5038,7 +5072,8 @@
       "property_manager_name_or_host": "Reunion Resort",
       "adr": 89.13,
       "latitude": 28.5637,
-      "longitude": -81.2006
+      "longitude": -81.2006,
+      "property_type": "House"
   },
   {
       "property_id": "vrbo_3988092",
@@ -5244,6 +5279,7 @@
       "property_manager_name_or_host": "DB Ventures Iternational",
       "adr": 297.1,
       "latitude": 28.4848,
-      "longitude": -81.46611
+      "longitude": -81.46611,
+      "property_type": "Villa"
   }
 ]
