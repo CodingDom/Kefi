@@ -57,7 +57,7 @@
                                 <ng-container *ngFor="let review of reviews; index as i;">
                                     <div>
                                         <hr *ngIf="i != 0" />
-                                        <p class="m-0 text-capital"><b>{{review.name}}</b><span class="float-end text-accent"><app-rating [rating]="review.rating*2"></app-rating></span></p>
+                                        <p class="m-0 text-capital"><b>{{review.name}}</b><span class="float-end text-accent"><app-rating [rating]="review.rating"></app-rating></span></p>
                                         <div class="mb-3"><small>{{review.createdDate | date: 'MM/dd/yyyy hh:mm a'}}</small></div>
                                         <h6>{{review.headline}}</h6>
                                         <p>{{review.description}}</p>
