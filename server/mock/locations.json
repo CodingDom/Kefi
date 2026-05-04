@@ -1,0 +1,42 @@
+[
+  {
+      "name": "Orlando, Florida",
+      "id": "airdna-316",
+      "type": "market-mocked"
+  },
+  {
+      "name": "Downtown Orlando, Florida",
+      "id": "airdna-1255",
+      "type": "submarket-mocked"
+  },
+  {
+      "name": "Championsgate, Florida",
+      "id": "airdna-4204",
+      "type": "submarket-mocked"
+  },
+  {
+      "name": "International Drive, Florida",
+      "id": "airdna-2786",
+      "type": "submarket-mocked"
+  },
+  {
+      "name": "Storey Lake, Florida",
+      "id": "airdna-2727",
+      "type": "submarket-mocked"
+  },
+  {
+      "name": "Four Corners, Florida",
+      "id": "airdna-2909",
+      "type": "submarket-mocked"
+  },
+  {
+      "name": "Windmill Village / Highland Reserve, Florida",
+      "id": "airdna-542",
+      "type": "submarket-mocked"
+  },
+  {
+      "name": "Formosa Gardens / Windsor Hills, Florida",
+      "id": "airdna-1020",
+      "type": "submarket-mocked"
+  }
+]

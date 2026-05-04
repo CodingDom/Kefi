@@ -1,5 +1,5 @@
 <div *ngIf="info" class="card" [class.list-view]="displayMode == 'list'" style="width: 100%;">
-    <a [routerLink]="['/property', getPropertyId(info)]"style="background-image:url('{{info.img_cover}}');" [title]="info.title" class="w-100 prop-img"></a>
+    <a [routerLink]="['/property', getPropertyId(info)]"style="background-image:url('{{info.images[0]}}');" [title]="info.title" class="w-100 prop-img"></a>
     <div class="card-body text-center">
         <p class="starrating text-center text-accent">
             <app-rating [rating]="info.rating"></app-rating>
