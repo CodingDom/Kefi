@@ -18,7 +18,7 @@ import { SafePipe } from '@core/pipes/safe.pipe';
     AppComponent,
     NavbarComponent,
     SafePipe,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
