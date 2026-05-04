@@ -11,7 +11,7 @@ import { VrboPropertyDetails } from "@core/interfaces/vrbo-property-details";
   providedIn: "root",
 })
 export class ApiService {
-  private API_BASE_URL = "http://localhost:3000/api";
+  private API_BASE_URL = "https://kefi-api.herokuapp.com/api"; // "http://localhost:3000/api";
 
   constructor() {}
 
