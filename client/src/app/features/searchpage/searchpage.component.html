@@ -35,7 +35,7 @@
                 </div>
             </ng-container>
 
-            <app-pagination *ngIf="filteredProperties.length > propertiesPerPage" [pages]="filteredProperties.length/propertiesPerPage" [maxVisiblePagination]="10" (pageChanged)="updatePageNumber($event)"></app-pagination>
+            <app-pagination *ngIf="displayMode != 'map' && filteredProperties.length > propertiesPerPage" [pages]="filteredProperties.length/propertiesPerPage" [maxVisiblePagination]="10" (pageChanged)="updatePageNumber($event)"></app-pagination>
         </div>
     </div>
 </div>
